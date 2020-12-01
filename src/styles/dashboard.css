@@ -1,0 +1,28 @@
+.title{
+    display: flex;
+    text-align: center;
+}
+
+.header{
+    display: flex;
+    margin-top: 2rem;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+}
+
+.mainlogo{
+    max-width: 150px;
+    margin: 0 1.5rem
+}
+
+.logo{
+    max-width: 150px;
+    margin: 0 1.5rem
+}
+
+.gamelogo{
+    margin-right: 8rem;
+    display: flex;
+    align-items: center
+}
