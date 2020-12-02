@@ -1,4 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Trispace:wght@800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Major+Mono+Display&display=swap');
 
 .title{
     display: flex;
@@ -99,4 +100,25 @@
 .msgdisc{
     font-family: 'Trispace', sans-serif;
     cursor: pointer;
+}
+
+.sidebarcontainer{
+    width: 20%;
+    background-color: green;
+    height: 70vh
+}
+
+.hd{
+    font-family: 'Major Mono Display', monospace;
+    text-decoration: none;
+    color: black
+}
+
+a, a:visited, a:hover, a:active {
+    color: inherit
+}
+
+.sideflex{
+    display: flex;
+    justify-content: space-between;
 }

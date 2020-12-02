@@ -10,7 +10,7 @@ const Header = () => {
         <div className='header'>
             <div className='title'>
                 <Link to='/'><img className='mainlogo' src={Logo} /></Link>
-                <h1>Hyperspace Dark</h1>
+                <Link to='/' className='hd'><h1 className='hd'>Hyperspace Dark</h1></Link>
             </div>
             <div className='discord'>
                 <a href='https://discord.gg/dXUFew7Gvn' target="_blank"><img src={Helmet} className='helmet' /></a>
