@@ -6,6 +6,7 @@ import Welcome from './components/Welcome'
 import Sidebar from './components/sidebar/Sidebar'
 import Valorant from './components/Valorant'
 import RL from './components/RL'
+import Player from './components/Player'
 
 function App() {
   return (
@@ -13,6 +14,7 @@ function App() {
       <Header />
       <div className='sideflex'>
         <Switch>
+          <Route path='/player/:name' component={Player} />
           <Route path='/valorant' component={Valorant} />
           <Route path='/rl' component={RL} />
           <Route exact path='/' component={Welcome} />

@@ -1,5 +1,9 @@
 @import url('https://fonts.googleapis.com/css2?family=Trispace:wght@800&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Major+Mono+Display&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Rajdhani&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@500&family=Rajdhani&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Syncopate&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Luckiest+Guy&display=swap');
 
 .title{
     display: flex;
@@ -8,7 +12,7 @@
 
 .header{
     display: flex;
-    margin-top: 2rem;
+    margin-top: 1rem;
     justify-content: space-between;
     align-items: center;
     width: 100%;
@@ -104,8 +108,6 @@
 
 .sidebarcontainer{
     width: 25%;
-    background: rgb(75,63,114);
-    background: linear-gradient(246deg, rgba(75,63,114,1) 0%, rgba(12,27,51,1) 40%, rgba(64,171,198,1) 79%);
     height: 70vh;
     text-align: center;
     border-radius: 2rem;
@@ -129,7 +131,7 @@ a, a:visited, a:hover, a:active {
 
 .sideflex2{
     display: flex;
-    justify-content: space-evenly;
+    justify-content: space-around
 }
 
 .datetime{
@@ -141,12 +143,75 @@ a, a:visited, a:hover, a:active {
 
 .games{
     margin: 1rem 1.5rem;
-    border: 1px solid white;
+    border: 1px solid black;
     padding: 1rem;
-    border-radius: 1rem
+    border-radius: 1rem;
 }
 
 .schedule{
-    color: white;
+    color: black;
+    font-family: 'Major Mono Display', monospace;
+    text-decoration: none;
     font-weight: bold
+}
+
+.scheduletitle{
+    font-family: 'Orbitron', sans-serif;
+}
+
+.lineup{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    margin: 10rem 0;
+    font-family: 'Rajdhani', sans-serif;
+}
+
+.name{
+    text-decoration: none;
+    font-size: 1.5rem
+}
+
+.lineuptitle{
+    margin: 20rem 5rem;
+    font-family: 'Syncopate', sans-serif;
+    font-size: 2.2rem
+}
+
+.playercont{
+    margin: 4rem 3rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 75%
+}
+
+.spiffy{
+    color: #edaddd;
+    font-family: 'Luckiest Guy', cursive;
+    font-size: 5rem;
+}
+
+.playerhead{
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.twitch{
+    max-height: 3rem;
+    margin: 5rem 2.5rem
+}
+
+.youtube{
+    max-height: 3rem;
+    margin: 5rem 0
+}
+
+.hidden{
+    display: none
+}
+
+.yes{
+    display: block
 }
