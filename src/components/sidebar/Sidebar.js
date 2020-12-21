@@ -4,6 +4,7 @@ import axios from 'axios'
 import { connect } from 'react-redux'
 import { getStreamers } from '../../actions'
 import axiosWithAuth from '../../utils/axiosWithAuth'
+import SignIn from '../social/SignIn.js'
 
 const Sidebar = props => {
     const location = useLocation()
@@ -39,6 +40,12 @@ const Sidebar = props => {
         setSchedDis(!schedDis)
         setTwitchDis(!twitchDis)
     }
+    const flip2 = () => {
+        setTwitchDis(!twitchDis)
+    }
+    const flip3 = () => {
+        setSchedDis(!twitchDis)
+    }
 
     const redirectFunc = link => {
         const win = window.open(link, '_blank')
@@ -71,8 +78,9 @@ const Sidebar = props => {
                         
                         ))} 
                     </>:
+                    twitchDis ? 
                     <>
-                        <h1 className='scheduletitle' onClick={() => flip()}>NOW-LIVE</h1>
+                        <h1 className='scheduletitle' onClick={() => flip2()}>NOW-LIVE</h1>
                         {props.live.length > 0 ? props.live.map(ele => (
                             <div className='games' key={ele[0].user_name} onClick={() => redirectFunc(`https://www.twitch.tv/${ele[0].user_name}`)}>
                                 <p>{ele[0].user_name}</p>
@@ -86,27 +94,12 @@ const Sidebar = props => {
                                 <p>{ele[0].title}</p>
                             </div> 
                         )): <h1>No one is live</h1>}
+                    </> :
+                    <>
+                        <h1 className='scheduletitle' onClick={() => flip3()}>Social</h1>
+                        <SignIn />
                     </>
                 }
-                {/* <h1 className='scheduletitle'>SCHEDULE</h1>
-                {schedule.map(ele => (
-                    <div className='games'>  
-                        <div className='sideflex2'>
-                            <p className='schedule'>{ele.opp_team}</p>
-                            <p className='schedule'>VS.</p>
-                            <p className='schedule'>Hyperspace Dark</p>
-                        </div>
-                        <div className='sideflex2'>
-                            <p className='schedule'>{ele.opp_team_score}</p>
-                            <p className='schedule'>-</p>
-                            <p className='schedule'>{ele.hd_score}</p>
-                        </div>
-                        <div className='datetime'>
-                            <p className='schedule'>{ele.date}</p>
-                            <p className='schedule'>{ele.time}</p>
-                        </div>
-                    </div>
-                ))} */}
             </div>
         </>
     )
