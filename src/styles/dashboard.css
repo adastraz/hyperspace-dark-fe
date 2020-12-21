@@ -215,3 +215,11 @@ a, a:visited, a:hover, a:active {
 .yes{
     display: block
 }
+
+.green{
+    color:green
+}
+
+.red{
+    color: red
+}
