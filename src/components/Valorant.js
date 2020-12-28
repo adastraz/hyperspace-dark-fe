@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom'
 
 const Valorant = () => {
     return (
-        <>
+        <div className='players'>
             <h1 className='lineuptitle'>Dark</h1>
             <div className='lineup'>
                 <Link to='/player/Zundga' className='name nav'>Zundga</Link> 
@@ -19,7 +19,7 @@ const Valorant = () => {
                 <Link to='/player/Spiffy' className='name nav'>Spiffy</Link>
                 <Link to='/player/Dreamy' className='name nav'>Dreamy</Link>
             </div>
-        </>
+        </div>
     )
 }
 

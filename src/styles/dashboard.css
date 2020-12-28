@@ -20,7 +20,7 @@
 
 .mainlogo{
     max-width: 150px;
-    margin: 0 1.5rem
+    margin: auto 1.5rem
 }
 
 .logo{
@@ -101,6 +101,10 @@
     left: .5rem
 }
 
+::-webkit-scrollbar {
+    display: none;
+}
+
 .msgdisc{
     font-family: 'Trispace', sans-serif;
     cursor: pointer;
@@ -111,13 +115,18 @@
     height: 70vh;
     text-align: center;
     border-radius: 2rem;
-    border: 6px double black
+    border: 6px double black;
+    position: fixed;
+    overflow-y:auto;
+    right: 0
 }
 
 .hd{
     font-family: 'Major Mono Display', monospace;
     text-decoration: none;
-    color: black
+    color: black;
+    font-size: 3rem;
+    margin: auto 0
 }
 
 a, a:visited, a:hover, a:active {
@@ -131,7 +140,12 @@ a, a:visited, a:hover, a:active {
 
 .sideflex2{
     display: flex;
-    justify-content: space-around
+    justify-content: space-around;
+    width: 100%;
+}
+
+.maincont{
+    width: 75%;
 }
 
 .datetime{
@@ -179,6 +193,12 @@ a, a:visited, a:hover, a:active {
     font-size: 2.2rem
 }
 
+.players{
+    display: flex;
+    width: 70%;
+    justify-content: space-around
+}
+
 .playercont{
     margin: 4rem 3rem;
     display: flex;
@@ -200,12 +220,16 @@ a, a:visited, a:hover, a:active {
 
 .twitch{
     max-height: 3rem;
-    margin: 5rem 2.5rem
+    margin: auto 2.5rem
 }
 
 .youtube{
     max-height: 3rem;
-    margin: 5rem 0
+    margin: auto 0;
+}
+
+.video{
+    margin-top: 5rem;
 }
 
 .hidden{
@@ -222,4 +246,24 @@ a, a:visited, a:hover, a:active {
 
 .red{
     color: red
+}
+
+.table, .th, .td {
+    border-collapse: collapse;
+}
+
+.th, .td {
+    padding: 50px;
+    text-align: center;
+}
+
+.agents{
+    width: 20%;
+}
+
+.table {
+    border-spacing: 5px;
+    margin-top: 5rem;
+    max-width: 35%;
+    min-width: 35%;
 }

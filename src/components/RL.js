@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom'
 
 const RL = () => {
     return (
-        <>
+        <div className='players'>
             <h1 className='lineuptitle'>Dark</h1>
             <div className='lineup'>
                 <Link to='/player/SquallOwl' className='name nav'>SquallOwl</Link>
@@ -16,7 +16,7 @@ const RL = () => {
                 <Link to='/player/Haydes' className='name nav'>Haydes</Link>
                 <Link to='/player/Sly' className='name nav'>Sly</Link>
             </div>
-        </>
+        </div>
     )
 }
 

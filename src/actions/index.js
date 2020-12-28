@@ -14,6 +14,9 @@ export const FETCHING_SUCCESS_POSTS = 'FETCHING_SUCCESS_POSTS'
 export const FETCHING_SUCCESS_USERLIKES = 'FETCHING_SUCCESS_USERLIKES'
 export const FETCHING_SUCCESS_REDIRECT = 'FETCHING_SUCCESS_REDIRECT'
 export const FETCHING_SUCCESS_FOLLOWING = 'FETCHING_SUCCESS_FOLLOWING'
+export const SET_NOWLIVE = 'SET_NOWLIVE'
+export const SET_SOCIAL = 'SET_SOCIAL'
+export const SET_SCHED = 'SET_SCHED'
 
 // addLike, removeLike, removeLike1, addLike1, addComment, addComment1, removeComment, removeComment1, deletePost
 
@@ -27,6 +30,21 @@ export const getStreamers = streamers => dispatch => {
             .catch(err => dispatch({ type: CLEAR_ERROR }))
     })
     dispatch({ type: FETCHING_SUCCESS, payload: data })
+}
+
+export const setNowlive = () => dispatch => {
+    dispatch({ type: FETCHING_START })
+    dispatch({ type: SET_NOWLIVE })
+}
+
+export const setSocial = () => dispatch => {
+    dispatch({ type: FETCHING_START })
+    dispatch({ type: SET_SOCIAL })
+}
+
+export const setSched = () => dispatch => {
+    dispatch({ type: FETCHING_START })
+    dispatch({ type: SET_SCHED })
 }
 
 export const login = creds => dispatch => {
