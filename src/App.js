@@ -13,13 +13,13 @@ function App() {
     <>
       <Header />
       <div className='sideflex'>
-        <Switch>
-          <Route path='/player/:name' component={Player} />
-          <Route path='/valorant' component={Valorant} />
-          <Route path='/rl' component={RL} />
-          <Route exact path='/' component={Welcome} />
-        </Switch>
-        <Sidebar />
+          <Switch>
+            <Route path='/player/:name' component={Player} />
+            <Route path='/valorant' component={Valorant} />
+            <Route path='/rl' component={RL} />
+            <Route exact path='/' component={Welcome} />
+          </Switch>
+          <Sidebar />
       </div>
     </>
   )

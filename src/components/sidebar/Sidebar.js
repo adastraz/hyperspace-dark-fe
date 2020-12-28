@@ -5,6 +5,7 @@ import { connect } from 'react-redux'
 import { getStreamers } from '../../actions'
 import axiosWithAuth from '../../utils/axiosWithAuth'
 import SignIn from '../social/SignIn.js'
+import Selector from './Selector.js'
 
 const Sidebar = props => {
     const location = useLocation()
@@ -33,7 +34,7 @@ const Sidebar = props => {
     useEffect(() => {
         //action to get streamers
         props.getStreamers(streamers)
-        props.live.forEach(ele => ele[0] ? console.log(ele[0].user_name, 'yes') : console.log(ele[0], 'no'))
+        // props.live.forEach(ele => ele[0] ? console.log(ele[0].user_name, 'yes') : console.log(ele[0], 'no'))
     }, [])
 
     const flip = () => {
@@ -55,9 +56,9 @@ const Sidebar = props => {
     return (
         <>  
             <div className='sidebarcontainer'>
-                {schedDis ? 
+                {props.side == 'Schedule' ? 
                     <>
-                        <h1 className='scheduletitle' onClick={() => flip()}>SCHEDULE</h1>
+                        <Selector title='Schedule'/>
                         {schedule.map(ele => (
                             <div className='games'>  
                                 <div className='sideflex2'>
@@ -78,9 +79,9 @@ const Sidebar = props => {
                         
                         ))} 
                     </>:
-                    twitchDis ? 
+                    props.side == 'Now-Live' ? 
                     <>
-                        <h1 className='scheduletitle' onClick={() => flip2()}>NOW-LIVE</h1>
+                        <Selector title='Now-Live'/>
                         {props.live.length > 0 ? props.live.map(ele => (
                             <div className='games' key={ele[0].user_name} onClick={() => redirectFunc(`https://www.twitch.tv/${ele[0].user_name}`)}>
                                 <p>{ele[0].user_name}</p>
@@ -96,7 +97,7 @@ const Sidebar = props => {
                         )): <h1>No one is live</h1>}
                     </> :
                     <>
-                        <h1 className='scheduletitle' onClick={() => flip3()}>Social</h1>
+                        <Selector title='Social'/>
                         <SignIn />
                     </>
                 }
@@ -108,7 +109,8 @@ const mapStateToProps = state => {
     return {
         isLoading: state.isLoading,
         error: state.error,
-        live: state.live
+        live: state.live,
+        side: state.side
     }
 }
 

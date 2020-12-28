@@ -9,6 +9,7 @@ import thunk from 'redux-thunk'
 import logger from  'redux-logger'
 import 'bootstrap/dist/css/bootstrap.min.css'
 import { reducer } from './reducers'
+import './styles/reset.css'
 
 const store = createStore(reducer, applyMiddleware(thunk, logger))
 
