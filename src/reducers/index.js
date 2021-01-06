@@ -8,7 +8,9 @@ import {
     FETCHING_SUCCESS_USERLIKES,
     SET_NOWLIVE,
     SET_SOCIAL,
-    SET_SCHED
+    SET_SCHED,
+    ADD_ITEM,
+    CHANGE_BALANCE
 } from '../actions'
 
 const initialState = {
@@ -21,7 +23,9 @@ const initialState = {
     posts: [],
     userLikes: [],
     loggedin: false,
-    side: 'Social'
+    side: 'Schedule',
+    cart: [],
+    bal: 0
 }
 
 export const reducer = (state = initialState, action) => {
@@ -52,6 +56,20 @@ export const reducer = (state = initialState, action) => {
                 ...state,
                 error: null
             }
+        case CHANGE_BALANCE:
+            if (action.payload.op == '+'){
+                return {
+                    ...state,
+                    isLoading: false,
+                    bal: state.bal+action.payload.cash
+                }
+            } else {
+                return {
+                    ...state,
+                    isLoading: false,
+                    bal: state.bal-action.payload.cash
+                }
+            }
         case FETCHING_SUCCESS_LOGIN:
             return {
                 ...state,
@@ -64,6 +82,12 @@ export const reducer = (state = initialState, action) => {
                 ...state,
                 isLoading: false,
                 userLikes: action.payload
+            }
+        case ADD_ITEM:
+            return{
+                ...state,
+                isLoading: false,
+                cart: [...state.cart, action.payload]
             }
         case FETCHING_SUCCESS: 
             return {

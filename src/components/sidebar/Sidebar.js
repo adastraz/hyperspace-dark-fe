@@ -29,7 +29,7 @@ const Sidebar = props => {
                 .then(res => setSchedule(res.data))
                 .catch(err => console.log(err))
         }
-    }, [location.pathname])
+    }, [])
 
     useEffect(() => {
         //action to get streamers
@@ -76,7 +76,6 @@ const Sidebar = props => {
                                     <p className='schedule'>{ele.time}</p>
                                 </div>
                             </div>
-                        
                         ))} 
                     </>:
                     props.side == 'Now-Live' ? 

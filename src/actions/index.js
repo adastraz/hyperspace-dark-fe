@@ -17,6 +17,9 @@ export const FETCHING_SUCCESS_FOLLOWING = 'FETCHING_SUCCESS_FOLLOWING'
 export const SET_NOWLIVE = 'SET_NOWLIVE'
 export const SET_SOCIAL = 'SET_SOCIAL'
 export const SET_SCHED = 'SET_SCHED'
+export const ADD_ITEM = 'ADD_ITEM'
+export const CHANGE_BALANCE = 'CHANGE_BALANCE'
+
 
 // addLike, removeLike, removeLike1, addLike1, addComment, addComment1, removeComment, removeComment1, deletePost
 
@@ -30,6 +33,19 @@ export const getStreamers = streamers => dispatch => {
             .catch(err => dispatch({ type: CLEAR_ERROR }))
     })
     dispatch({ type: FETCHING_SUCCESS, payload: data })
+}
+
+export const addItem = (item, quantity) => dispatch => {
+    dispatch({ type: FETCHING_START })
+    var i 
+    for (i = 0; i < quantity; i++) {
+        dispatch({ type: ADD_ITEM, payload: item })
+    }
+}
+
+export const changeBal = (cash, op) => dispatch => {
+    dispatch({ type: FETCHING_START })
+    dispatch({type: CHANGE_BALANCE, payload: { cash: cash, op: op }})
 }
 
 export const setNowlive = () => dispatch => {

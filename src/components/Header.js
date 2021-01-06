@@ -1,13 +1,16 @@
 import React, { useState } from 'react'
-import { Link } from 'react-router-dom'
+import { Link, useLocation } from 'react-router-dom'
 import Logo from '../styles/imgs/Hyperspace_logo-HD.png'
 import Valorant from '../styles/imgs/valorant-logo.png'
 import RL from '../styles/imgs/rl-logo.png'
 import Helmet from '../styles/imgs/Hyperspace_logo-Helmet-2.png'
+import { connect } from 'react-redux'
 
-const Header = () => {
+
+const Header = props => {
     const [dis, setDis] = useState(false)
     const [dis2, setDis2] = useState(false)
+    const location = useLocation()
     return (
         <div className='header'>
             <div className='title'>
@@ -37,9 +40,20 @@ const Header = () => {
                         <img src={RL} className='logo' />
                         <h3 className={!dis2 ? 'hidden' : 'yes'}>Players</h3>
                 </Link>
+                {location.pathname.includes('/store') ? 
+                    <Link to='/checkout'>Checkout {props.cart.length}</Link> :
+                    <Link to='/store'>Store</Link>
+                }
             </div>
         </div>
     )
 }
 
-export default Header
+const mapStateToProps = state => {
+    return {
+        isLoading: state.isLoading,
+        cart: state.cart
+    }
+}
+
+export default connect(mapStateToProps, {})(Header)
