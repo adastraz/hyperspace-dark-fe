@@ -21,3 +21,4 @@ ReactDOM.render(
   </Provider>,
   document.getElementById('root')
 )
+console.log('tyler look here', process.env.NODE_ENV, process.env.REACT_APP_STRIPE_KEY)

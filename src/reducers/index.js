@@ -8,7 +8,8 @@ import {
     FETCHING_SUCCESS_USERLIKES,
     SET_NOWLIVE,
     SET_SOCIAL,
-    SET_SCHED
+    SET_SCHED,
+    ADD_ITEM
 } from '../actions'
 
 const initialState = {
@@ -21,7 +22,8 @@ const initialState = {
     posts: [],
     userLikes: [],
     loggedin: false,
-    side: 'Social'
+    side: 'Schedule',
+    cart: []
 }
 
 export const reducer = (state = initialState, action) => {
@@ -64,6 +66,12 @@ export const reducer = (state = initialState, action) => {
                 ...state,
                 isLoading: false,
                 userLikes: action.payload
+            }
+        case ADD_ITEM:
+            return{
+                ...state,
+                isLoading: false,
+                cart: [...state.cart, action.payload]
             }
         case FETCHING_SUCCESS: 
             return {

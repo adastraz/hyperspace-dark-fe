@@ -76,7 +76,6 @@ const Sidebar = props => {
                                     <p className='schedule'>{ele.time}</p>
                                 </div>
                             </div>
-                        
                         ))} 
                     </>:
                     props.side == 'Now-Live' ? 
