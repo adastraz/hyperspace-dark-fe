@@ -271,3 +271,9 @@ a, a:visited, a:hover, a:active {
 .store{
     width: 150px
 }
+
+.storediv{
+    width: 70%;
+    display: flex;
+    flex-direction: column;
+}

@@ -18,6 +18,7 @@ export const SET_NOWLIVE = 'SET_NOWLIVE'
 export const SET_SOCIAL = 'SET_SOCIAL'
 export const SET_SCHED = 'SET_SCHED'
 export const ADD_ITEM = 'ADD_ITEM'
+export const CHANGE_BALANCE = 'CHANGE_BALANCE'
 
 
 // addLike, removeLike, removeLike1, addLike1, addComment, addComment1, removeComment, removeComment1, deletePost
@@ -40,6 +41,11 @@ export const addItem = (item, quantity) => dispatch => {
     for (i = 0; i < quantity; i++) {
         dispatch({ type: ADD_ITEM, payload: item })
     }
+}
+
+export const changeBal = (cash, op) => dispatch => {
+    dispatch({ type: FETCHING_START })
+    dispatch({type: CHANGE_BALANCE, payload: { cash: cash, op: op }})
 }
 
 export const setNowlive = () => dispatch => {

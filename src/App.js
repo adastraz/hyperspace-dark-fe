@@ -9,6 +9,7 @@ import RL from './components/RL'
 import Player from './components/Player'
 import Store from './components/store/Store'
 import Item from './components/store/Item'
+import Checkoutshop from './components/store/Checkoutshop'
 
 function App() {
   return (
@@ -21,6 +22,7 @@ function App() {
             <Route path='/rl' component={RL} />
             <Route path='/store/:id' component={Item} />
             <Route path='/store' component={Store} />
+            <Route path='/checkout' component={Checkoutshop} />
             <Route exact path='/' component={Welcome} />
           </Switch>
           <Sidebar />
