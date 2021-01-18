@@ -33,20 +33,14 @@ const Sidebar = props => {
 
     useEffect(() => {
         //action to get streamers
-        props.getStreamers(streamers)
         // props.live.forEach(ele => ele[0] ? console.log(ele[0].user_name, 'yes') : console.log(ele[0], 'no'))
+        axios.get('/api/current_user')
+            .then(res => {
+                console.log(res.data)
+                localStorage.setItem('twitchaccess', res.data.accessToken)
+            })
+        props.getStreamers(streamers)
     }, [])
-
-    const flip = () => {
-        setSchedDis(!schedDis)
-        setTwitchDis(!twitchDis)
-    }
-    const flip2 = () => {
-        setTwitchDis(!twitchDis)
-    }
-    const flip3 = () => {
-        setSchedDis(!twitchDis)
-    }
 
     const redirectFunc = link => {
         const win = window.open(link, '_blank')
@@ -81,6 +75,7 @@ const Sidebar = props => {
                     props.side == 'Now-Live' ? 
                     <>
                         <Selector title='Now-Live'/>
+                        <a href='/auth/twitch'>Twitch</a>
                         {props.live.length > 0 ? props.live.map(ele => (
                             <div className='games' key={ele[0].user_name} onClick={() => redirectFunc(`https://www.twitch.tv/${ele[0].user_name}`)}>
                                 <p>{ele[0].user_name}</p>

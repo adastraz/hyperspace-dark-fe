@@ -8,6 +8,7 @@ const Checkoutshop = props => {
                 <div key={Date.now()} className='players'>
                     <h1>{item.item.name}</h1>
                     <p>{item.item.price}</p>
+                    <p>{item.size}</p>
                     {item.username && item.player_name ? 
                     <>
                         <p>{item.username}</p>

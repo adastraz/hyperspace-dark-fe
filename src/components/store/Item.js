@@ -24,6 +24,8 @@ const Item = props => {
                 setitem(res.data)
                 if (res.data.type == '0') {
                     setsize('S')
+                } else if (res.data.type == '1'){
+                    setsize('3x3')
                 }
             })
     }, [])
@@ -56,6 +58,13 @@ const Item = props => {
                     default:
                         return setprice(53.99)
                 }
+            case 'Hyperspace Dark Sticker':
+                switch(size){
+                    case '3x3':
+                        return setprice(3)
+                    default:
+                        return setprice(3.5)
+                }
             default: 
                 return 
         }
@@ -66,7 +75,11 @@ const Item = props => {
     }, [price])
 
     const addtocart = item => {
-        props.addItem({ item, username: details.username, player_name: details.name, size: size }, quantity)
+        if (item.type == '0') {
+            props.addItem({ item, username: details.username, player_name: details.name, size: size }, quantity)
+        } else if (item.type == '1') { 
+            props.addItem({ item, size: size }, quantity)
+        }
         props.changeBal(price, '+')
     }
 
@@ -126,7 +139,21 @@ const Item = props => {
                             </DropdownMenu>
                         </Dropdown>
                         <button type='submit' onClick={() => addtocart(item)}>Add to Cart</button>
-                    </form> : ''
+                    </form> 
+                : item.type == '1' ? 
+                    <>
+                        <Dropdown isOpen={dropdownOpen} toggle={toggle}>
+                            <DropdownToggle>
+                                Size: {size}
+                            </DropdownToggle>
+                            <DropdownMenu>
+                                <DropdownItem><p onClick={() => setsize('3x3')}>3x3</p></DropdownItem>
+                                <DropdownItem><p onClick={() => setsize('4x4')}>4x4</p></DropdownItem>
+                                <DropdownItem><p onClick={() => setsize('5.5x5.5')}>5.5x5.5</p></DropdownItem>
+                            </DropdownMenu>
+                        </Dropdown>
+                        <button onClick={() => addtocart(item)}>Add to Cart</button>
+                    </> : ''
                 }
             </div>
         </div>
