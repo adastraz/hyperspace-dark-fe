@@ -40,10 +40,7 @@ const Header = props => {
                         <img src={RL} className='logo' />
                         <h3 className={!dis2 ? 'hidden' : 'yes'}>Players</h3>
                 </Link>
-                {location.pathname.includes('/store') ? 
-                    <Link to='/checkout'>Checkout {props.cart.length}</Link> :
-                    <Link to='/store'>Store</Link>
-                }
+                <Link to='/store'>Store</Link>
             </div>
         </div>
     )

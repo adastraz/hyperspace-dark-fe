@@ -159,6 +159,7 @@ a, a:visited, a:hover, a:active {
     margin: 1rem 1.5rem;
     border: 1px solid black;
     padding: 1rem;
+    height: 10rem;
     border-radius: 1rem;
 }
 
@@ -166,7 +167,8 @@ a, a:visited, a:hover, a:active {
     color: black;
     font-family: 'Major Mono Display', monospace;
     text-decoration: none;
-    font-weight: bold
+    font-weight: bold;
+    margin: 17.5px;
 }
 
 .scheduletitle{
@@ -232,12 +234,12 @@ a, a:visited, a:hover, a:active {
     margin-top: 5rem;
 }
 
-.hidden{
-    display: none
+.collection-component-1610576218932.hidden, .hidden{
+    display: none !important
 }
 
-.yes{
-    display: block
+.collection-component-1610576218932.yes, .yes{
+    display: block !important;
 }
 
 .green{

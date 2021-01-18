@@ -1,7 +1,7 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import './styles/dashboard.css'
 import Header from './components/Header'
-import { Switch, Route } from 'react-router-dom'
+import { Switch, Route, useLocation } from 'react-router-dom'
 import Welcome from './components/Welcome'
 import Sidebar from './components/sidebar/Sidebar'
 import Valorant from './components/Valorant'
@@ -10,8 +10,20 @@ import Player from './components/Player'
 import Store from './components/store/Store'
 import Item from './components/store/Item'
 import Checkoutshop from './components/store/Checkoutshop'
+import EsportsGear from './components/store/EsportsGear'
 
 function App() {
+  const [display, setdisplay] = useState(false)
+  const location = useLocation()
+
+  useEffect(() => {
+    if (location.pathname == '/store'){
+      setdisplay(true)
+    } else if (location.pathname != '/store' && display == true){
+      setdisplay(false)
+    }
+  }, [location.pathname])
+
   return (
     <>
       <Header />
@@ -21,12 +33,14 @@ function App() {
             <Route path='/valorant' component={Valorant} />
             <Route path='/rl' component={RL} />
             <Route path='/store/:id' component={Item} />
-            <Route path='/store' component={Store} />
-            <Route path='/checkout' component={Checkoutshop} />
+            <Route path='/store' component={EsportsGear}>
+            </Route>
+            {/* <Route path='/checkout' component={Checkoutshop} /> */}
             <Route exact path='/' component={Welcome} />
           </Switch>
           <Sidebar />
       </div>
+      <div id='collection-component-1610576218932' className={display ? '' : 'hidden'}></div>
     </>
   )
 }
