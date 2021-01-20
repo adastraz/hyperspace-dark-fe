@@ -4,7 +4,9 @@ module.exports = function (app) {
     app.use(
         ["/api", "/auth/twitch"],
         createProxyMiddleware({
-            target: "http://localhost:3000",
+            target: "https://twitch-auth-0.herokuapp.com",
+            changeOrigin: true
         })
     )
 }
+// http://localhost:3000

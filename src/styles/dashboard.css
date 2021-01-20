@@ -22,10 +22,18 @@
     max-width: 150px;
     margin: auto 1.5rem
 }
+.mainlogo2{
+    max-width: 75px;
+    margin: auto 1.5rem
+}
 
 .logo{
     max-width: 150px;
-    margin: 0 3rem;
+    margin: .5rem 3rem;
+}
+
+.rllogo{
+    margin: -3.5rem 3rem
 }
 
 .gamelogo{
@@ -36,7 +44,7 @@
 
 .nav {
     position: relative;
-    text-decoration: none;
+    text-decoration: none !important;
     color: darkslategray
 }
 
@@ -128,6 +136,13 @@
     font-size: 3rem;
     margin: auto 0
 }
+.hd2{
+    font-family: 'Major Mono Display', monospace;
+    text-decoration: none;
+    color: black;
+    font-size: 1rem;
+    margin: auto 0
+}
 
 a, a:visited, a:hover, a:active {
     color: inherit
@@ -184,8 +199,26 @@ a, a:visited, a:hover, a:active {
     font-family: 'Rajdhani', sans-serif;
 }
 
+.footer {
+    display: flex;
+}
+.footerContentDiv {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 5rem;
+    align-items: space-between;
+    margin: 3rem;
+}
+.footerBlock{
+    height: 5rem;
+    display: flex;
+    margin: 3rem;
+
+}
+
 .name{
-    text-decoration: none;
+    text-decoration: none !important;
     font-size: 1.5rem
 }
 

@@ -37,13 +37,13 @@ const Header = props => {
                     to='/valorant' className='nav' onMouseOver={() => setDis(!dis)}
                     onMouseOut={() => setDis(!dis)}>
                         <img src={Valorant} className='logo' />
-                        <h3 className={!dis ? 'hidden' : 'yes'}>Players</h3>
+                        {/* <h3 className={!dis ? 'hidden' : 'yes'}>Players</h3> */}
                 </Link>
                 <Link 
                     to='/rl' className='nav' onMouseOver={() => setDis2(!dis2)}
                     onMouseOut={() => setDis2(!dis2)}>
-                        <img src={RL} className='logo' />
-                        <h3 className={!dis2 ? 'hidden' : 'yes'}>Players</h3>
+                        <img src={RL} className='logo rllogo' />
+                        {/* <h3 className={!dis2 ? 'hidden' : 'yes'}>Players</h3> */}
                 </Link>
                 <button onClick={() => redirect()}>Store</button>
             </div>

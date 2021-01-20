@@ -11,6 +11,7 @@ import Store from './components/store/Store'
 import Item from './components/store/Item'
 import Checkoutshop from './components/store/Checkoutshop'
 import EsportsGear from './components/store/EsportsGear'
+import Footer from './components/Footer'
 
 function App() {
   const [display, setdisplay] = useState(true)
@@ -40,6 +41,7 @@ function App() {
           <Sidebar />
       </div>
       <div id='collection-component-1610576218932' className={display ? '' : 'hidden'}></div>
+      <Footer />
     </>
   )
 }

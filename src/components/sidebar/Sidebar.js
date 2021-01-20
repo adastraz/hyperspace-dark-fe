@@ -36,7 +36,7 @@ const Sidebar = props => {
         // props.live.forEach(ele => ele[0] ? console.log(ele[0].user_name, 'yes') : console.log(ele[0], 'no'))
         axios.get('/api/current_user')
             .then(res => {
-                console.log(res.data)
+                console.log(res)
                 localStorage.setItem('twitchaccess', res.data.accessToken)
             })
         props.getStreamers(streamers)
@@ -46,6 +46,10 @@ const Sidebar = props => {
         const win = window.open(link, '_blank')
         win.focus()
     }
+
+    // const getTwitch = () => {
+    //     axios.get('https://twitch-auth-0.herokuapp.com/auth/twitch')
+    // }
 
     return (
         <>  
