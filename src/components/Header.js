@@ -5,12 +5,17 @@ import Valorant from '../styles/imgs/valorant-logo.png'
 import RL from '../styles/imgs/rl-logo.png'
 import Helmet from '../styles/imgs/Hyperspace_logo-Helmet-2.png'
 import { connect } from 'react-redux'
-
+import history from '../utils/history'
 
 const Header = props => {
     const [dis, setDis] = useState(false)
     const [dis2, setDis2] = useState(false)
     const location = useLocation()
+
+    const redirect = () => {
+        history.push('/store')
+        window.location.reload()
+    }
     return (
         <div className='header'>
             <div className='title'>
@@ -32,15 +37,15 @@ const Header = props => {
                     to='/valorant' className='nav' onMouseOver={() => setDis(!dis)}
                     onMouseOut={() => setDis(!dis)}>
                         <img src={Valorant} className='logo' />
-                        <h3 className={!dis ? 'hidden' : 'yes'}>Players</h3>
+                        {/* <h3 className={!dis ? 'hidden' : 'yes'}>Players</h3> */}
                 </Link>
                 <Link 
                     to='/rl' className='nav' onMouseOver={() => setDis2(!dis2)}
                     onMouseOut={() => setDis2(!dis2)}>
-                        <img src={RL} className='logo' />
-                        <h3 className={!dis2 ? 'hidden' : 'yes'}>Players</h3>
+                        <img src={RL} className='logo rllogo' />
+                        {/* <h3 className={!dis2 ? 'hidden' : 'yes'}>Players</h3> */}
                 </Link>
-                <Link to='/store'>Store</Link>
+                <button onClick={() => redirect()}>Store</button>
             </div>
         </div>
     )

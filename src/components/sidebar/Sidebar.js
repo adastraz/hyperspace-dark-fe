@@ -13,7 +13,7 @@ const Sidebar = props => {
     const [twitch, setTwitch] = useState([])
     const [schedDis, setSchedDis] = useState(true)
     const [twitchDis, setTwitchDis] = useState(false)
-    const streamers = ['squallowl', 'zundga', 'apaq', 'pjtryhard', 'itshafu', 'shroud']
+    const streamers = ['squallowl', 'zundga', 'apaq', 'pjtryhard', 'itshafu', 'shroud', 'xqcow', 'pokimane', 'hiko', 'emongg', 'tover0']
 
     useEffect(() => {
         if(location.pathname === '/valorant') {
@@ -34,10 +34,11 @@ const Sidebar = props => {
     useEffect(() => {
         //action to get streamers
         // props.live.forEach(ele => ele[0] ? console.log(ele[0].user_name, 'yes') : console.log(ele[0], 'no'))
-        axios.get('/api/current_user')
+        axios.get('/auth/api/current_user')
             .then(res => {
-                console.log(res.data)
+                console.log(res)
                 localStorage.setItem('twitchaccess', res.data.accessToken)
+                localStorage.setItem('twitchID', res.data.user.twitchID)
             })
         props.getStreamers(streamers)
     }, [])
@@ -47,10 +48,14 @@ const Sidebar = props => {
         win.focus()
     }
 
+    // const getTwitch = () => {
+    //     axios.get('https://twitch-auth-0.herokuapp.com/auth/twitch')
+    // }
+
     return (
         <>  
             <div className='sidebarcontainer'>
-                {props.side == 'Schedule' ? 
+                {localStorage.getItem('side') == 'Schedule' ? 
                     <>
                         <Selector title='Schedule'/>
                         {schedule.map(ele => (
@@ -72,7 +77,7 @@ const Sidebar = props => {
                             </div>
                         ))} 
                     </>:
-                    props.side == 'Now-Live' ? 
+                    localStorage.getItem('side') == 'Now-Live' ? 
                     <>
                         <Selector title='Now-Live'/>
                         <a href='/auth/twitch'>Twitch</a>

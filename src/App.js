@@ -11,9 +11,10 @@ import Store from './components/store/Store'
 import Item from './components/store/Item'
 import Checkoutshop from './components/store/Checkoutshop'
 import EsportsGear from './components/store/EsportsGear'
+import Footer from './components/Footer'
 
 function App() {
-  const [display, setdisplay] = useState(false)
+  const [display, setdisplay] = useState(true)
   const location = useLocation()
 
   useEffect(() => {
@@ -21,8 +22,10 @@ function App() {
       setdisplay(true)
     } else if (location.pathname != '/store' && display == true){
       setdisplay(false)
+      // window.location.reload()
     }
   }, [location.pathname])
+
 
   return (
     <>
@@ -33,16 +36,15 @@ function App() {
             <Route path='/valorant' component={Valorant} />
             <Route path='/rl' component={RL} />
             <Route path='/store/:id' component={Item} />
-            <Route path='/store' component={EsportsGear}>
-            </Route>
-            {/* <Route path='/checkout' component={Checkoutshop} /> */}
+            <Route path='/store' component={EsportsGear} />
             <Route exact path='/' component={Welcome} />
           </Switch>
           <Sidebar />
       </div>
       <div id='collection-component-1610576218932' className={display ? '' : 'hidden'}></div>
+      <Footer />
     </>
   )
 }
-
+// className={display ? '' : 'hidden'}
 export default App

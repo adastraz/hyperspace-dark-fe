@@ -35,31 +35,34 @@ export const getStreamers = streamers => dispatch => {
     dispatch({ type: FETCHING_SUCCESS, payload: data })
 }
 
-export const addItem = (item, quantity) => dispatch => {
-    dispatch({ type: FETCHING_START })
-    var i 
-    for (i = 0; i < quantity; i++) {
-        dispatch({ type: ADD_ITEM, payload: item })
-    }
-}
+// export const addItem = (item, quantity) => dispatch => {
+//     dispatch({ type: FETCHING_START })
+//     var i 
+//     for (i = 0; i < quantity; i++) {
+//         dispatch({ type: ADD_ITEM, payload: item })
+//     }
+// }
 
-export const changeBal = (cash, op) => dispatch => {
-    dispatch({ type: FETCHING_START })
-    dispatch({type: CHANGE_BALANCE, payload: { cash: cash, op: op }})
-}
+// export const changeBal = (cash, op) => dispatch => {
+//     dispatch({ type: FETCHING_START })
+//     dispatch({type: CHANGE_BALANCE, payload: { cash: cash, op: op }})
+// }
 
 export const setNowlive = () => dispatch => {
     dispatch({ type: FETCHING_START })
-    dispatch({ type: SET_NOWLIVE })
+    localStorage.setItem('side', 'Now-Live')
+    dispatch({ type: SET_SCHED })
 }
 
 export const setSocial = () => dispatch => {
     dispatch({ type: FETCHING_START })
-    dispatch({ type: SET_SOCIAL })
+    localStorage.setItem('side', 'Social')
+    dispatch({ type: SET_SCHED })
 }
 
 export const setSched = () => dispatch => {
     dispatch({ type: FETCHING_START })
+    localStorage.setItem('side', 'Schedule')
     dispatch({ type: SET_SCHED })
 }
 

@@ -6,7 +6,7 @@ const Valorant = () => {
         <div className='players'>
             <h1 className='lineuptitle'>Dark</h1>
             <div className='lineup'>
-                <Link to='/player/Zundga' className='name nav'>Zundga</Link> 
+                <Link to='/player/Nave' className='name nav'>Nave</Link> 
                 <Link to='/player/PJ Tryhard' className='name nav'>PJ Tryhard</Link>
                 <Link to='/player/LohtuS' className='name nav'>LohtuS</Link>
                 <Link to='/player/BigOleNik' className='name nav'>BigOleNik</Link>
@@ -17,7 +17,8 @@ const Valorant = () => {
                 <Link to='/player/Batteries' className='name nav'>Batteries</Link> 
                 <Link to='/player/Ancient Bandit' className='name nav'>Ancient Bandit</Link>
                 <Link to='/player/Spiffy' className='name nav'>Spiffy</Link>
-                <Link to='/player/Dreamy' className='name nav'>Dreamy</Link>
+                <Link to='/player/Dreamy' className='name nav'>Skeletto</Link>
+                <Link to='/player/Zundga' className='name nav'>Zundga</Link>
             </div>
         </div>
     )

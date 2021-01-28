@@ -21,9 +21,9 @@ const Posts = props => {
     useEffect(() => {
         if (localStorage.getItem('token') != null){
             props.fetchUserLikes(localStorage.getItem('cred'))
-            // props.getFollowing(id)
         }
     }, [])
+
     return (
         <>
             {allposts.map(post => (
@@ -57,7 +57,6 @@ const mapStateToProps = state => {
         error: state.error,
         user: state.user,
         friends: state.friends,
-
         users: state.users,
         posts: state.posts
     }
