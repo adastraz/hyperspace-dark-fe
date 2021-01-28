@@ -110,7 +110,7 @@ export const reducer = (state = initialState, action) => {
             return {
                 ...state,
                 isLoading: false,
-                side: 'Schedule'
+                side: localStorage.getItem('side')
             }
         default: 
             return state

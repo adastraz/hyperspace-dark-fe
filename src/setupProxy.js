@@ -2,10 +2,9 @@ const { createProxyMiddleware } = require("http-proxy-middleware");
 
 module.exports = function (app) {
     app.use(
-        ["/api", "/auth/twitch"],
+        ["/auth/api", "/auth/twitch"],
         createProxyMiddleware({
-            target: "https://twitch-auth-0.herokuapp.com",
-            changeOrigin: true
+            target: "http://localhost:3000"
         })
     )
 }
