@@ -22,10 +22,8 @@ function App() {
       setdisplay(true)
     } else if (location.pathname != '/store' && display == true){
       setdisplay(false)
-      // window.location.reload()
     }
   }, [location.pathname])
-
 
   return (
     <>
@@ -46,5 +44,5 @@ function App() {
     </>
   )
 }
-// className={display ? '' : 'hidden'}
+
 export default App

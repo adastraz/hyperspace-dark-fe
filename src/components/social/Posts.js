@@ -29,18 +29,9 @@ const Posts = props => {
             {allposts.map(post => (
                 <div className='sidebarflex' key={post.id}>
                     <div className='postssidebar'>
-                        {/* {post.user_id == props.user.id ? 
-                            <Link to={`/profile/${post.user_id}`}>
-                                <p className='sidebar'>{post.username}</p>
-                            </Link> :
-                        usersFollowing.includes(post.user_id) ?
-                            <Link to={`/friend/${post.user_id}`}>
-                                <p className='sidebar'>{post.username}</p>
-                            </Link> : */}
                         <Link to={`/player/${post.username}`}>
                             <p className='sidebar'>{post.username}</p>
                         </Link>
-                        {/* } */}
                         <LoadComments post={post} sidebar={true} username={post.username}/>
                         <ListLikes post={post} /> 
                         <p>{post.created_at}</p>

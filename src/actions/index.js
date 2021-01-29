@@ -42,7 +42,7 @@ export const getStreamers = streamers => dispatch => {
 //         dispatch({ type: ADD_ITEM, payload: item })
 //     }
 // }
-
+// 
 // export const changeBal = (cash, op) => dispatch => {
 //     dispatch({ type: FETCHING_START })
 //     dispatch({type: CHANGE_BALANCE, payload: { cash: cash, op: op }})
@@ -129,39 +129,39 @@ export const addLike = (user, post_id) => dispatch => {
             .catch(err => dispatch({ type: FETCHING_ERROR, payload: err }))
 }
 
-export const followUsername = (userid, friendid) => dispatch => {
-    dispatch({ type: FETCHING_START })
-    axiosWithAuth2()
-        .post(`/api/friends/${userid}/byusername`, friendid)
-            .then(res => {
-                dispatch({ type: FETCHING_SUCCESS })
-                dispatch({ type: FETCHING_START })
-                axiosWithAuth2()
-                    .get(`/api/friends/${userid}`)
-                        .then(res => {
-                            dispatch({ type: FETCHING_SUCCESS_FOLLOWING, payload: res.data })
-                        })
-                        .catch(err => dispatch({ type: FETCHING_ERROR, payload: err }))
-                        })
-            .catch(err => dispatch({ type: FETCHING_ERROR, payload: err }))
-}
-
-export const unfollowUsername = (userid, friendid) => dispatch => {
-    dispatch({ type: FETCHING_START })
-    axiosWithAuth2()
-        .delete(`/api/friends/${userid}/byusername`, { data: friendid })
-            .then(res => {
-                dispatch({ type: FETCHING_SUCCESS })
-                dispatch({ type: FETCHING_START })
-                axiosWithAuth2()
-                    .get(`/api/friends/${userid}`)
-                        .then(res => {
-                            dispatch({ type: FETCHING_SUCCESS_FOLLOWING, payload: res.data })
-                        })
-                        .catch(err => dispatch({ type: FETCHING_ERROR, payload: err }))
-                        })
-            .catch(err => dispatch({ type: FETCHING_ERROR, payload: err }))
-}
+// export const followUsername = (userid, friendid) => dispatch => {
+//     dispatch({ type: FETCHING_START })
+//     axiosWithAuth2()
+//         .post(`/api/friends/${userid}/byusername`, friendid)
+//             .then(res => {
+//                 dispatch({ type: FETCHING_SUCCESS })
+//                 dispatch({ type: FETCHING_START })
+//                 axiosWithAuth2()
+//                     .get(`/api/friends/${userid}`)
+//                         .then(res => {
+//                             dispatch({ type: FETCHING_SUCCESS_FOLLOWING, payload: res.data })
+//                         })
+//                         .catch(err => dispatch({ type: FETCHING_ERROR, payload: err }))
+//                         })
+//             .catch(err => dispatch({ type: FETCHING_ERROR, payload: err }))
+// }
+// 
+// export const unfollowUsername = (userid, friendid) => dispatch => {
+//     dispatch({ type: FETCHING_START })
+//     axiosWithAuth2()
+//         .delete(`/api/friends/${userid}/byusername`, { data: friendid })
+//             .then(res => {
+//                 dispatch({ type: FETCHING_SUCCESS })
+//                 dispatch({ type: FETCHING_START })
+//                 axiosWithAuth2()
+//                     .get(`/api/friends/${userid}`)
+//                         .then(res => {
+//                             dispatch({ type: FETCHING_SUCCESS_FOLLOWING, payload: res.data })
+//                         })
+//                         .catch(err => dispatch({ type: FETCHING_ERROR, payload: err }))
+//                         })
+//             .catch(err => dispatch({ type: FETCHING_ERROR, payload: err }))
+// }
 
 export const removeLike = (user, post_id) => dispatch => {
     dispatch({ type: FETCHING_START })
@@ -198,15 +198,15 @@ export const addLike1 = (username, id, post_id) => dispatch => {
             .catch(err => dispatch({ type: FETCHING_ERROR, payload: err }))
 }
 
-export const getFollowing = id => dispatch => {
-    dispatch({ type: FETCHING_START })
-    axiosWithAuth2()
-        .get(`/api/friends/${id}`)
-            .then(res => {
-                dispatch({ type: FETCHING_SUCCESS_FOLLOWING, payload: res.data })
-            })
-            .catch(err => dispatch({ type: FETCHING_ERROR, payload: err }))
-}
+// export const getFollowing = id => dispatch => {
+//     dispatch({ type: FETCHING_START })
+//     axiosWithAuth2()
+//         .get(`/api/friends/${id}`)
+//             .then(res => {
+//                 dispatch({ type: FETCHING_SUCCESS_FOLLOWING, payload: res.data })
+//             })
+//             .catch(err => dispatch({ type: FETCHING_ERROR, payload: err }))
+// }
 
 export const removeLike1 = (username, id, post_id) => dispatch => {
     dispatch({ type: FETCHING_START })
