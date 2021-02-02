@@ -4,6 +4,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@500&family=Rajdhani&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Syncopate&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Luckiest+Guy&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Ubuntu+Mono&display=swap');
 
 .title{
     display: flex;
@@ -48,6 +49,53 @@
     color: darkslategray
 }
 
+#listlikes {
+    background-color: black;
+    display: flex;
+    margin-top: .5rem
+}
+.sidebarflex{
+    min-height: 9rem;
+    margin: 1.5rem auto;
+    background: black;
+    padding: 1rem;
+    max-width: 95%;
+    border-left: yellow 3px solid;
+    border-bottom: yellow 3px solid;
+    display: flex;
+    justify-content:start;
+    align-items:space-around
+}
+.username{
+    color: deeppink;
+    margin: 0 2rem;
+    padding-bottom: 1rem
+}
+.date{
+    color:dodgerblue;
+    padding-bottom: 1rem
+}
+.postlink{
+    display: flex;
+}
+.postlink:hover{
+    text-decoration: none;
+}
+.postimage2{
+    max-width: 85%;
+}
+#sidelc{
+    color: lime;
+    background-color: rgb(17, 15, 15);
+    border: 1px solid rgb(17, 15, 15);
+}
+#sidelc:hover{
+    border: 1px solid white
+}
+.showpost{
+    text-align: left
+}
+
 .nav:before {
     content: "";
     position: absolute;
@@ -61,6 +109,20 @@
     transition: all 0.3s ease-in-out;
 }
 
+#selector{
+    margin-top: 1.5rem;
+    background-color: black;
+    color:mediumpurple;
+    border: 3px solid black;
+    font-family: 'Syncopate', sans-serif;
+    font-size: 2.5rem;
+}
+#selector:hover{
+    border: 3px solid white
+}
+.code{
+    font-family: 'Ubuntu Mono', monospace;
+}
 .nav:hover:before {
     visibility: visible;
     transform: scaleX(1);
@@ -123,10 +185,11 @@
     height: 70vh;
     text-align: center;
     border-radius: 2rem;
-    border: 6px double black;
+    border: 10px double pink;
     position: fixed;
     overflow-y:auto;
-    right: 0
+    right: 0;
+    background-color: black
 }
 
 .hd{

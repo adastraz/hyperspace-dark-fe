@@ -10,7 +10,7 @@ const Selector = props => {
 
     return (
         <Dropdown isOpen={dropdownOpen} toggle={toggle}>
-            <DropdownToggle>
+            <DropdownToggle id='selector'>
                 {props.title}
             </DropdownToggle>
             <DropdownMenu>

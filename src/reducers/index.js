@@ -54,7 +54,8 @@ export const reducer = (state = initialState, action) => {
         case CLEAR_ERROR:
             return {
                 ...state,
-                error: null
+                error: null,
+                isLoading: false
             }
         case CHANGE_BALANCE:
             if (action.payload.op == '+'){

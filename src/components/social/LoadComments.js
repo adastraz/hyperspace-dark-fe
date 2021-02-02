@@ -98,8 +98,8 @@ const LoadComments = props => {
     return (
         <div>
             {props.sidebar ?
-                <Button color="info" id='sidelc' onClick={toggle}>
-                    <p>{props.post.post}</p>
+                <Button id='sidelc' onClick={toggle}>
+                    <p className='showpost code'>{props.post.post}</p>
                     {props.post.img != '' ?
                         <img className='postimage2' src={props.post.img} /> : ''
                     }

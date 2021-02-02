@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react' 
 import axiosWithAuth2 from '../../utils/axiosWithAuth2'
 import { Link } from 'react-router-dom'
-import { fetchUserLikes } from '../../actions'
+import { fetchUserLikes, clearError } from '../../actions'
 import LoadComments from './LoadComments.js'
 import { connect } from 'react-redux'
 import ListLikes from './ListLikes.js'
@@ -14,7 +14,13 @@ const Posts = props => {
             .get('/api/posts')
                 .then(res => {
                     setAllposts(res.data)
-                    console.log(res)
+                    console.log('------TYLER LENGTH HERE------', res.data.length)
+                })
+                .catch(err => {
+                    localStorage.removeItem('token')
+                    localStorage.removeItem('cred')
+                    localStorage.removeItem('name')
+                    props.clearError()
                 })
     }, [])
 
@@ -29,12 +35,12 @@ const Posts = props => {
             {allposts.map(post => (
                 <div className='sidebarflex' key={post.id}>
                     <div className='postssidebar'>
-                        <Link to={`/player/${post.username}`}>
-                            <p className='sidebar'>{post.username}</p>
+                        <Link to={`/player/${post.username}`} className='postlink'>
+                            <p className='username code'>{post.username}</p>
+                            <p className='date code'>{post.created_at}</p>
                         </Link>
                         <LoadComments post={post} sidebar={true} username={post.username}/>
                         <ListLikes post={post} /> 
-                        <p>{post.created_at}</p>
                     </div>
                 </div> 
             ))}
@@ -53,4 +59,4 @@ const mapStateToProps = state => {
     }
 }
 
-export default connect(mapStateToProps, { fetchUserLikes })(Posts)
+export default connect(mapStateToProps, { fetchUserLikes, clearError })(Posts)
