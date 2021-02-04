@@ -149,20 +149,17 @@ const LoadComments = props => {
                                             </Link>
                                             <p>{comment.comment}</p>
                                         </div> :*/}
-                                    {comment.comment_username == localStorage.getItem('name') ?
-                                        <div key={comment.id}>
+                                    {comment.is_player ?
+                                        <div key={comment.id} className='comment'>
                                             <Link
-                                            to={`/profile/${comment.user_id}`}>
-                                                {comment.comment_username}
+                                                to={`/player/${comment.comment_username}`}
+                                            >
+                                                <p id='playerusername'>{comment.comment_username}</p>
                                             </Link>
                                             <p>{comment.comment}</p>
-                                            <img src={Close} onClick={() => removeCommentHelper(comment.id)} />
                                         </div> :
-                                        <div key={comment.id}>
-                                            <Link
-                                            to={`/user/${comment.user_id}`}>
-                                                {comment.comment_username}
-                                            </Link>
+                                        <div className='comment' key={comment.id}>
+                                            <p id='username'>{comment.comment_username}</p>
                                             <p>{comment.comment}</p>
                                         </div>
                                     }

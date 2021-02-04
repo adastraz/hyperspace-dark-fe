@@ -71,6 +71,18 @@
     margin: 0 2rem;
     padding-bottom: 1rem
 }
+#username{
+    color: deeppink;
+}
+.playerusername{
+    color: darkslateblue;
+    margin: 0 2rem;
+    padding-bottom: 1rem
+}
+#playerusername{
+    color: darkslateblue !important;
+    font-weight: bold
+}
 .date{
     color:dodgerblue;
     padding-bottom: 1rem
@@ -94,6 +106,9 @@
 }
 .showpost{
     text-align: left
+}
+.comment{
+    margin-bottom: 1.25rem
 }
 
 .nav:before {

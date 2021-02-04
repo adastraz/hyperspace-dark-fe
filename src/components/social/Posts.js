@@ -35,10 +35,17 @@ const Posts = props => {
             {allposts.map(post => (
                 <div className='sidebarflex' key={post.id}>
                     <div className='postssidebar'>
-                        <Link to={`/player/${post.username}`} className='postlink'>
-                            <p className='username code'>{post.username}</p>
-                            <p className='date code'>{post.created_at}</p>
-                        </Link>
+                        {post.is_player ?
+                            <Link to={`/player/${post.username}`} className='postlink'>
+                                <p className='playerusername code'>{post.username}</p>
+                                <p className='date code'>{post.created_at}</p>
+                            </Link> :
+                            <div className='postlink'>
+                                <p className='username code'>{post.username}</p>
+                                <p className='date code'>{post.created_at}</p>
+                            </div>
+                        }
+                        
                         <LoadComments post={post} sidebar={true} username={post.username}/>
                         <ListLikes post={post} /> 
                     </div>
