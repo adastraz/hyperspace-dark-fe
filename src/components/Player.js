@@ -1,13 +1,48 @@
-import React, { useState } from 'react'
-import { useLocation } from 'react-router-dom'
-import ChrisVid from '../styles/imgs/ChrisVid.mp3'
+import React, { useState, useEffect } from 'react'
+import { useLocation, useParams } from 'react-router-dom'
 import Twitch from '../styles/imgs/icons8-twitch-64.png'
 import Raze from '../styles/imgs/raze.png'
 import Omen from '../styles/imgs/omen.PNG'
 import Diamond2 from '../styles/imgs/diamond2.png'
+import axios from 'axios'
 
 const Player = () => {
     const location = useLocation()
+    const { name } = useParams()
+    const [player, setPlayer] = useState({})
+    const [details, setDetails] = useState({})
+    const [agents, setAgents] = useState([])
+    const [creators, setCreators] = useState([])
+    const [othergames, setOthergames] = useState([])
+    const [ytlinks, setYtlinks] = useState([])
+
+    useEffect(() => {
+        axios.get(`http://localhost:3300/api/viewuser/${name}/username`)
+            .then(res => {
+                setPlayer(res.data[0])
+                if (res.data[0].game === 'valorant') {
+                    axios.get(`http://localhost:3300/api/viewuser/${res.data[0].id}/details/valorant`)
+                        .then(res2 => {
+                            setDetails(res2.data.user_details)
+                            setAgents(res2.data.user_agents)
+                            setCreators(res2.data.user_creators)
+                            setOthergames(res2.data.user_othergames)
+                            setYtlinks(res2.data.user_ytlinks)
+                        })
+                }
+            })
+    }, [])
+
+    useEffect(() => {
+        console.log({
+            details: details,
+            creators: creators,
+            player: player,
+            othergames: othergames,
+            ytlinks: ytlinks,
+            agents: agents
+        })
+    }, [])
 
     const redirectFunc = link => {
         const win = window.open(link, '_blank')
@@ -16,25 +51,37 @@ const Player = () => {
 
     // const ytarr = ['https://www.youtube.com/embed/Uqnu9EAoSwA', 'https://www.youtube.com/embed/tPoWuqFEYXs']
 
-    // const [ytplay, setYtplay] = useState(0)
+    const [ytplay, setYtplay] = useState(0)
 
     return (
         <div className='playercont'>
             <div className='playerhead'>
-                <h1 className='spiffy'>{location.pathname.slice(8, location.pathname.length)}</h1>
-                <img src={Twitch} className='twitch' onClick={() => redirectFunc('https://www.twitch.tv/spiffy25')} />
-                <img className='youtube' onClick={() => redirectFunc('https://www.youtube.com/channel/UCWHQov7eR9N1vHq6jq9gWwQ')} src="https://img.icons8.com/dusk/64/000000/youtube--v2.png"/>
-                <img src={Diamond2} className='twitch' />
+                <h1 className='spiffy'>{player.username}</h1>
+                {details.twitch_link !== null ? 
+                    <img src={Twitch} className='twitch' onClick={() => redirectFunc(details.twitch_link)} /> :
+                    ''
+                }
+                {details.youtube_link !== null ? 
+                    <img className='youtube' onClick={() => redirectFunc(details.youtube_link)} src="https://img.icons8.com/dusk/64/000000/youtube--v2.png"/> :
+                    ''
+                }
+                {details.rank !== null ? 
+                    <img src={Diamond2} className='twitch' alt={details.rank} /> :
+                    ''
+                }
             </div>
             <div className='sideflex2'>
-                <iframe width="420" height="250" className='video'
-                    src={`https://www.youtube.com/embed/tPoWuqFEYXs?autoplay=1&mute=1&loop=1`}>
-                </iframe>
+                {ytlinks.length > 0 ? 
+                    <iframe width="500" height="250" className='video'
+                        src={`${ytlinks[ytplay].youtubelinks}?autoplay=1&mute=1&loop=1`}>
+                    </iframe> : 
+                    ''
+                }
                 {/* <iframe width="420" height="250" className='video'
                     src={`${ytarr[ytplay]}?autoplay=1&mute=1&loop=1`}>
                 </iframe> */}
-                {/* <button onClick={() => setYtplay(ytplay+1)}>+</button>
-                <button onClick={() => setYtplay(ytplay-1)}>-</button> */}
+                {/* <button onClick={() => changeVid('+')}>+</button>
+                <button onClick={() => changeVid('-')}>-</button> */}
                 <div>
                     <div>
                         <h1>Agents</h1>

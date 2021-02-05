@@ -39,7 +39,7 @@ function App() {
           </Switch>
           <Sidebar />
       </div>
-      <div id='collection-component-1610576218932' className={display ? '' : 'hidden'}></div>
+      {/* <div id='collection-component-1610576218932' className={display ? '' : 'hidden'}></div> */}
       <Footer />
     </>
   )

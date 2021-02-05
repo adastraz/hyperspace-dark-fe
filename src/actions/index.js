@@ -101,6 +101,17 @@ export const register = creds => dispatch => {
             .catch(err => dispatch({ type: FETCHING_ERROR, payload: err }))
 }
 
+export const fetchUser = id => dispatch => {
+    dispatch({ type: FETCHING_START })
+    axiosWithAuth2()
+        .get(`/api/users/${id}`)
+            .then(res => {
+                console.log('fetch user', res)
+                dispatch({ type: FETCHING_SUCCESS })
+            })
+            .catch(err => dispatch({ type: FETCHING_ERROR, payload: err }))
+}
+
 export const fetchUserLikes = userid => dispatch => {
     dispatch({ type: FETCHING_START })
     axiosWithAuth2()
