@@ -7,9 +7,9 @@ import Sidebar from './components/sidebar/Sidebar'
 import Valorant from './components/Valorant'
 import RL from './components/RL'
 import Player from './components/Player'
-import Store from './components/store/Store'
-import Item from './components/store/Item'
-import Checkoutshop from './components/store/Checkoutshop'
+// import Store from './components/store/Store'
+// import Item from './components/store/Item'
+// import Checkoutshop from './components/store/Checkoutshop'
 import EsportsGear from './components/store/EsportsGear'
 import Footer from './components/Footer'
 
@@ -33,7 +33,7 @@ function App() {
             <Route path='/player/:name' component={Player} />
             <Route path='/valorant' component={Valorant} />
             <Route path='/rl' component={RL} />
-            <Route path='/store/:id' component={Item} />
+            {/* <Route path='/store/:id' component={Item} /> */}
             <Route path='/store' component={EsportsGear} />
             <Route exact path='/' component={Welcome} />
           </Switch>

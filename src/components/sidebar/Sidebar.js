@@ -108,7 +108,7 @@ const mapStateToProps = state => {
     return {
         isLoading: state.isLoading,
         error: state.error,
-        live: state.live,
+        // live: state.live,
         side: state.side
     }
 }

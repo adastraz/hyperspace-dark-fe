@@ -71,11 +71,11 @@ export const login = creds => dispatch => {
     axios
         .post('https://hdsocial.herokuapp.com/api/auth/login', creds)
             .then(res => {
-                dispatch ({ type: FETCHING_SUCCESS_LOGIN, payload: res.data.user })
                 localStorage.setItem('token', res.data.token)
                 localStorage.setItem('cred', res.data.user.id)
                 localStorage.setItem('name', res.data.user.username)
                 window.location.reload()
+                dispatch({ type: FETCHING_SUCCESS_LOGIN, payload: res.data.user })
             })
             .catch(err => dispatch({ type: FETCHING_ERROR, payload: err }))
 }
@@ -90,11 +90,11 @@ export const register = creds => dispatch => {
                 axios 
                     .post('https://hdsocial.herokuapp.com/api/auth/login', creds)
                         .then(res => {
-                            dispatch ({ type: FETCHING_SUCCESS_LOGIN, payload: res.data.user })
                             localStorage.setItem('token', res.data.token)
                             localStorage.setItem('cred', res.data.user.id)
                             localStorage.setItem('name', res.data.user.username)
                             window.location.reload()
+                            dispatch({ type: FETCHING_SUCCESS_LOGIN, payload: res.data.user })
                         })
                         .catch(err => dispatch({ type: FETCHING_ERROR, payload: err }))
             })
@@ -107,7 +107,7 @@ export const fetchUser = id => dispatch => {
         .get(`/api/users/${id}`)
             .then(res => {
                 console.log('fetch user', res)
-                dispatch({ type: FETCHING_SUCCESS })
+                dispatch({ type: FETCHING_SUCCESS_LOGIN, payload: res.data })
             })
             .catch(err => dispatch({ type: FETCHING_ERROR, payload: err }))
 }
@@ -118,6 +118,26 @@ export const fetchUserLikes = userid => dispatch => {
         .get(`/api/likes/${userid}/user`)
             .then(res => {
                 dispatch({ type: FETCHING_SUCCESS_USERLIKES, payload: res.data})
+            })
+            .catch(err => dispatch({ type: FETCHING_ERROR, payload: err }))
+}
+
+export const postPost = (userid, post) => dispatch => {
+    dispatch({ type: FETCHING_START })
+    axiosWithAuth2()
+        .post(`/api/posts/${userid}`, post)
+            .then(res => {
+                dispatch({ type: FETCHING_SUCCESS })
+            })
+}
+
+export const deletePost = (userid, postid) => dispatch => {
+    dispatch({ type: FETCHING_START })
+    axiosWithAuth2()
+        .delete(`/api/posts/${userid}`, { data: postid })
+            .then(res => {
+                dispatch({ type: FETCHING_SUCCESS })
+                window.location.reload()
             })
             .catch(err => dispatch({ type: FETCHING_ERROR, payload: err }))
 }

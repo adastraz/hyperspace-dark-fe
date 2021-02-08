@@ -143,6 +143,9 @@
     transform: scaleX(1);
 }
 
+.logoutbutton{
+    width: 1.5rem
+}
 .rlnav {
     position: relative;
     text-decoration: none;
