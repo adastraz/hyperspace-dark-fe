@@ -8,7 +8,7 @@ const Valorant = () => {
             <h1 className='lineuptitle'>Dark</h1>
             <div className='lineup'>
                 <Link to='/player/Nave' className='name nav'>Nave</Link> 
-                <Link to='/player/PJ Tryhard' className='name nav'>PJ Tryhard</Link>
+                <Link to='/player/Tryhard' className='name nav'>Tryhard</Link>
                 <Link to='/player/LohtuS' className='name nav'>LohtuS</Link>
                 <Link to='/player/BigOleNik' className='name nav'>BigOleNik</Link>
                 <Link to='/player/ISHMUCKLESI' className='name nav'>ISHMUCKLESI</Link>
