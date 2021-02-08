@@ -6,7 +6,7 @@ import { connect } from 'react-redux'
 const Selector = props => {
     const [dropdownOpen, setDropdownOpen] = useState(false)
     const toggle = () => setDropdownOpen(prevState => !prevState)
-    const titles = ['Schedule', 'Now-Live', 'Social']
+    const titles = ['Schedule', 'Social']
 
     return (
         <Dropdown isOpen={dropdownOpen} toggle={toggle}>
@@ -19,10 +19,10 @@ const Selector = props => {
                         {name !== props.title ? 
                             <>
                                 {name == 'Schedule' ?
-                                    <p onClick={() => props.setSched()}>{name}</p> :
-                                name == 'Now-Live' ? 
-                                    <p onClick={() => props.setNowlive()}>{name}</p> :
-                                    <p onClick={() => props.setSocial()}>{name}</p> 
+                                    <DropdownItem onClick={() => props.setSched()}>{name}</DropdownItem> :
+                                // name == 'Now-Live' ? 
+                                //     <DropdownItem onClick={() => props.setNowlive()}>{name}</DropdownItem> :
+                                    <DropdownItem onClick={() => props.setSocial()}>{name}</DropdownItem> 
                                 }
                             </> :
                             <></>

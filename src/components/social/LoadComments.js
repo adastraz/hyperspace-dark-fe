@@ -190,8 +190,8 @@ const mapStateToProps = state => {
         isLoading: state.isLoading,
         error: state.error,
         user: state.user,
-        following: state.following,
-        users: state.users,
+        // following: state.following,
+        // users: state.users,
         posts: state.posts,
         userLikes: state.userLikes
     }

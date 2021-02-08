@@ -69,7 +69,7 @@ export const setSched = () => dispatch => {
 export const login = creds => dispatch => {
     dispatch ({ type: FETCHING_START })
     axios
-        .post('http://localhost:3300/api/auth/login', creds)
+        .post('https://hdsocial.herokuapp.com/api/auth/login', creds)
             .then(res => {
                 dispatch ({ type: FETCHING_SUCCESS_LOGIN, payload: res.data.user })
                 localStorage.setItem('token', res.data.token)
@@ -83,12 +83,12 @@ export const login = creds => dispatch => {
 export const register = creds => dispatch => {
     dispatch({ type: FETCHING_START })
     axios
-        .post('http://localhost:3300/api/auth/register', creds)
+        .post('https://hdsocial.herokuapp.com/api/auth/register', creds)
             .then(res => {
                 dispatch({ type: FETCHING_SUCCESS })
                 dispatch({ type: FETCHING_START })
                 axios 
-                    .post('http://localhost:3300/api/auth/login', creds)
+                    .post('https://hdsocial.herokuapp.com/api/auth/login', creds)
                         .then(res => {
                             dispatch ({ type: FETCHING_SUCCESS_LOGIN, payload: res.data.user })
                             localStorage.setItem('token', res.data.token)

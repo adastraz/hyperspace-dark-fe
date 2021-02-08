@@ -54,7 +54,7 @@ const Header = props => {
 const mapStateToProps = state => {
     return {
         isLoading: state.isLoading,
-        cart: state.cart
+        // cart: state.cart
     }
 }
 

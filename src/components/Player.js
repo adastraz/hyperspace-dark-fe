@@ -5,8 +5,9 @@ import Raze from '../styles/imgs/raze.png'
 import Omen from '../styles/imgs/omen.PNG'
 import Diamond2 from '../styles/imgs/diamond2.png'
 import axios from 'axios'
+import { connect } from 'react-redux'
 
-const Player = () => {
+const Player = props => {
     const location = useLocation()
     const { name } = useParams()
     const [player, setPlayer] = useState({})

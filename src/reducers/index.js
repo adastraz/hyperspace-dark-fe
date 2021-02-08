@@ -16,16 +16,14 @@ import {
 const initialState = {
     isLoading: false,
     error: null,
-    live: [],
+    // live: [],
     user: {},
-    following: [],
-    users: [],
+    // following: [],
+    // users: [],
     posts: [],
     userLikes: [],
     loggedin: false,
-    side: 'Schedule',
-    cart: [],
-    bal: 0
+    side: 'Social'
 }
 
 export const reducer = (state = initialState, action) => {
