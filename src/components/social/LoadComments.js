@@ -12,6 +12,7 @@ import {
     removeLike,
     addLike1, 
     removeLike1,
+    deletePost,
     addComment,
     addComment1,
     removeComment,
@@ -37,11 +38,11 @@ const LoadComments = props => {
         comment: ''
     })
 
-    const followerNum = []
+    // const followerNum = []
 
-    props.following.forEach(follow => {
-        followerNum.push(follow.username)
-    })
+    // props.following.forEach(follow => {
+    //     followerNum.push(follow.username)
+    // })
 
     useEffect(() => {
         axiosWithAuth2()
@@ -71,7 +72,7 @@ const LoadComments = props => {
         e.preventDefault()
         props.addComment1({ comment: newComment.comment, comment_username: localStorage.getItem('name'), user_id: localStorage.getItem('cred') }, current.id)
         setComments([
-            ...comments, { comment: newComment.comment, comment_username: localStorage.getItem('name'), id: Date.now(), user_id: localStorage.getItem('cred') }])
+            ...comments, { comment: newComment.comment, comment_username: localStorage.getItem('name'), id: Date.now(), user_id: localStorage.getItem('cred'), is_player: props.user.is_player }])
         setNewComment({ comment: '' })
         setCurrent({ ...current, comment_number: current.comment_number+1 })
     }
@@ -98,8 +99,8 @@ const LoadComments = props => {
     return (
         <div>
             {props.sidebar ?
-                <Button color="info" id='sidelc' onClick={toggle}>
-                    <p>{props.post.post}</p>
+                <Button id='sidelc' onClick={toggle}>
+                    <p className='showpost code'>{props.post.post}</p>
                     {props.post.img != '' ?
                         <img className='postimage2' src={props.post.img} /> : ''
                     }
@@ -125,8 +126,8 @@ const LoadComments = props => {
                                 <Modal isOpen={modald} toggle={toggled}>
                                     <ModalHeader toggle={toggled}>Are you sure?</ModalHeader>
                                     <ModalBody>
-                                        <Button color='danger' onClick={() => props.deletePost(localStorage.getItem('cred'), {postid: current.id})}><img src={Check} /></Button>
-                                        <Button color='primary' onClick={toggled}><img src={Close} /></Button>
+                                        <DropdownItem color='danger' onClick={() => props.deletePost(localStorage.getItem('cred'), {postid: current.id})}><img src={Check} /></DropdownItem>
+                                        <DropdownItem color='primary' onClick={toggled}><img src={Close} /></DropdownItem>
                                     </ModalBody>
                                 </Modal>
                             </> :
@@ -149,21 +150,26 @@ const LoadComments = props => {
                                             </Link>
                                             <p>{comment.comment}</p>
                                         </div> :*/}
-                                    {comment.comment_username == localStorage.getItem('name') ?
-                                        <div key={comment.id}>
+                                    {comment.is_player ?
+                                        <div key={comment.id} className='comment'>
                                             <Link
-                                            to={`/profile/${comment.user_id}`}>
-                                                {comment.comment_username}
+                                                to={`/player/${comment.comment_username}`}
+                                            >
+                                                <p id='playerusername'>{comment.comment_username}</p>
                                             </Link>
                                             <p>{comment.comment}</p>
-                                            <img src={Close} onClick={() => removeCommentHelper(comment.id)} />
+                                            {comment.comment_username === props.user.username ? 
+                                                <img src={Close} onClick={() => removeCommentHelper(comment.id)} /> :
+                                                ''
+                                            }
                                         </div> :
-                                        <div key={comment.id}>
-                                            <Link
-                                            to={`/user/${comment.user_id}`}>
-                                                {comment.comment_username}
-                                            </Link>
+                                        <div className='comment' key={comment.id}>
+                                            <p id='username'>{comment.comment_username}</p>
                                             <p>{comment.comment}</p>
+                                            {comment.comment_username === props.user.username ? 
+                                                <img src={Close} onClick={() => removeCommentHelper(comment.id)} /> :
+                                                ''
+                                            }
                                         </div>
                                     }
                                 </>
@@ -193,11 +199,11 @@ const mapStateToProps = state => {
         isLoading: state.isLoading,
         error: state.error,
         user: state.user,
-        following: state.following,
-        users: state.users,
+        // following: state.following,
+        // users: state.users,
         posts: state.posts,
         userLikes: state.userLikes
     }
 }
 
-export default connect(mapStateToProps, { addLike, removeLike, removeLike1, addLike1, addComment, addComment1, removeComment, removeComment1 })(LoadComments)
+export default connect(mapStateToProps, { addLike, removeLike, removeLike1, addLike1, addComment, addComment1, removeComment, removeComment1, deletePost })(LoadComments)

@@ -8,4 +8,3 @@ module.exports = function (app) {
         })
     )
 }
-// http://localhost:3000

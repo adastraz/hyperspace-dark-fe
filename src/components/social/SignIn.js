@@ -7,8 +7,7 @@ import Posts from './Posts.js'
 const SignIn = props => {
     const [user, setUser] = useState({
         username: '',
-        password: '',
-        birthdate: ''
+        password: ''
     })
 
     const [confirm, setConfirm] = useState({
@@ -125,14 +124,6 @@ const SignIn = props => {
                                     value={confirm.password}
                                     placeholder='Confirm Password'
                                 />
-                                <input 
-                                    id='birthdate'
-                                    type='date'
-                                    name='birthdate'
-                                    onChange={handleChanges}
-                                    value={user.birthdate}
-                                    placeholder='Birthday'
-                                />
                                 {unmatching && length && number && special && letter ?
                                     <button type='submit'>Sign Up</button> :
                                     <a className='red'>Requirements not met</a>
@@ -190,8 +181,8 @@ const mapStateToProps = state => {
         isLoading: state.isLoading,
         error: state.error,
         user: state.user,
-        friends: state.friends,
-        users: state.users,
+        // friends: state.friends,
+        // users: state.users,
         posts: state.posts
     }
 }

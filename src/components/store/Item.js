@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react'
 import axios from 'axios'
 import { connect } from 'react-redux'
 import { useParams, Link } from 'react-router-dom'
-import { addItem, changeBal } from '../../actions'
+// import { addItem, changeBal } from '../../actions'
 import { Dropdown, DropdownToggle, DropdownMenu, DropdownItem } from 'reactstrap'
 
 const Item = props => {
@@ -169,4 +169,4 @@ const mapStateToProps = state => {
     }
 }
 
-export default connect(mapStateToProps, { addItem, changeBal })(Item)
+export default connect(mapStateToProps, {})(Item)
