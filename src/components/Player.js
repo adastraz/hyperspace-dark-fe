@@ -17,6 +17,15 @@ const Player = props => {
     const [othergames, setOthergames] = useState([])
     const [ytlinks, setYtlinks] = useState([])
 
+    const [ytformdis, setYtformdis] = useState(false)
+    const [ytform, setYtform] = useState({ youtubelinks: '' })
+    const [agentformdis, setAgentformdis] = useState(false)
+    const [agentform, setAgentform] = useState({ agent_name: '' })
+    const [othergameformdis, setOthergameformdis] = useState(false)
+    const [othergameform, setOthergameform] = useState({ name: '', img_link: '' })
+    const [creatorformdis, setCreatorformdis] = useState(false)
+    const [creatorform, setCreatorform] = useState({ name: '', img: '' })
+
     useEffect(() => {
         axios.get(`https://hdsocial.herokuapp.com/api/viewuser/${name}/username`)
             .then(res => {
@@ -34,20 +43,91 @@ const Player = props => {
             })
     }, [])
 
-    useEffect(() => {
-        console.log({
-            details: details,
-            creators: creators,
-            player: player,
-            othergames: othergames,
-            ytlinks: ytlinks,
-            agents: agents
-        })
-    }, [])
+    // useEffect(() => {
+    //     console.log({
+    //         details: details,
+    //         creators: creators,
+    //         player: player,
+    //         othergames: othergames,
+    //         ytlinks: ytlinks,
+    //         agents: agents
+    //     })
+    // }, [])
 
     const redirectFunc = link => {
         const win = window.open(link, '_blank')
         win.focus()
+    }
+
+    const handleChangesyt = e => {
+        setYtform({
+            ...ytform,
+            [e.target.name]: e.target.value
+        })
+    }
+
+    const submitYt = e => {
+        e.preventDefault()
+        setYtlinks([...ytlinks, { ...ytform, id: ytlinks.length+1 } ])
+        //addYtlink({ ...ytform, user_id: props.user.id }, props.user.id)
+        setYtform({ youtubelinks: '' })
+        setYtformdis(false)
+        // console.log(ytlinks)
+    }
+
+    const handleChangesagent = e => {
+        setAgentform({
+            ...agentform,
+            [e.target.name]: e.target.value.toLowerCase()
+        })
+        console.log(agentform)
+    }
+
+    const submitAgent = e => {
+        e.preventDefault()
+        setAgents([...agents, { ...agentform, id: agents.length+1 } ])
+        //addYtlink({ ...ytform, user_id: props.user.id }, props.user.id)
+        setAgentform({ agent_name: '' })
+        setAgentformdis(false)
+        console.log(agents)
+    }
+
+    const handleChangesothergame = e => {
+        setOthergameform({
+            ...othergameform,
+            [e.target.name]: e.target.value.toLowerCase()
+        })
+        console.log(othergameform)
+    }
+
+    const submitOthergame = e => {
+        e.preventDefault()
+        setOthergames([...othergames, { ...othergameform, id: othergames.length+1 } ])
+        //addYtlink({ ...ytform, user_id: props.user.id }, props.user.id)
+        setOthergameform({ name: '', img_link: '' })
+        setOthergameformdis(false)
+        console.log(othergames)
+    }
+
+    const handleChangescreator = e => {
+        setCreatorform({
+            ...creatorform,
+            [e.target.name]: e.target.value.toLowerCase()
+        })
+        console.log(creatorform)
+    }
+
+    const submitCreator = e => {
+        e.preventDefault()
+        setCreators([...creators, { ...creatorform, id: creators.length+1 }])
+        //addYtlink({ ...ytform, user_id: props.user.id }, props.user.id)
+        setCreatorform({ name: '', img: '' })
+        setCreatorformdis(false)
+        console.log(creators)
+    }
+
+    const deleteDetail = (type, id) => {
+        console.log(type, id)
     }
 
     // const ytarr = ['https://www.youtube.com/embed/Uqnu9EAoSwA', 'https://www.youtube.com/embed/tPoWuqFEYXs']
@@ -79,13 +159,32 @@ const Player = props => {
             </div>
             <div className='sideflex2'>
                 {ytlinks.length > 0 ? 
-                    <iframe width="500" height="250" className='video'
-                        src={`${ytlinks[ytplay].youtubelinks}?autoplay=1&mute=1&loop=1`}>
-                    </iframe> : 
+                    <>
+                        <iframe width="500" height="250" className='video'
+                            src={`${ytlinks[ytplay].youtubelinks}?autoplay=1&mute=1&loop=1`}>
+                        </iframe>
+                        {props.user.username === name ?
+                            <button onClick={() => deleteDetail('youtube', ytlinks[ytplay].id)}>delete</button> :
+                            ''
+                        }
+                    </> : 
                     <p>No vidoes listed</p>
                 }
                 {props.user.username === name ?
-                    <button>Add youtube links</button> :
+                    <button onClick={() => setYtformdis(!ytformdis)}>Add youtube links</button> :
+                    ''
+                }
+                {ytformdis ?
+                    <form onSubmit={submitYt}>
+                        <input  
+                            type='text'
+                            id='youtubelinks'
+                            name='youtubelinks'
+                            onChange={handleChangesyt}
+                            placeholder='Embedded youtube link'
+                        />
+                        <button type='submit'>send</button>
+                    </form> : 
                     ''
                 }
                 {/* <iframe width="420" height="250" className='video'
@@ -99,13 +198,35 @@ const Player = props => {
                         {agents.length > 0 ? 
                             agents.map(agent => (
                                 <>
-                                    <p>{agent.agent_name}</p>
+                                    {agent.agent_name === 'raze' ?
+                                        <img src={Raze} className='agents'/> :
+                                    agent.agent_name === 'omen' ?
+                                        <img src={Omen} className='agents' /> :
+                                        <p>{agent.agent_name}</p>
+                                    }
+                                    {props.user.username === name ?
+                                        <button onClick={() => deleteDetail('agent', agent.id)}>delete</button> :
+                                        ''
+                                    }
                                 </>
                             )) : 
                         <p>No agents listed</p>
                         }
                         {props.user.username === name ?
-                            <button>Add agents</button> :
+                            <button onClick={() => setAgentformdis(!agentformdis)}>Add agents</button> :
+                            ''
+                        }
+                        {agentformdis ?
+                            <form onSubmit={submitAgent}>
+                                <input  
+                                    type='text'
+                                    id='agent_name'
+                                    name='agent_name'
+                                    onChange={handleChangesagent}
+                                    placeholder='Agent name'
+                                />
+                                <button type='submit'>send</button>
+                            </form> : 
                             ''
                         }
                     </div>
@@ -114,14 +235,38 @@ const Player = props => {
                         {othergames.length > 0 ? 
                             othergames.map(game => (
                                 <>
-                                    <p>{othergames.name}</p>
-                                    <img src={othergames.img_link} />
+                                    <img src={game.img_link} className='agents' />
+                                    <p>{game.name}</p>
+                                    {props.user.username === name ?
+                                        <button onClick={() => deleteDetail('othergame', game.id)}>delete</button> :
+                                        ''
+                                    }
                                 </>
                             )) :
                             <p>No games listed</p>
                         }
                         {props.user.username === name ?
-                            <button>Add games</button> :
+                            <button onClick={() => setOthergameformdis(!othergameformdis)}>Add games</button> :
+                            ''
+                        }
+                        {othergameformdis ?
+                            <form onSubmit={submitOthergame}>
+                                <input  
+                                    type='text'
+                                    id='name'
+                                    name='name'
+                                    onChange={handleChangesothergame}
+                                    placeholder='Game name'
+                                />
+                                <input  
+                                    type='text'
+                                    id='img_link'
+                                    name='img_link'
+                                    onChange={handleChangesothergame}
+                                    placeholder='Img address link (logo)'
+                                />
+                                <button type='submit'>send</button>
+                            </form> : 
                             ''
                         }
                     </div>
@@ -132,12 +277,36 @@ const Player = props => {
                                 <div onClick={() => redirectFunc(creator.link)}>
                                     <p>{creator.name}</p>
                                     <img src={creator.img} />
+                                    {props.user.username === name ?
+                                        <button onClick={() => deleteDetail('creator', creator.id)}>delete</button> :
+                                        ''
+                                    }
                                 </div>
                             )) :
                             <p> No favorite creators listed</p>
                         }
                         {props.user.username === name ?
-                            <button>Add creators</button> :
+                            <button onClick={() => setCreatorformdis(!creatorformdis)}>Add creators</button> :
+                            ''
+                        }
+                        {creatorformdis ?
+                            <form onSubmit={submitCreator}>
+                                <input  
+                                    type='text'
+                                    id='name'
+                                    name='name'
+                                    onChange={handleChangescreator}
+                                    placeholder='Creator name'
+                                />
+                                <input  
+                                    type='text'
+                                    id='img'
+                                    name='img'
+                                    onChange={handleChangescreator}
+                                    placeholder='Img address link (profile img)'
+                                />
+                                <button type='submit'>send</button>
+                            </form> : 
                             ''
                         }
                     </div>
