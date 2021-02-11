@@ -1,11 +1,24 @@
 import React, { useState, useEffect } from 'react'
 import { useLocation, useParams } from 'react-router-dom'
 import Twitch from '../styles/imgs/icons8-twitch-64.png'
-import Raze from '../styles/imgs/raze.png'
-import Omen from '../styles/imgs/omen.PNG'
 import Diamond2 from '../styles/imgs/diamond2.png'
 import axios from 'axios'
 import { connect } from 'react-redux'
+
+import Raze from '../styles/imgs/raze.png'
+import Yoru from '../styles/imgs/yoru.png'
+import Cypher from '../styles/imgs/cypher.png'
+import Viper from '../styles/imgs/viper.png'
+import Breach from '../styles/imgs/breach.png'
+import Pheonix from '../styles/imgs/pheonix.png'
+import Jett from '../styles/imgs/jett.png'
+import Reyna from '../styles/imgs/reyna.png'
+import Sova from '../styles/imgs/sova.png'
+import Killjoy from '../styles/imgs/killjoy.png'
+import Omen from '../styles/imgs/omen.PNG'
+import Sage from '../styles/imgs/sage.png'
+import Skye from '../styles/imgs/skye.png'
+import Brimstone from '../styles/imgs/brimstone.png'
 
 const Player = props => {
     const location = useLocation()
@@ -127,7 +140,18 @@ const Player = props => {
     }
 
     const deleteDetail = (type, id) => {
-        console.log(type, id)
+        if (type === 'youtube') {
+            console.log('youtube')
+        } else if (type === 'agent') {
+            const newarr = agents.filter(agent => id !== agent.id)
+            setAgents(newarr)
+        } else if (type === 'othergame') {
+            const newarr = othergames.filter(othergame => id !== othergame.id)
+            setOthergames(newarr)
+        } else {
+            const newarr = creators.filter(creator => id !== creator.id)
+            setCreators(newarr)
+        }
     }
 
     // const ytarr = ['https://www.youtube.com/embed/Uqnu9EAoSwA', 'https://www.youtube.com/embed/tPoWuqFEYXs']
@@ -202,7 +226,29 @@ const Player = props => {
                                         <img src={Raze} className='agents'/> :
                                     agent.agent_name === 'omen' ?
                                         <img src={Omen} className='agents' /> :
-                                        <p>{agent.agent_name}</p>
+                                    agent.agent_name === 'brimstone' ?
+                                        <img src={Brimstone} className='agents' /> :
+                                    agent.agent_name === 'breach' ?
+                                        <img src={Breach} className='agents' /> :
+                                    agent.agent_name === 'viper' ?
+                                        <img src={Viper} className='agents' /> :
+                                    agent.agent_name === 'killjoy' ?
+                                        <img src={Killjoy} className='agents' /> :
+                                    agent.agent_name === 'cypher' ?
+                                        <img src={Cypher} className='agents' /> :
+                                    agent.agent_name === 'yoru' ?
+                                        <img src={Yoru} className='agents' /> :
+                                    agent.agent_name === 'sova' ?
+                                        <img src={Sova} className='agents' /> :
+                                    agent.agent_name === 'reyna' ?
+                                        <img src={Reyna} className='agents' /> :
+                                    agent.agent_name === 'pheonix' ?
+                                        <img src={Pheonix} className='agents' /> :
+                                    agent.agent_name === 'jett' ?
+                                        <img src={Jett} className='agents' /> :
+                                    agent.agent_name === 'sage' ? 
+                                        <img src={Sage} className='agents' /> :
+                                        <img src={Skye} className='agents' /> 
                                     }
                                     {props.user.username === name ?
                                         <button onClick={() => deleteDetail('agent', agent.id)}>delete</button> :
