@@ -16,31 +16,32 @@ const Sidebar = props => {
     const streamers = ['squallowl', 'zundga', 'apaq', 'pjtryhard', 'itshafu', 'shroud', 'xqcow', 'pokimane', 'hiko', 'emongg', 'tover0']
 
     useEffect(() => {
-        if(location.pathname === '/valorant') {
-            axios.get('http://localhost:3300/api/schedule/valorant/game')
-                .then(res => setSchedule(res.data))
-                .catch(err => console.log(err))
-        }else if(location.pathname === '/rl') {
-            axios.get('http://localhost:3300/api/schedule/rl/game')
-                .then(res => setSchedule(res.data))
-                .catch(err => console.log(err))
-        } else{
-            axios.get('http://localhost:3300/api/schedule')
-                .then(res => setSchedule(res.data))
-                .catch(err => console.log(err))
-        }
+        // if(location.pathname === '/valorant') {
+        //     axios.get('http://localhost:3300/api/schedule/valorant/game')
+        //         .then(res => setSchedule(res.data))
+        //         .catch(err => console.log(err))
+        // }else if(location.pathname === '/rl') {
+        //     axios.get('http://localhost:3300/api/schedule/rl/game')
+        //         .then(res => setSchedule(res.data))
+        //         .catch(err => console.log(err))
+        // } else{
+        //     axios.get('http://localhost:3300/api/schedule')
+        //         .then(res => setSchedule(res.data))
+        //         .catch(err => console.log(err))
+        // }
     }, [])
 
     useEffect(() => {
         //action to get streamers
         // props.live.forEach(ele => ele[0] ? console.log(ele[0].user_name, 'yes') : console.log(ele[0], 'no'))
-        axios.get('/auth/api/current_user')
-            .then(res => {
-                console.log(res)
-                localStorage.setItem('twitchaccess', res.data.accessToken)
-                localStorage.setItem('twitchID', res.data.user.twitchID)
-            })
-        props.getStreamers(streamers)
+
+        // axios.get('/auth/api/current_user')
+        //     .then(res => {
+        //         console.log(res)
+        //         localStorage.setItem('twitchaccess', res.data.accessToken)
+        //         localStorage.setItem('twitchID', res.data.user.twitchID)
+        //     })
+        // props.getStreamers(streamers)
     }, [])
 
     const redirectFunc = link => {

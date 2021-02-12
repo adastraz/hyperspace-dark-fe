@@ -57,8 +57,6 @@ const mapStateToProps = state => {
         error: state.error,
         user: state.user,
         posts: state.posts
-        // users: state.users,
-        // following: state.following,
     }
 }
 

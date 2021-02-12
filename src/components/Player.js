@@ -64,17 +64,6 @@ const Player = props => {
             })
     }, [])
 
-    // useEffect(() => {
-    //     console.log({
-    //         details: details,
-    //         creators: creators,
-    //         player: player,
-    //         othergames: othergames,
-    //         ytlinks: ytlinks,
-    //         agents: agents
-    //     })
-    // }, [])
-
     const redirectFunc = link => {
         const win = window.open(link, '_blank')
         win.focus()
@@ -89,11 +78,10 @@ const Player = props => {
 
     const submitYt = e => {
         e.preventDefault()
-        setYtlinks([...ytlinks, { ...ytform, id: ytlinks.length+1 } ])
+        setYtlinks([...ytlinks, { ...ytform } ])
         props.addYtlink({ ...ytform, user_id: props.user.id }, props.user.id)
         setYtform({ youtubelinks: '' })
         setYtformdis(false)
-        // console.log(ytlinks)
     }
 
     const handleChangesagent = e => {
@@ -165,8 +153,6 @@ const Player = props => {
         }
     }
 
-    // const ytarr = ['https://www.youtube.com/embed/Uqnu9EAoSwA', 'https://www.youtube.com/embed/tPoWuqFEYXs']
-
     const [ytplay, setYtplay] = useState(0)
 
     return (
@@ -203,7 +189,7 @@ const Player = props => {
             </div>
             <div className='sideflex2'>
                 {ytlinks.length > 0 ? 
-                    <>
+                    <div className='clips'>
                         <iframe width="500" height="250" className='video'
                             src={`${ytlinks[ytplay].youtubelinks}?autoplay=1&mute=1&loop=1`}>
                         </iframe>
@@ -211,7 +197,7 @@ const Player = props => {
                             <button onClick={() => deleteDetail('youtube', ytlinks[ytplay].id)}>delete</button> :
                             ''
                         }
-                    </> : 
+                    </div> : 
                     <p>No vidoes listed</p>
                 }
                 {props.user.username === name ?
@@ -231,13 +217,8 @@ const Player = props => {
                     </form> : 
                     ''
                 }
-                {/* <iframe width="420" height="250" className='video'
-                    src={`${ytarr[ytplay]}?autoplay=1&mute=1&loop=1`}>
-                </iframe> */}
-                {/* <button onClick={() => changeVid('+')}>+</button>
-                <button onClick={() => changeVid('-')}>-</button> */}
                 <div>
-                    <div>
+                    <div className='maindetails'>
                         <h1>Agents</h1>
                         {agents.length > 0 ? 
                             agents.map(agent => (
@@ -296,7 +277,7 @@ const Player = props => {
                             ''
                         }
                     </div>
-                    <div>
+                    <div className='maindetails2'>
                         <h1>Other Games</h1>
                         {othergames.length > 0 ? 
                             othergames.map(game => (
@@ -336,13 +317,13 @@ const Player = props => {
                             ''
                         }
                     </div>
-                    <div>
-                        <h1>Favorite Content Creators</h1>
+                    <div className='maindetails2'>
+                        <h1 className='fix'>Favorite Content Creators</h1>
                         {creators.length > 0 ?
                             creators.map(creator => (
-                                <div onClick={() => redirectFunc(creator.link)}>
+                                <div onClick={() => redirectFunc(creator.link)} className='maindetails2'>
                                     <p>{creator.name}</p>
-                                    <img src={creator.img} />
+                                    <img src={creator.img} className='agents'/>
                                     {props.user.username === name ?
                                         <button onClick={() => deleteDetail('creator', creator.id)}>delete</button> :
                                         ''
@@ -387,8 +368,6 @@ const mapStateToProps = state => {
         isLoading: state.isLoading,
         error: state.error,
         user: state.user,
-        // friends: state.friends,
-        // users: state.users,
         posts: state.posts
     }
 }

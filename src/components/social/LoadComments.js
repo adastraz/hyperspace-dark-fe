@@ -38,12 +38,6 @@ const LoadComments = props => {
         comment: ''
     })
 
-    // const followerNum = []
-
-    // props.following.forEach(follow => {
-    //     followerNum.push(follow.username)
-    // })
-
     useEffect(() => {
         axiosWithAuth2()
             .get(`/api/posts/${props.post.id}/post`)
@@ -102,7 +96,9 @@ const LoadComments = props => {
                 <Button id='sidelc' onClick={toggle}>
                     <p className='showpost code'>{props.post.post}</p>
                     {props.post.img != '' ?
-                        <img className='postimage2' src={props.post.img} /> : ''
+                        <iframe width="500" height="250" className='postimage2'
+                            src={`${props.post.img}?autoplay=1&mute=1&loop=1`}>
+                        </iframe> : ''
                     }
                 </Button> :
                 <Button color="danger" onClick={toggle}>Load Comments... [{current.comment_number}]</Button>
@@ -116,7 +112,9 @@ const LoadComments = props => {
                         <p>{current.location}</p>
                         <p>{current.created_at}</p>
                         {current.img != '' ? 
-                            <img src={current.img} className='postimage'/> :
+                            <iframe width="500" height="250" className='postimage2'
+                                src={`${props.post.img}?autoplay=1&mute=1&loop=1`}>
+                            </iframe> :
                             ''
                         }
                         <ListLikes post={current} />
@@ -142,14 +140,6 @@ const LoadComments = props => {
                         <ModalBody>
                             {comments.map(comment => (
                                 <>
-                                    {/* {followerNum.includes(comment.comment_username) ? 
-                                        <div key={comment.id}>
-                                            <Link
-                                            to={`/friend/${comment.user_id}`}>
-                                                {comment.comment_username}
-                                            </Link>
-                                            <p>{comment.comment}</p>
-                                        </div> :*/}
                                     {comment.is_player ?
                                         <div key={comment.id} className='comment'>
                                             <Link
@@ -199,8 +189,6 @@ const mapStateToProps = state => {
         isLoading: state.isLoading,
         error: state.error,
         user: state.user,
-        // following: state.following,
-        // users: state.users,
         posts: state.posts,
         userLikes: state.userLikes
     }
