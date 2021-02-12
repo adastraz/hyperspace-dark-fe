@@ -361,7 +361,7 @@ export const deleteCreator = id => dispatch => {
 export const deleteYtlink = id => dispatch => {
     dispatch({ type: FETCHING_START })
     axiosWithAuth2()
-        .delete(`/api/users/${id}/delete/ytlink`, { data: id })
+        .delete(`/api/users/${id}/delete/ytlinks`, { data: id })
             .then(res => {
                 dispatch({ type: FETCHING_SUCCESS })
             })
