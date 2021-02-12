@@ -45,7 +45,7 @@ const Header = props => {
                         <img src={RL} className='logo rllogo' />
                         {/* <h3 className={!dis2 ? 'hidden' : 'yes'}>Players</h3> */}
                 </Link>
-                <button onClick={() => redirect()}>Store</button>
+                {/* <button onClick={() => redirect()}>Store</button> */}
             </div>
         </div>
     )
@@ -53,9 +53,8 @@ const Header = props => {
 
 const mapStateToProps = state => {
     return {
-        isLoading: state.isLoading,
-        // cart: state.cart
+        isLoading: state.isLoading
     }
 }
 
-export default connect(mapStateToProps, {})(Header)
+export default connect(mapStateToProps, {  })(Header)

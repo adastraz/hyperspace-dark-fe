@@ -298,6 +298,85 @@ export const removeComment1 = (commentid, post_id) => dispatch => {
             .catch(err => dispatch({ type: FETCHING_ERROR, payload: err }))
 }
 
+export const addAgent = (agent, id) => dispatch => {
+    dispatch({ type: FETCHING_START })
+    axiosWithAuth2()
+        .post(`/api/users/${id}/details/agent`, agent)
+            .then(res => {
+                dispatch({ type: FETCHING_SUCCESS })
+            })
+            .catch(err => dispatch({ type: FETCHING_ERROR, payload: err }))
+}
+
+export const addYtlink = (ytlink, id) => dispatch => {
+    dispatch({ type: FETCHING_START })
+    axiosWithAuth2()
+        .post(`/api/users/${id}/details/ytlink`, ytlink)
+            .then(res => {
+                dispatch({ type: FETCHING_SUCCESS })
+            })
+            .catch(err => dispatch({ type: FETCHING_ERROR, payload: err }))
+}
+
+export const addCreator = (creator, id) => dispatch => {
+    dispatch({ type: FETCHING_START })
+    axiosWithAuth2()
+        .post(`/api/users/${id}/details/creator`, creator)
+            .then(res => {
+                dispatch({ type: FETCHING_SUCCESS })
+            })
+            .catch(err => dispatch({ type: FETCHING_ERROR, payload: err }))
+}
+
+export const addOthergame = (othergame, id) => dispatch => {
+    dispatch({ type: FETCHING_START })
+    axiosWithAuth2()
+        .post(`/api/users/${id}/details/othergame`, othergame)
+            .then(res => {
+                dispatch({ type: FETCHING_SUCCESS })
+            })
+            .catch(err => dispatch({ type: FETCHING_ERROR, payload: err }))
+}
+
+export const deleteAgent = id => dispatch => {
+    dispatch({ type: FETCHING_START })
+    axiosWithAuth2()
+        .delete(`/api/users/${id}/delete/agent`, { data: id })
+            .then(res => {
+                dispatch({ type: FETCHING_SUCCESS })
+            })
+            .catch(err => dispatch({ type: FETCHING_ERROR, payload: err }))
+}
+
+export const deleteCreator = id => dispatch => {
+    dispatch({ type: FETCHING_START })
+    axiosWithAuth2()
+        .delete(`/api/users/${id}/delete/creator`, { data: id })
+            .then(res => {
+                dispatch({ type: FETCHING_SUCCESS })
+            })
+            .catch(err => dispatch({ type: FETCHING_ERROR, payload: err }))
+}
+
+export const deleteYtlink = id => dispatch => {
+    dispatch({ type: FETCHING_START })
+    axiosWithAuth2()
+        .delete(`/api/users/${id}/delete/ytlink`, { data: id })
+            .then(res => {
+                dispatch({ type: FETCHING_SUCCESS })
+            })
+            .catch(err => dispatch({ type: FETCHING_ERROR, payload: err }))
+}
+
+export const deleteOthergame = id => dispatch => {
+    dispatch({ type: FETCHING_START })
+    axiosWithAuth2()
+        .delete(`/api/users/${id}/delete/othergames`, { data: id })
+            .then(res => {
+                dispatch({ type: FETCHING_SUCCESS })
+            })
+            .catch(err => dispatch({ type: FETCHING_ERROR, payload: err }))
+}
 
 export const clearError = () => dispatch => {
     dispatch({ type: CLEAR_ERROR })

@@ -1,9 +1,9 @@
 import React, { useState, useEffect } from 'react'
 import { useLocation, useParams } from 'react-router-dom'
 import Twitch from '../styles/imgs/icons8-twitch-64.png'
-import Diamond2 from '../styles/imgs/diamond2.png'
 import axios from 'axios'
 import { connect } from 'react-redux'
+import { addAgent, deleteAgent, addYtlink, deleteYtlink, addCreator, deleteCreator, addOthergame, deleteOthergame } from '../actions'
 
 import Raze from '../styles/imgs/raze.png'
 import Yoru from '../styles/imgs/yoru.png'
@@ -19,6 +19,14 @@ import Omen from '../styles/imgs/omen.PNG'
 import Sage from '../styles/imgs/sage.png'
 import Skye from '../styles/imgs/skye.png'
 import Brimstone from '../styles/imgs/brimstone.png'
+
+import Dia1 from '../styles/imgs/dia2.png'
+import Dia2 from '../styles/imgs/dia2.png'
+import Dia3 from '../styles/imgs/dia3.png'
+import Imm1 from '../styles/imgs/imm1.png'
+import Imm2 from '../styles/imgs/imm2.png'
+import Imm3 from '../styles/imgs/imm3.png'
+import Rad from '../styles/imgs/radiant.png'
 
 const Player = props => {
     const location = useLocation()
@@ -56,17 +64,6 @@ const Player = props => {
             })
     }, [])
 
-    // useEffect(() => {
-    //     console.log({
-    //         details: details,
-    //         creators: creators,
-    //         player: player,
-    //         othergames: othergames,
-    //         ytlinks: ytlinks,
-    //         agents: agents
-    //     })
-    // }, [])
-
     const redirectFunc = link => {
         const win = window.open(link, '_blank')
         win.focus()
@@ -81,11 +78,10 @@ const Player = props => {
 
     const submitYt = e => {
         e.preventDefault()
-        setYtlinks([...ytlinks, { ...ytform, id: ytlinks.length+1 } ])
-        //addYtlink({ ...ytform, user_id: props.user.id }, props.user.id)
+        setYtlinks([...ytlinks, { ...ytform } ])
+        props.addYtlink({ ...ytform, user_id: props.user.id }, props.user.id)
         setYtform({ youtubelinks: '' })
         setYtformdis(false)
-        // console.log(ytlinks)
     }
 
     const handleChangesagent = e => {
@@ -99,7 +95,7 @@ const Player = props => {
     const submitAgent = e => {
         e.preventDefault()
         setAgents([...agents, { ...agentform, id: agents.length+1 } ])
-        //addYtlink({ ...ytform, user_id: props.user.id }, props.user.id)
+        props.addAgent({ ...agentform, user_id: props.user.id }, props.user.id)
         setAgentform({ agent_name: '' })
         setAgentformdis(false)
         console.log(agents)
@@ -116,7 +112,7 @@ const Player = props => {
     const submitOthergame = e => {
         e.preventDefault()
         setOthergames([...othergames, { ...othergameform, id: othergames.length+1 } ])
-        //addYtlink({ ...ytform, user_id: props.user.id }, props.user.id)
+        props.addOthergame({ ...othergameform, user_id: props.user.id }, props.user.id)
         setOthergameform({ name: '', img_link: '' })
         setOthergameformdis(false)
         console.log(othergames)
@@ -133,7 +129,7 @@ const Player = props => {
     const submitCreator = e => {
         e.preventDefault()
         setCreators([...creators, { ...creatorform, id: creators.length+1 }])
-        //addYtlink({ ...ytform, user_id: props.user.id }, props.user.id)
+        props.addCreator({ ...creatorform, user_id: props.user.id }, props.user.id)
         setCreatorform({ name: '', img: '' })
         setCreatorformdis(false)
         console.log(creators)
@@ -144,17 +140,18 @@ const Player = props => {
             console.log('youtube')
         } else if (type === 'agent') {
             const newarr = agents.filter(agent => id !== agent.id)
+            props.deleteAgent(id)
             setAgents(newarr)
         } else if (type === 'othergame') {
             const newarr = othergames.filter(othergame => id !== othergame.id)
+            props.deleteOthergame(id)
             setOthergames(newarr)
         } else {
             const newarr = creators.filter(creator => id !== creator.id)
+            props.deleteCreator(id)
             setCreators(newarr)
         }
     }
-
-    // const ytarr = ['https://www.youtube.com/embed/Uqnu9EAoSwA', 'https://www.youtube.com/embed/tPoWuqFEYXs']
 
     const [ytplay, setYtplay] = useState(0)
 
@@ -162,28 +159,37 @@ const Player = props => {
         <div className='playercont'>
             <div className='playerhead'>
                 <h1 className='spiffy'>{player.username}</h1>
-                {details ?
-                    details.twitch_link !== null ?
-                        <img src={Twitch} className='twitch' onClick={() => redirectFunc(details.twitch_link)} /> :
-                        ''
-                    :
-                    ''
-                }
-                {details ?
-                    details.youtube_link !== null ?
-                        <img className='youtube' onClick={() => redirectFunc(details.youtube_link)} src="https://img.icons8.com/dusk/64/000000/youtube--v2.png"/> :
-                        ''
-                    :
-                    ''
-                }
                 {details ? 
-                    <img src={Diamond2} className='twitch' alt={details.rank} /> :
-                    ''
+                    <>
+                        {details.twitch_link !== null ?
+                            <img src={Twitch} className='twitch' onClick={() => redirectFunc(details.twitch_link)} /> :
+                            ''
+                        }
+                        {details.youtube_link !== null ?
+                            <img className='youtube' onClick={() => redirectFunc(details.youtube_link)} src="https://img.icons8.com/dusk/64/000000/youtube--v2.png"/> :
+                            ''
+                        }
+                        {details.rank === 'dia1' ?
+                            <img src={Dia1} className='twitch' alt={`rank ${details.rank}`} /> :
+                        details.rank === 'dia2' ?
+                            <img src={Dia2} className='twitch' alt={`rank ${details.rank}`} /> :
+                        details.rank === 'dia3' ?
+                            <img src={Dia3} className='twitch' alt={`rank ${details.rank}`} /> :
+                        details.rank === 'imm1' ?
+                            <img src={Imm1} className='twitch' alt={`rank ${details.rank}`} /> :
+                        details.rank === 'imm2' ?
+                            <img src={Imm2} className='twitch' alt={`rank ${details.rank}`} /> :
+                        details.rank === 'imm3' ?
+                            <img src={Imm3} className='twitch' alt={`rank ${details.rank}`} /> : 
+                            <img src={Rad} className='twitch' alt={`rank ${details.rank}`} />                      
+                        }
+                    </> :
+                    <p>No details to display :/</p>
                 }
             </div>
             <div className='sideflex2'>
                 {ytlinks.length > 0 ? 
-                    <>
+                    <div className='clips'>
                         <iframe width="500" height="250" className='video'
                             src={`${ytlinks[ytplay].youtubelinks}?autoplay=1&mute=1&loop=1`}>
                         </iframe>
@@ -191,7 +197,7 @@ const Player = props => {
                             <button onClick={() => deleteDetail('youtube', ytlinks[ytplay].id)}>delete</button> :
                             ''
                         }
-                    </> : 
+                    </div> : 
                     <p>No vidoes listed</p>
                 }
                 {props.user.username === name ?
@@ -211,13 +217,8 @@ const Player = props => {
                     </form> : 
                     ''
                 }
-                {/* <iframe width="420" height="250" className='video'
-                    src={`${ytarr[ytplay]}?autoplay=1&mute=1&loop=1`}>
-                </iframe> */}
-                {/* <button onClick={() => changeVid('+')}>+</button>
-                <button onClick={() => changeVid('-')}>-</button> */}
                 <div>
-                    <div>
+                    <div className='maindetails'>
                         <h1>Agents</h1>
                         {agents.length > 0 ? 
                             agents.map(agent => (
@@ -276,7 +277,7 @@ const Player = props => {
                             ''
                         }
                     </div>
-                    <div>
+                    <div className='maindetails2'>
                         <h1>Other Games</h1>
                         {othergames.length > 0 ? 
                             othergames.map(game => (
@@ -316,13 +317,13 @@ const Player = props => {
                             ''
                         }
                     </div>
-                    <div>
-                        <h1>Favorite Content Creators</h1>
+                    <div className='maindetails2'>
+                        <h1 className='fix'>Favorite Content Creators</h1>
                         {creators.length > 0 ?
                             creators.map(creator => (
-                                <div onClick={() => redirectFunc(creator.link)}>
+                                <div onClick={() => redirectFunc(creator.link)} className='maindetails2'>
                                     <p>{creator.name}</p>
-                                    <img src={creator.img} />
+                                    <img src={creator.img} className='agents'/>
                                     {props.user.username === name ?
                                         <button onClick={() => deleteDetail('creator', creator.id)}>delete</button> :
                                         ''
@@ -367,10 +368,8 @@ const mapStateToProps = state => {
         isLoading: state.isLoading,
         error: state.error,
         user: state.user,
-        // friends: state.friends,
-        // users: state.users,
         posts: state.posts
     }
 }
 
-export default connect(mapStateToProps, {  })(Player)
+export default connect(mapStateToProps, { addAgent, deleteAgent, addYtlink, deleteYtlink, addCreator, deleteCreator, addOthergame, deleteOthergame })(Player)

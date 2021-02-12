@@ -9,6 +9,7 @@ import ListLikes from './ListLikes.js'
 const Posts = props => {
     const [allposts, setAllposts] = useState([])
     const [postpost, setPostpost] = useState(false)
+    const [img, setImg] = useState(false)
     const [newPost, setNewPost] = useState({
         post: '',
         location: '',
@@ -94,9 +95,9 @@ const Posts = props => {
                             <button onClick={() => setLocation(!location)}>Cancel</button>
                         </>
                     }
-                    
+                    */}
                     {!img ? 
-                        <p onClick={() => setImg(!img)}>Image</p> :
+                        <p onClick={() => setImg(!img)}>Embedded Ytlink</p> :
                         <>
                             <input
                                 className='locationlocation'
@@ -109,13 +110,15 @@ const Posts = props => {
                             />
                             {newPost.img != '' ?
                                 <>
-                                    <img src={newPost.img} className='postimage' />
+                                    <iframe width="500" height="250" className='video'
+                            src={`${newPost.img}?autoplay=1&mute=1&loop=1`}>
+                        </iframe>
                                 </> :
                                 ''
                             }
                             <button onClick={() => setImg(!img)}>Cancel</button>
                         </>
-                    } */}
+                    } 
                     <button type='submit'>Post</button>
                 </form> :
                 ''

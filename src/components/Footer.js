@@ -4,7 +4,7 @@ import Logo from '../styles/imgs/Hyperspace_logo-HD.png'
 const Footer = () => {
     return (
         <>
-            <div className='footer'>
+            {/* <div className='footer'>
                 <img className='mainlogo2' src={Logo} />
                 <h1 className='hd2'>Hyperspace Dark</h1>
                 <div className='footerBlock'>
@@ -22,8 +22,7 @@ const Footer = () => {
                         <h6>Instagram</h6>
                     </div>
                 </div>
-            </div>
-            
+            </div> */}
         </>
     )
 }

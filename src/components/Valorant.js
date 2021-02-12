@@ -13,12 +13,9 @@ const Valorant = () => {
                 <Link to='/player/BigOleNik' className='name nav'>BigOleNik</Link>
                 <Link to='/player/ISHMUCKLESI' className='name nav'>ISHMUCKLESI</Link>
             </div>
-            <h1 className='lineuptitle'>Light</h1>
+            <h1 className='lineuptitle'>Subs</h1>
             <div className='lineup'>
                 <Link to='/player/Batteries' className='name nav'>Batteries</Link> 
-                <Link to='/player/Ancient Bandit' className='name nav'>Ancient Bandit</Link>
-                <Link to='/player/Spiffy' className='name nav'>Spiffy</Link>
-                <Link to='/player/Dreamy' className='name nav'>Skeletto</Link>
                 <Link to='/player/Zundga' className='name nav'>Zundga</Link>
             </div>
         </div>
