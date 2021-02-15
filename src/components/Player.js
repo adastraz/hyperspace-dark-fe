@@ -3,7 +3,7 @@ import { useLocation, useParams } from 'react-router-dom'
 import Twitch from '../styles/imgs/icons8-twitch-64.png'
 import axios from 'axios'
 import { connect } from 'react-redux'
-import { addAgent, deleteAgent, addYtlink, deleteYtlink, addCreator, deleteCreator, addOthergame, deleteOthergame } from '../actions'
+import { addAgent, deleteAgent, addYtlink, deleteYtlink, addCreator, deleteCreator, addOthergame, deleteOthergame, editUser } from '../actions'
 
 import Raze from '../styles/imgs/raze.png'
 import Yoru from '../styles/imgs/yoru.png'
@@ -46,6 +46,8 @@ const Player = props => {
     const [othergameform, setOthergameform] = useState({ name: '', img_link: '' })
     const [creatorformdis, setCreatorformdis] = useState(false)
     const [creatorform, setCreatorform] = useState({ name: '', img: '', link: '' })
+    const [editformdis, setEditformdis] = useState(false)
+    const [editform, setEditform] = useState({ rank: '' })
 
     useEffect(() => {
         axios.get(`https://hdsocial.herokuapp.com/api/viewuser/${name}/username`)
@@ -89,7 +91,6 @@ const Player = props => {
             ...agentform,
             [e.target.name]: e.target.value.toLowerCase()
         })
-        console.log(agentform)
     }
 
     const submitAgent = e => {
@@ -98,15 +99,13 @@ const Player = props => {
         props.addAgent({ ...agentform, user_id: props.user.id }, props.user.id)
         setAgentform({ agent_name: '' })
         setAgentformdis(false)
-        console.log(agents)
     }
 
     const handleChangesothergame = e => {
         setOthergameform({
             ...othergameform,
-            [e.target.name]: e.target.value.toLowerCase()
+            [e.target.name]: e.target.value
         })
-        console.log(othergameform)
     }
 
     const submitOthergame = e => {
@@ -115,15 +114,13 @@ const Player = props => {
         props.addOthergame({ ...othergameform, user_id: props.user.id }, props.user.id)
         setOthergameform({ name: '', img_link: '' })
         setOthergameformdis(false)
-        console.log(othergames)
     }
 
     const handleChangescreator = e => {
         setCreatorform({
             ...creatorform,
-            [e.target.name]: e.target.value.toLowerCase()
+            [e.target.name]: e.target.value
         })
-        console.log(creatorform)
     }
 
     const submitCreator = e => {
@@ -132,7 +129,20 @@ const Player = props => {
         props.addCreator({ ...creatorform, user_id: props.user.id }, props.user.id)
         setCreatorform({ name: '', img: '' })
         setCreatorformdis(false)
-        console.log(creators)
+    }
+
+    const handleChangesEdit = e => {
+        setEditform({
+            ...editform,
+            [e.target.name]: e.target.value
+        })
+    }
+
+    const submitEdit = e => {
+        e.preventDefault()
+        props.editUser(editform, props.user.id)
+        setEditformdis(!editformdis)
+        setEditform({ rank: '' })
     }
 
     const deleteDetail = (type, id) => {
@@ -188,6 +198,24 @@ const Player = props => {
                     </div> :
                     <p>No details to display :/</p>
                 }
+                {/* {props.user.username === name ? 
+                    <button onClick={() => setEditformdis(!editformdis)}>Edit Rank</button> :
+                    ''
+                }
+                {editformdis ? 
+                    <form onSubmit={submitEdit}>
+                        <input 
+                            type='text'
+                            name='rank'
+                            id='rank'
+                            onChange={handleChangesEdit}
+                            placeholder='rank (imm1, rad, dia3, etc)'
+                            className='input'
+                        />
+                        <button type='submit'>finish</button>
+                    </form> :
+                    ''
+                } */}
             </div>
             <div className='sideflex2'>
                 {ytlinks.length > 0 ? 
@@ -392,4 +420,4 @@ const mapStateToProps = state => {
     }
 }
 
-export default connect(mapStateToProps, { addAgent, deleteAgent, addYtlink, deleteYtlink, addCreator, deleteCreator, addOthergame, deleteOthergame })(Player)
+export default connect(mapStateToProps, { addAgent, deleteAgent, addYtlink, deleteYtlink, addCreator, deleteCreator, addOthergame, deleteOthergame, editUser })(Player)
