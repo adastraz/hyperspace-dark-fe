@@ -9,13 +9,13 @@ const RL = () => {
             <div className='lineup'>
                 <Link to='/player/Othos' className='name nav'>Othos</Link>
                 <Link to='/player/skythegrandmaguy' className='name nav'>skythegrandmaguy</Link>
-                <Link to='/player/killer' className='name nav'>killer</Link>
+                <Link to='/player/tragedy.' className='name nav'>tragedy.</Link>
             </div>
             <h1 className='lineuptitle'>Light</h1>
             <div className='lineup'>
-                <Link to='/player/Zach Lara' className='name nav'>Zach Lara</Link>
-                <Link to='/player/De La Mora' className='name nav'>De La Mora</Link>
-                <Link to='/player/Sly' className='name nav'>Sly</Link>
+                <Link to='/player/ZachLara' className='name nav'>ZachLara</Link>
+                <Link to='/player/DeLaMora' className='name nav'>DeLaMora</Link>
+                <Link to='/player/sciiar' className='name nav'>sciiar</Link>
             </div>
         </div>
     )
