@@ -298,6 +298,16 @@ export const removeComment1 = (commentid, post_id) => dispatch => {
             .catch(err => dispatch({ type: FETCHING_ERROR, payload: err }))
 }
 
+export const editUser = (details, id) => dispatch => {
+    dispatch({ type: FETCHING_START })
+    axiosWithAuth2()
+        .put(`/api/users/${id}/details/user`, details)
+            .then(res => {
+                dispatch({ type: FETCHING_SUCCESS })
+            })
+            .catch(err => dispatch({ type: FETCHING_ERROR, payload: err }))
+}
+
 export const addAgent = (agent, id) => dispatch => {
     dispatch({ type: FETCHING_START })
     axiosWithAuth2()
