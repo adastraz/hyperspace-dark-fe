@@ -166,7 +166,7 @@ const LoadComments = props => {
                             ))}
                         </ModalBody>
                         <ModalFooter>
-                            <form onSubmit={submitComment}>
+                            <form onSubmit={submitComment} className='commentcomment'>
                                 <textarea
                                     className='commentcomment'
                                     id='comment'

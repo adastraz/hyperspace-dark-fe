@@ -110,6 +110,18 @@
 .comment{
     margin-bottom: 1.25rem
 }
+.commentcomment{
+    width: 90%;
+    margin: 0 auto
+}
+
+.input{
+    width: 15rem;
+    margin-bottom: 3rem
+}
+.agentbutton{
+    margin-bottom: 2.5rem
+}
 
 .nav:before {
     content: "";
@@ -239,7 +251,24 @@ a, a:visited, a:hover, a:active {
     justify-content: space-evenly;
     width: 100%;
 }
+.agentflex{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
 
+}
+.agentflex2{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.detailtitle{
+    font-size: 2rem;
+    font-family: 'Rajdhani', sans-serif;
+}
+.imp{
+    margin-bottom: 3rem
+}
 .maincont{
     width: 75%;
 }
@@ -354,6 +383,7 @@ a, a:visited, a:hover, a:active {
 .playerhead{
     display: flex;
     justify-content: space-evenly;
+    margin-bottom: 3rem
 }
 
 .twitch{

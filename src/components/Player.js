@@ -45,7 +45,7 @@ const Player = props => {
     const [othergameformdis, setOthergameformdis] = useState(false)
     const [othergameform, setOthergameform] = useState({ name: '', img_link: '' })
     const [creatorformdis, setCreatorformdis] = useState(false)
-    const [creatorform, setCreatorform] = useState({ name: '', img: '' })
+    const [creatorform, setCreatorform] = useState({ name: '', img: '', link: '' })
 
     useEffect(() => {
         axios.get(`https://hdsocial.herokuapp.com/api/viewuser/${name}/username`)
@@ -137,7 +137,9 @@ const Player = props => {
 
     const deleteDetail = (type, id) => {
         if (type === 'youtube') {
-            console.log('youtube')
+            const newarr = ytlinks.filter(ytlink => id !== ytlink.id)
+            props.deleteYtlink(id)
+            setYtlinks(newarr)
         } else if (type === 'agent') {
             const newarr = agents.filter(agent => id !== agent.id)
             props.deleteAgent(id)
@@ -160,7 +162,7 @@ const Player = props => {
             <div className='playerhead'>
                 <h1 className='spiffy'>{player.username}</h1>
                 {details ? 
-                    <>
+                    <div className='imp'>
                         {details.twitch_link !== null ?
                             <img src={Twitch} className='twitch' onClick={() => redirectFunc(details.twitch_link)} /> :
                             ''
@@ -183,7 +185,7 @@ const Player = props => {
                             <img src={Imm3} className='twitch' alt={`rank ${details.rank}`} /> : 
                             <img src={Rad} className='twitch' alt={`rank ${details.rank}`} />                      
                         }
-                    </> :
+                    </div> :
                     <p>No details to display :/</p>
                 }
             </div>
@@ -212,6 +214,7 @@ const Player = props => {
                             name='youtubelinks'
                             onChange={handleChangesyt}
                             placeholder='Embedded youtube link'
+                            className='input'
                         />
                         <button type='submit'>send</button>
                     </form> : 
@@ -219,48 +222,50 @@ const Player = props => {
                 }
                 <div>
                     <div className='maindetails'>
-                        <h1>Agents</h1>
+                        <h1 className='detailtitle'>Agents</h1>
                         {agents.length > 0 ? 
-                            agents.map(agent => (
-                                <>
-                                    {agent.agent_name === 'raze' ?
-                                        <img src={Raze} className='agents'/> :
-                                    agent.agent_name === 'omen' ?
-                                        <img src={Omen} className='agents' /> :
-                                    agent.agent_name === 'brimstone' ?
-                                        <img src={Brimstone} className='agents' /> :
-                                    agent.agent_name === 'breach' ?
-                                        <img src={Breach} className='agents' /> :
-                                    agent.agent_name === 'viper' ?
-                                        <img src={Viper} className='agents' /> :
-                                    agent.agent_name === 'killjoy' ?
-                                        <img src={Killjoy} className='agents' /> :
-                                    agent.agent_name === 'cypher' ?
-                                        <img src={Cypher} className='agents' /> :
-                                    agent.agent_name === 'yoru' ?
-                                        <img src={Yoru} className='agents' /> :
-                                    agent.agent_name === 'sova' ?
-                                        <img src={Sova} className='agents' /> :
-                                    agent.agent_name === 'reyna' ?
-                                        <img src={Reyna} className='agents' /> :
-                                    agent.agent_name === 'pheonix' ?
-                                        <img src={Pheonix} className='agents' /> :
-                                    agent.agent_name === 'jett' ?
-                                        <img src={Jett} className='agents' /> :
-                                    agent.agent_name === 'sage' ? 
-                                        <img src={Sage} className='agents' /> :
-                                        <img src={Skye} className='agents' /> 
-                                    }
-                                    {props.user.username === name ?
-                                        <button onClick={() => deleteDetail('agent', agent.id)}>delete</button> :
-                                        ''
-                                    }
-                                </>
-                            )) : 
-                        <p>No agents listed</p>
+                            <div className='agentflex'>
+                                {agents.map(agent => (
+                                    <div className='agentflex2'>
+                                        {agent.agent_name === 'raze' ?
+                                            <img src={Raze} className='agents'/> :
+                                        agent.agent_name === 'omen' ?
+                                            <img src={Omen} className='agents' /> :
+                                        agent.agent_name === 'brimstone' ?
+                                            <img src={Brimstone} className='agents' /> :
+                                        agent.agent_name === 'breach' ?
+                                            <img src={Breach} className='agents' /> :
+                                        agent.agent_name === 'viper' ?
+                                            <img src={Viper} className='agents' /> :
+                                        agent.agent_name === 'killjoy' ?
+                                            <img src={Killjoy} className='agents' /> :
+                                        agent.agent_name === 'cypher' ?
+                                            <img src={Cypher} className='agents' /> :
+                                        agent.agent_name === 'yoru' ?
+                                            <img src={Yoru} className='agents' /> :
+                                        agent.agent_name === 'sova' ?
+                                            <img src={Sova} className='agents' /> :
+                                        agent.agent_name === 'reyna' ?
+                                            <img src={Reyna} className='agents' /> :
+                                        agent.agent_name === 'pheonix' ?
+                                            <img src={Pheonix} className='agents' /> :
+                                        agent.agent_name === 'jett' ?
+                                            <img src={Jett} className='agents' /> :
+                                        agent.agent_name === 'sage' ? 
+                                            <img src={Sage} className='agents' /> :
+                                            <img src={Skye} className='agents' /> 
+                                        }
+                                        {props.user.username === name ?
+                                            <button onClick={() => deleteDetail('agent', agent.id)}>delete</button> :
+                                            ''
+                                        }
+                                    </div>
+                                )) }
+                            </div> : 
+                            <p>No agents listed</p>
                         }
                         {props.user.username === name ?
-                            <button onClick={() => setAgentformdis(!agentformdis)}>Add agents</button> :
+                            <button className={agentformdis ? '' : 'agentbutton'} onClick={() => setAgentformdis(!agentformdis)}>Add agents</button> :
                             ''
                         }
                         {agentformdis ?
@@ -271,6 +276,7 @@ const Player = props => {
                                     name='agent_name'
                                     onChange={handleChangesagent}
                                     placeholder='Agent name'
+                                    className='input'
                                 />
                                 <button type='submit'>send</button>
                             </form> : 
@@ -278,18 +284,20 @@ const Player = props => {
                         }
                     </div>
                     <div className='maindetails2'>
-                        <h1>Other Games</h1>
+                        <h1 className='detailtitle'>Other Games</h1>
                         {othergames.length > 0 ? 
-                            othergames.map(game => (
-                                <>
-                                    <img src={game.img_link} className='agents' />
-                                    <p>{game.name}</p>
-                                    {props.user.username === name ?
-                                        <button onClick={() => deleteDetail('othergame', game.id)}>delete</button> :
-                                        ''
-                                    }
-                                </>
-                            )) :
+                            <div className='agentflex'>
+                                {othergames.map(game => (
+                                    <div className='agentflex2'>
+                                        <img src={game.img_link} className='agents' />
+                                        <p>{game.name}</p>
+                                        {props.user.username === name ?
+                                            <button onClick={() => deleteDetail('othergame', game.id)}>delete</button> :
+                                            ''
+                                        }
+                                    </div>
+                                ))} 
+                            </div> :
                             <p>No games listed</p>
                         }
                         {props.user.username === name ?
@@ -304,6 +312,7 @@ const Player = props => {
                                     name='name'
                                     onChange={handleChangesothergame}
                                     placeholder='Game name'
+                                    className='input'
                                 />
                                 <input  
                                     type='text'
@@ -311,6 +320,7 @@ const Player = props => {
                                     name='img_link'
                                     onChange={handleChangesothergame}
                                     placeholder='Img address link (logo)'
+                                    className='input'
                                 />
                                 <button type='submit'>send</button>
                             </form> : 
@@ -318,12 +328,12 @@ const Player = props => {
                         }
                     </div>
                     <div className='maindetails2'>
-                        <h1 className='fix'>Favorite Content Creators</h1>
+                        <h1 className='fix detailtitle'>Favorite Content Creators</h1>
                         {creators.length > 0 ?
                             creators.map(creator => (
-                                <div onClick={() => redirectFunc(creator.link)} className='maindetails2'>
-                                    <p>{creator.name}</p>
-                                    <img src={creator.img} className='agents'/>
+                                <div className='maindetails2'>
+                                    <p onClick={() => redirectFunc(creator.link)}>{creator.name}</p>
+                                    <img onClick={() => redirectFunc(creator.link)} src={creator.img} className='agents'/>
                                     {props.user.username === name ?
                                         <button onClick={() => deleteDetail('creator', creator.id)}>delete</button> :
                                         ''
@@ -344,6 +354,7 @@ const Player = props => {
                                     name='name'
                                     onChange={handleChangescreator}
                                     placeholder='Creator name'
+                                    className='input'
                                 />
                                 <input  
                                     type='text'
@@ -351,6 +362,15 @@ const Player = props => {
                                     name='img'
                                     onChange={handleChangescreator}
                                     placeholder='Img address link (profile img)'
+                                    className='input'
+                                />
+                                <input  
+                                    type='text'
+                                    id='link'
+                                    name='link'
+                                    onChange={handleChangescreator}
+                                    placeholder='Link to creator'
+                                    className='input'
                                 />
                                 <button type='submit'>send</button>
                             </form> : 
