@@ -332,8 +332,8 @@ const Player = props => {
                         {creators.length > 0 ?
                             creators.map(creator => (
                                 <div className='maindetails2'>
-                                    <p onClick={() => redirectFunc(creator.link)}>{creator.name}</p>
                                     <img onClick={() => redirectFunc(creator.link)} src={creator.img} className='agents'/>
+                                    <p onClick={() => redirectFunc(creator.link)}>{creator.name}</p>
                                     {props.user.username === name ?
                                         <button onClick={() => deleteDetail('creator', creator.id)}>delete</button> :
                                         ''
