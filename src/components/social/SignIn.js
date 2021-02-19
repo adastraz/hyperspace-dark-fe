@@ -3,6 +3,7 @@ import { connect } from 'react-redux'
 import { login, register, clearError, fetchUserLikes } from '../../actions'
 import Loader from 'react-loader-spinner'
 import Posts from './Posts.js'
+import { SignInput, RouteButton, RouteButtonDiv } from '../../styles/Sidebar'
 
 const SignIn = props => {
     const [user, setUser] = useState({
@@ -82,7 +83,7 @@ const SignIn = props => {
                 setSpecial(false)
             } 
         }
-        if (signup && user.password == confirm.password) {
+        if (!signup && user.password == confirm.password && user.password.length > 0) {
             setUnmatching(true)
         } else{
             setUnmatching(false)
@@ -94,8 +95,7 @@ const SignIn = props => {
             {localStorage.getItem('token') == null ?
                 <div className='signDiv'>
                     <form onSubmit={submitForm}>
-                        <input 
-                            className='signin'
+                        <SignInput
                             id='username'
                             type='text'
                             name='username'
@@ -103,8 +103,7 @@ const SignIn = props => {
                             value={user.username}
                             placeholder='Username'
                         />
-                        <input 
-                            className='signin'
+                        <SignInput 
                             id='password'
                             type='password'
                             name='password'
@@ -113,9 +112,9 @@ const SignIn = props => {
                             placeholder='Password'
                         />
                         {signup ?
-                            <button type='submit' className='login'>Login</button> :
+                            <div><button class="button type3">Login</button></div> :
                             <>
-                                <input 
+                                <SignInput 
                                     className='signin'
                                     id='password'
                                     type='password'
@@ -125,8 +124,8 @@ const SignIn = props => {
                                     placeholder='Confirm Password'
                                 />
                                 {unmatching && length && number && special && letter ?
-                                    <button type='submit'>Sign Up</button> :
-                                    <a className='red'>Requirements not met</a>
+                                    <div><button class="button type3">Sign Up</button></div> :
+                                    <p className='red'>Requirements not met</p>
                                 }
                             </> 
                         }
@@ -161,8 +160,12 @@ const SignIn = props => {
                         }
                     </form>
                     {signup ? 
-                        <p id='nav' className='nav'onClick={() => setSignup(!signup)}>Create Account</p> :
-                        <p id='nav' className='nav' onClick={() => setSignup(!signup)}>Already have an Account</p>
+                        <RouteButtonDiv>
+                            <RouteButton className='nav' onClick={() => setSignup(!signup)}>Create Account</RouteButton>
+                        </RouteButtonDiv> :
+                        <RouteButtonDiv>
+                            <RouteButton className='nav' onClick={() => setSignup(!signup)}>Already have an Account</RouteButton>
+                        </RouteButtonDiv>
                     }
                     {
                         props.isLoading ? 

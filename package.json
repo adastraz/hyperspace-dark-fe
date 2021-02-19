@@ -23,6 +23,7 @@
     "redux-logger": "^3.0.6",
     "redux-thunk": "^2.3.0",
     "shopify-buy": "^2.11.0",
+    "styled-components": "^5.2.1",
     "web-vitals": "^0.2.4"
   },
   "scripts": {
