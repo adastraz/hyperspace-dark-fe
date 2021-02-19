@@ -6,7 +6,7 @@ import RL from '../styles/imgs/rl-logo.png'
 import Helmet from '../styles/imgs/Hyperspace_logo-Helmet-2.png'
 import { connect } from 'react-redux'
 import { HD, TopDown, FlexCenter, HeaderDiv, DiscordDiv, HelmetImg, RegLogo, RLlogo, RegLogo2, RLlogo2, MainLogo, ConditionalNav, ConditionalNavToggler, NavDiv, FlexCenterColumn, FlexCenterTop } from '../styles/Header'
-import { Collapse, Navbar, NavbarToggler, NavbarBrand, Nav, NavItem, NavLink } from 'reactstrap'
+import { Collapse, NavItem } from 'reactstrap'
 
 const Header = props => {
     const [dis, setDis] = useState(false)

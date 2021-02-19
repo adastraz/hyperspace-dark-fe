@@ -6,6 +6,7 @@ import { getStreamers } from '../../actions'
 import axiosWithAuth from '../../utils/axiosWithAuth'
 import SignIn from '../social/SignIn.js'
 import Selector from './Selector.js'
+import { Container } from '../../styles/Sidebar'
 
 const Sidebar = props => {
     const location = useLocation()
@@ -55,7 +56,7 @@ const Sidebar = props => {
 
     return (
         <>  
-            <div className='sidebarcontainer'>
+            <Container>
                 {localStorage.getItem('side') == 'Schedule' ? 
                     <>
                         <Selector title='Schedule'/>
@@ -101,7 +102,7 @@ const Sidebar = props => {
                         <SignIn />
                     </>
                 }
-            </div>
+            </Container>
         </>
     )
 }

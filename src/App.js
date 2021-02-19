@@ -12,6 +12,7 @@ import Player from './components/Player'
 // import Checkoutshop from './components/store/Checkoutshop'
 import EsportsGear from './components/store/EsportsGear'
 import Footer from './components/Footer'
+import { SpaceBetween } from './styles/App'
 
 function App() {
   const [display, setdisplay] = useState(true)
@@ -28,7 +29,7 @@ function App() {
   return (
     <>
       <Header />
-      <div className='sideflex'>
+      <SpaceBetween>
           <Switch>
             <Route path='/player/:name' component={Player} />
             <Route path='/valorant' component={Valorant} />
@@ -38,7 +39,7 @@ function App() {
             <Route exact path='/' component={Welcome} />
           </Switch>
           <Sidebar />
-      </div>
+      </SpaceBetween>
       {/* <div id='collection-component-1610576218932' className={display ? '' : 'hidden'}></div> */}
       <Footer />
     </>

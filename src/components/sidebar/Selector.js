@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react'
 import { Dropdown, DropdownToggle, DropdownMenu, DropdownItem } from 'reactstrap'
 import { setNowlive, setSched, setSocial } from '../../actions'
 import { connect } from 'react-redux'
+import { SelectorTitle } from '../../styles/Sidebar'
 
 const Selector = props => {
     const [dropdownOpen, setDropdownOpen] = useState(false)
@@ -10,9 +11,9 @@ const Selector = props => {
 
     return (
         <Dropdown isOpen={dropdownOpen} toggle={toggle}>
-            <DropdownToggle id='selector'>
+            <SelectorTitle>
                 {props.title}
-            </DropdownToggle>
+            </SelectorTitle>
             <DropdownMenu>
                 {titles.map(name => (
                     <>
