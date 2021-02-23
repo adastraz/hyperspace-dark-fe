@@ -33,7 +33,8 @@ export const FlexCenterColumn = styled.div`
 export const FlexCenterTop = styled.div`
     display: flex;
     text-align: center;
-    margin: 4rem auto
+    jusitfy-content: space-between;
+    margin: 4rem 0;
 `
 
 export const HeaderDiv = styled.div`
@@ -49,7 +50,8 @@ export const HeaderDiv = styled.div`
 `
 
 export const GameLink = styled(Link)`
-    margin: 0 auto
+    width: 25rem;
+    padding-left: 4rem
 `
 
 export const DiscordDiv = styled.div`
@@ -71,6 +73,7 @@ export const DiscordDiv2 = styled.div`
     display: flex;
     flex-direction: column;
     justify-content: center;
+    margin-top: 1.5rem;
     align-items: center;
     background: rgb(0,41,122);
     background: linear-gradient(0deg, rgba(0,41,122,1) 0%, rgba(245,249,248,1) 21%, rgba(149,58,164,1) 47%, rgba(210,34,183,1) 72%, rgba(253,187,45,1) 90%);
@@ -127,7 +130,7 @@ export const RLlogo2 = styled.img`
 export const ConditionalNav = styled(Navbar)`
     display: none;
     text-align: center;
-    margin: 5rem;
+    margin: 5rem auto;
     @media(max-width: 1500px) {
         display: block;
     }
@@ -147,4 +150,5 @@ export const NavDiv = styled(Nav)`
     justify-content: space-evenly;
     height: 60rem;
     align-items: center;
+    width: 50rem
 `

@@ -40,10 +40,12 @@ const Header = props => {
                     <NavDiv navbar>
                         <FlexCenterColumn>
                             <NavItem>
+                                <DiscordDiv2>
                                     <a href='https://discord.gg/dXUFew7Gvn' target="_blank">
                                         <HelmetImg src={Helmet} />
                                     </a>
                                     <p className='msgdisc'>Join our discord!</p>
+                                </DiscordDiv2>
                             </NavItem>
                             <NavItem>
                                 <FlexCenterTop>
