@@ -96,7 +96,7 @@ const LoadComments = props => {
                 <Button id='sidelc' onClick={toggle}>
                     <p className='showpost code'>{props.post.post}</p>
                     {props.post.img != '' ?
-                        <iframe width="500" height="250" className='postimage2'
+                        <iframe width="500" height="auto" className='postimage2'
                             src={`${props.post.img}?autoplay=1&mute=1&loop=1`}>
                         </iframe> : ''
                     }

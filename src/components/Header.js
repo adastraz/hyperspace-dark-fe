@@ -5,8 +5,10 @@ import Valorant from '../styles/imgs/valorant-logo.png'
 import RL from '../styles/imgs/rl-logo.png'
 import Helmet from '../styles/imgs/Hyperspace_logo-Helmet-2.png'
 import { connect } from 'react-redux'
-import { HD, TopDown, FlexCenter, HeaderDiv, DiscordDiv, HelmetImg, RegLogo, RLlogo, RegLogo2, RLlogo2, MainLogo, ConditionalNav, ConditionalNavToggler, NavDiv, FlexCenterColumn, FlexCenterTop } from '../styles/Header'
+import history from '../utils/history'
+import { HD, TopDown, FlexCenter, HeaderDiv, DiscordDiv, DiscordDiv2, HelmetImg, RegLogo, RLlogo, RegLogo2, RLlogo2, MainLogo, ConditionalNav, ConditionalNavToggler, NavDiv, FlexCenterColumn, FlexCenterTop, GameLink } from '../styles/Header'
 import { Collapse, NavItem } from 'reactstrap'
+import Sidebar from './sidebar/Sidebar'
 
 const Header = props => {
     const [dis, setDis] = useState(false)
@@ -38,27 +40,34 @@ const Header = props => {
                     <NavDiv navbar>
                         <FlexCenterColumn>
                             <NavItem>
-                                <a href='https://discord.gg/dXUFew7Gvn' target="_blank">
-                                    <HelmetImg src={Helmet} />
-                                </a>
-                                <p className='msgdisc'>Join our discord!</p>
+                                    <a href='https://discord.gg/dXUFew7Gvn' target="_blank">
+                                        <HelmetImg src={Helmet} />
+                                    </a>
+                                    <p className='msgdisc'>Join our discord!</p>
                             </NavItem>
                             <NavItem>
-                            <FlexCenterTop>
-                                <Link 
-                                    to='/valorant' className='nav' onMouseOver={() => setDis(!dis)}
-                                    onMouseOut={() => setDis(!dis)}>
-                                        <RegLogo2 src={Valorant} />
-                                        {/* <h3 className={!dis ? 'hidden' : 'yes'}>Players</h3> */}
-                                </Link>
-                                <Link 
-                                    to='/rl' className='nav' onMouseOver={() => setDis2(!dis2)}
-                                    onMouseOut={() => setDis2(!dis2)}>
-                                        <RLlogo2 src={RL} />
-                                        {/* <h3 className={!dis2 ? 'hidden' : 'yes'}>Players</h3> */}
-                                </Link>
-                                {/* <button onClick={() => redirect()}>Store</button> */}
-                            </FlexCenterTop>
+                                <FlexCenterTop>
+                                    <GameLink 
+                                        to='/valorant' className='nav' 
+                                        onClick={toggleNavbar}
+                                        onMouseOver={() => setDis(!dis)}
+                                        onMouseOut={() => setDis(!dis)}>
+                                            <RegLogo2 src={Valorant} />
+                                            {/* <h3 className={!dis ? 'hidden' : 'yes'}>Players</h3> */}
+                                    </GameLink>
+                                    <GameLink 
+                                        to='/rl' className='nav' 
+                                        onClick={toggleNavbar}
+                                        onMouseOver={() => setDis2(!dis2)}
+                                        onMouseOut={() => setDis2(!dis2)}>
+                                            <RLlogo2 src={RL} />
+                                            {/* <h3 className={!dis2 ? 'hidden' : 'yes'}>Players</h3> */}
+                                    </GameLink>
+                                    {/* <button onClick={() => redirect()}>Store</button> */}
+                                </FlexCenterTop>
+                            </NavItem>
+                            <NavItem>
+                                <Sidebar small={true} />
                             </NavItem>
                         </FlexCenterColumn>
                     </NavDiv>

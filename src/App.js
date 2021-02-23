@@ -38,7 +38,7 @@ function App() {
             <Route path='/store' component={EsportsGear} />
             <Route exact path='/' component={Welcome} />
           </Switch>
-          <Sidebar />
+          <Sidebar small={false}/>
       </SpaceBetween>
       {/* <div id='collection-component-1610576218932' className={display ? '' : 'hidden'}></div> */}
       <Footer />

@@ -14,7 +14,22 @@ export const Container = styled.div`
     margin-right: 1rem;
     margin-bottom: 2rem;
     padding: 1rem;
-    border: 10px double mediumpurple
+    border: 10px double mediumpurple;
+    @media(max-width: 1500px){
+        display: none;
+    }
+`
+
+export const ContainerSmall = styled.div`
+    width: 400px;
+    height: 35rem;
+    text-align: center;
+    border-radius: 2rem;
+    overflow-y: auto;
+    background-color: black;
+    padding: 1rem;
+    border: 10px double mediumpurple;
+    margin: 0 auto
 `
 
 export const SelectorTitle = styled(DropdownToggle)`

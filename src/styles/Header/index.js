@@ -48,6 +48,10 @@ export const HeaderDiv = styled.div`
     }
 `
 
+export const GameLink = styled(Link)`
+    margin: 0 auto
+`
+
 export const DiscordDiv = styled.div`
     display: flex;
     flex-direction: column;
@@ -61,6 +65,18 @@ export const DiscordDiv = styled.div`
     @media(max-width: 1500px) {
         display: none
     }
+`
+
+export const DiscordDiv2 = styled.div`
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background: rgb(0,41,122);
+    background: linear-gradient(0deg, rgba(0,41,122,1) 0%, rgba(245,249,248,1) 21%, rgba(149,58,164,1) 47%, rgba(210,34,183,1) 72%, rgba(253,187,45,1) 90%);
+    border-radius: 3rem;
+    padding: 1.25rem;
+    border: 1rem double white;
 `
 
 export const HelmetImg = styled.img`
@@ -113,7 +129,7 @@ export const ConditionalNav = styled(Navbar)`
     text-align: center;
     margin: 5rem;
     @media(max-width: 1500px) {
-        display: block
+        display: block;
     }
 `
 
@@ -129,6 +145,6 @@ export const ConditionalNavToggler = styled(NavbarToggler)`
 export const NavDiv = styled(Nav)`
     display: flex;
     justify-content: space-evenly;
-    height: 20rem;
+    height: 60rem;
     align-items: center;
 `
