@@ -6,7 +6,7 @@ import RL from '../styles/imgs/rl-logo.png'
 import Helmet from '../styles/imgs/Hyperspace_logo-Helmet-2.png'
 import { connect } from 'react-redux'
 import history from '../utils/history'
-import { HD, TopDown, FlexCenter, HeaderDiv, DiscordDiv, DiscordDiv2, HelmetImg, RegLogo, RLlogo, RegLogo2, RLlogo2, MainLogo, ConditionalNav, ConditionalNavToggler, NavDiv, FlexCenterColumn, FlexCenterTop, GameLink } from '../styles/Header'
+import { HD, TopDown, FlexCenter, HeaderDiv, DiscordDiv, DiscordDiv2, HelmetImg, RegLogo, RLlogo, RegLogo2, RLlogo2, MainLogo, ConditionalNav, ConditionalNavToggler, NavDiv, FlexCenterColumn, FlexCenterTop, GameLink, StoreButton, StoreButton2 } from '../styles/Header'
 import { Collapse, NavItem } from 'reactstrap'
 import Sidebar from './sidebar/Sidebar'
 
@@ -15,13 +15,19 @@ const Header = props => {
     const [dis2, setDis2] = useState(false)
     const location = useLocation()
 
-    // const redirect = () => {
-    //     history.push('/store')
-    //     window.location.reload()
-    // }
+    const redirect = () => {
+        history.push('/store')
+        window.location.reload()
+    }
     const [collapsed, setCollapsed] = useState(true)
 
     const toggleNavbar = () => setCollapsed(!collapsed)
+
+    const redirectFunc = () => {
+        const win = window.open('https://discord.gg/dXUFew7Gvn', '_blank')
+        win.focus()
+    }
+
     return (
         <HeaderDiv>
             <FlexCenter>
@@ -40,7 +46,7 @@ const Header = props => {
                     <NavDiv navbar>
                         <FlexCenterColumn>
                             <NavItem>
-                                <DiscordDiv2>
+                                <DiscordDiv2 onClick={redirectFunc}>
                                     <a href='https://discord.gg/dXUFew7Gvn' target="_blank">
                                         <HelmetImg src={Helmet} />
                                     </a>
@@ -65,8 +71,8 @@ const Header = props => {
                                             <RLlogo2 src={RL} />
                                             {/* <h3 className={!dis2 ? 'hidden' : 'yes'}>Players</h3> */}
                                     </GameLink>
-                                    {/* <button onClick={() => redirect()}>Store</button> */}
                                 </FlexCenterTop>
+                                <StoreButton2 className='button type3' onClick={() => redirect()}>Store</StoreButton2>
                             </NavItem>
                             <NavItem>
                                 <Sidebar small={true} />
@@ -77,7 +83,7 @@ const Header = props => {
                 </ConditionalNav>
             {/*  */}
 
-            <DiscordDiv>
+            <DiscordDiv onClick={redirectFunc}>
                 <a href='https://discord.gg/dXUFew7Gvn' target="_blank">
                     <HelmetImg src={Helmet} />
                 </a>
@@ -96,7 +102,7 @@ const Header = props => {
                         <RLlogo src={RL} />
                         {/* <h3 className={!dis2 ? 'hidden' : 'yes'}>Players</h3> */}
                 </Link>
-                {/* <button onClick={() => redirect()}>Store</button> */}
+                <StoreButton className='button type3' onClick={() => redirect()}>Store</StoreButton>
             </FlexCenter>
         </HeaderDiv>
     )

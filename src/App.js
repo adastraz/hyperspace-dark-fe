@@ -13,6 +13,7 @@ import Player from './components/Player'
 import EsportsGear from './components/store/EsportsGear'
 import Footer from './components/Footer'
 import { SpaceBetween } from './styles/App'
+import { StoreDiv } from './styles/Store'
 
 function App() {
   const [display, setdisplay] = useState(true)
@@ -40,7 +41,7 @@ function App() {
           </Switch>
           <Sidebar small={false}/>
       </SpaceBetween>
-      {/* <div id='collection-component-1610576218932' className={display ? '' : 'hidden'}></div> */}
+      <StoreDiv id='collection-component-1610576218932' className={display ? '' : 'hidden'}></StoreDiv>
       <Footer />
     </>
   )

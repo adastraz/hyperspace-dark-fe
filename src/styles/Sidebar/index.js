@@ -11,7 +11,7 @@ export const Container = styled.div`
     overflow-y: auto;
     right: 0;
     background-color: black;
-    margin-right: 1rem;
+    margin-right: 3rem;
     margin-bottom: 2rem;
     padding: 1rem;
     border: 10px double mediumpurple;

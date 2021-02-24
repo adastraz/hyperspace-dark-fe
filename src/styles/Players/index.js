@@ -2,11 +2,13 @@ import styled from 'styled-components'
 
 
 export const PlayerDiv = styled.div`
+    margin: 4rem 3rem;
     display: flex;
+    flex-direction: column;
+    align-items: center;
     width: 70%;
-    justify-content: space-around;
     @media(max-width: 1500px) {
         margin: 0 auto;
-        justify-content: space-between;
+        width: 90%;
     }
 `
