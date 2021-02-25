@@ -11,10 +11,28 @@ export const Container = styled.div`
     overflow-y: auto;
     right: 0;
     background-color: black;
-    margin-right: 1rem;
+    margin-right: 3rem;
     margin-bottom: 2rem;
     padding: 1rem;
-    border: 10px double mediumpurple
+    border: 10px double mediumpurple;
+    @media(max-width: 1500px){
+        display: none;
+    }
+`
+
+export const ContainerSmall = styled.div`
+    width: 400px;
+    height: 35rem;
+    text-align: center;
+    border-radius: 2rem;
+    overflow-y: auto;
+    background-color: black;
+    padding: 1rem;
+    border: 10px double mediumpurple;
+    margin: 0 auto;
+    @media(max-width: 500px) {
+        width: 95%;
+    }
 `
 
 export const SelectorTitle = styled(DropdownToggle)`

@@ -6,7 +6,6 @@ const EsportsGear = () => {
 
     return (
         <>
-            <h1>Store</h1>
         </>
     )
 }

@@ -3,5 +3,9 @@ import { Font } from '../'
 
 export const SpaceBetween = styled.div`
     display: flex;
-    justify-content: space-between
+    justify-content: space-between;
+    @media(max-width: 1500px) {
+        display: block;
+        margin: 0 auto
+    }
 `

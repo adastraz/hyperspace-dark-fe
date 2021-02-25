@@ -23,10 +23,10 @@ import Brimstone from '../styles/imgs/brimstone.png'
 import Dia1 from '../styles/imgs/dia2.png'
 import Dia2 from '../styles/imgs/dia2.png'
 import Dia3 from '../styles/imgs/dia3.png'
-import Imm1 from '../styles/imgs/imm1.png'
-import Imm2 from '../styles/imgs/imm2.png'
 import Imm3 from '../styles/imgs/imm3.png'
 import Rad from '../styles/imgs/radiant.png'
+
+import { PlayerDiv } from '../styles/Players'
 
 const Player = props => {
     const location = useLocation()
@@ -168,7 +168,7 @@ const Player = props => {
     const [ytplay, setYtplay] = useState(0)
 
     return (
-        <div className='playercont'>
+        <PlayerDiv>
             <div className='playerhead'>
                 <h1 className='spiffy'>{player.username}</h1>
                 {details ? 
@@ -187,11 +187,7 @@ const Player = props => {
                             <img src={Dia2} className='twitch' alt={`rank ${details.rank}`} /> :
                         details.rank === 'dia3' ?
                             <img src={Dia3} className='twitch' alt={`rank ${details.rank}`} /> :
-                        details.rank === 'imm1' ?
-                            <img src={Imm1} className='twitch' alt={`rank ${details.rank}`} /> :
-                        details.rank === 'imm2' ?
-                            <img src={Imm2} className='twitch' alt={`rank ${details.rank}`} /> :
-                        details.rank === 'imm3' ?
+                        details.rank === 'imm' ?
                             <img src={Imm3} className='twitch' alt={`rank ${details.rank}`} /> : 
                             <img src={Rad} className='twitch' alt={`rank ${details.rank}`} />                      
                         }
@@ -407,7 +403,7 @@ const Player = props => {
                     </div>
                 </div>
             </div>
-        </div>
+        </PlayerDiv>
     )
 }
 

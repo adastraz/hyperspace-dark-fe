@@ -9,6 +9,7 @@ const ListLikes = props => {
     const [dropdownOpen, setDropdownOpen] = useState(false)
     const [likes, setLikes] = useState([])
     const toggle = () => setDropdownOpen(prevState => !prevState)
+    const players = ['Tryhard']
 
     useEffect(() => {
         axiosWithAuth2()
@@ -28,21 +29,15 @@ const ListLikes = props => {
                 <DropdownItem divider />
                 {likes.map(user => (
                     <>
-                        {user.like_username == localStorage.getItem('name') ?
-                            <Link 
-                                to={`/profile/${props.user.id}`}
+                        {players.includes(user.like_username)  ?
+                            <DropdownItem><Link 
+                                to={`/player/${user.like_username}`}
+                                id='playerusername'
                                 key={user.id}
                                 className='likename'>
                                     {user.like_username}
-                            </Link> :
-                            <div classname='likeflex'>
-                                <Link
-                                    to={`/user/${user.user_id}`}
-                                    key={user.id}
-                                    className='likename'>
-                                        {user.like_username}
-                                </Link>
-                            </div>
+                            </Link></DropdownItem> :
+                            <DropdownItem id='username'><p>{user.like_username}</p></DropdownItem>
                         }
                     </>
                 ))}

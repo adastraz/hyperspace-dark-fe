@@ -1,10 +1,11 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 import { connect } from 'react-redux'
+import { PlayerDiv } from '../styles/Players'
 
 const Valorant = () => {
     return (
-        <div className='players'>
+        <PlayerDiv>
             <h1 className='lineuptitle'>Dark</h1>
             <div className='lineup'>
                 <Link to='/player/Nave' className='name nav'>Nave</Link> 
@@ -14,11 +15,11 @@ const Valorant = () => {
                 <Link to='/player/ISHMUCKLESI' className='name nav'>ISHMUCKLESI</Link>
             </div>
             <h1 className='lineuptitle'>Subs</h1>
-            <div className='lineup'>
+            <div className='lineup2'>
                 <Link to='/player/Batteries' className='name nav'>Batteries</Link> 
                 <Link to='/player/Zundga' className='name nav'>Zundga</Link>
             </div>
-        </div>
+        </PlayerDiv>
     )
 }
 
