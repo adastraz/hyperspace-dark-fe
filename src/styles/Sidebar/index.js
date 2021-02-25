@@ -29,7 +29,10 @@ export const ContainerSmall = styled.div`
     background-color: black;
     padding: 1rem;
     border: 10px double mediumpurple;
-    margin: 0 auto
+    margin: 0 auto;
+    @media(max-width: 500px) {
+        width: 95%;
+    }
 `
 
 export const SelectorTitle = styled(DropdownToggle)`

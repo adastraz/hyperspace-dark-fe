@@ -6,7 +6,7 @@ import RL from '../styles/imgs/rl-logo.png'
 import Helmet from '../styles/imgs/Hyperspace_logo-Helmet-2.png'
 import { connect } from 'react-redux'
 import history from '../utils/history'
-import { HD, TopDown, FlexCenter, HeaderDiv, DiscordDiv, DiscordDiv2, HelmetImg, RegLogo, RLlogo, RegLogo2, RLlogo2, MainLogo, ConditionalNav, ConditionalNavToggler, NavDiv, FlexCenterColumn, FlexCenterTop, GameLink, StoreButton, StoreButton2 } from '../styles/Header'
+import { HD, TopDown, FlexCenter, FlexCenter2, HeaderDiv, DiscordDiv, DiscordDiv2, HelmetImg, RegLogo, RLlogo, RegLogo2, RLlogo2, MainLogo, ConditionalNav, ConditionalNavToggler, NavDiv, FlexCenterColumn, FlexCenterTop, GameLink, StoreButton, StoreButton2, UL } from '../styles/Header'
 import { Collapse, NavItem } from 'reactstrap'
 import Sidebar from './sidebar/Sidebar'
 
@@ -41,8 +41,8 @@ const Header = props => {
 
             {/*  */}
                 <ConditionalNav color="faded" light>
-                    <ConditionalNavToggler onClick={toggleNavbar} className="mr-2" />
-                    <Collapse isOpen={!collapsed} navbar>
+                    <ConditionalNavToggler onClick={toggleNavbar} />
+                    <UL isOpen={!collapsed} navbar>
                     <NavDiv navbar>
                         <FlexCenterColumn>
                             <NavItem>
@@ -79,7 +79,7 @@ const Header = props => {
                             </NavItem>
                         </FlexCenterColumn>
                     </NavDiv>
-                    </Collapse>
+                    </UL>
                 </ConditionalNav>
             {/*  */}
 
@@ -89,7 +89,7 @@ const Header = props => {
                 </a>
                 <p className='msgdisc'>Join our discord!</p>
             </DiscordDiv>
-            <FlexCenter>
+            <FlexCenter2>
                 <Link 
                     to='/valorant' className='nav' onMouseOver={() => setDis(!dis)}
                     onMouseOut={() => setDis(!dis)}>
@@ -103,7 +103,7 @@ const Header = props => {
                         {/* <h3 className={!dis2 ? 'hidden' : 'yes'}>Players</h3> */}
                 </Link>
                 <StoreButton className='button type3' onClick={() => redirect()}>Store</StoreButton>
-            </FlexCenter>
+            </FlexCenter2>
         </HeaderDiv>
     )
 }
