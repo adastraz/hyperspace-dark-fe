@@ -94,6 +94,9 @@ export const GameLink = styled(Link)`
     @media(max-width: 500px) {
         width: 40%;
     }
+    @media(max-width: 470px) {
+        width: 6rem;
+    }
 `
 
 export const DiscordDiv = styled.div`
@@ -181,7 +184,10 @@ export const RegLogo2 = styled.img`
     @media(max-width: 500px) {
         max-width: 75px;
         height: 18px;
-        margin: 0 3rem .2rem 0;
+        margin: 0 3rem .2rem 1.5rem;
+    }
+    @media(max-width: 420px) {
+        margin-left: 0
     }
 `
 
