@@ -20,7 +20,7 @@ export const HD = styled.h1`
         margin-left: 0;
     }
     @media(max-width: 500px) {
-        font-size: 2rem
+        font-size: 2rem;
     }
 `
 
@@ -90,6 +90,9 @@ export const GameLink = styled(Link)`
     padding-left: 4rem;
     @media(max-width: 1000px) {
         width: 50%;
+    }
+    @media(max-width: 500px) {
+        width: 40%;
     }
 `
 
@@ -175,6 +178,11 @@ export const RegLogo2 = styled.img`
         height: 16px;
         margin: 0 3rem .2rem 0;
     }
+    @media(max-width: 500px) {
+        max-width: 75px;
+        height: 18px;
+        margin: 0 3rem .2rem 0;
+    }
 `
 
 export const RLlogo2 = styled.img`
@@ -182,6 +190,7 @@ export const RLlogo2 = styled.img`
     max-width: 150px;
     @media(max-width: 800px) {
         max-width: 100px;
+        height: 80px
         margin: -3.5rem 3rem -3.5rem 0;
     }
 `
@@ -209,6 +218,9 @@ export const ConditionalNavToggler = styled(NavbarToggler)`
         display: block;
         margin: 0 auto;
     }
+    @media(max-width: 500px){
+        right: 1
+    }
 `
 
 export const NavDiv = styled(Nav)`
@@ -219,6 +231,10 @@ export const NavDiv = styled(Nav)`
     width: 50rem;
     @media(max-width: 1000px) {
         width: 100%
+    }
+    @media(max-width: 500px) {
+        width: 95%;
+        height: 70rem;
     }
 `
 
