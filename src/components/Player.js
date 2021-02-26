@@ -26,7 +26,7 @@ import Dia3 from '../styles/imgs/dia3.png'
 import Imm3 from '../styles/imgs/imm3.png'
 import Rad from '../styles/imgs/radiant.png'
 
-import { PlayerDiv } from '../styles/Players'
+import { PlayerDiv, PlayerDeets, Clips, PlayerHead, Username, Imp } from '../styles/Players'
 
 const Player = props => {
     const location = useLocation()
@@ -169,10 +169,10 @@ const Player = props => {
 
     return (
         <PlayerDiv>
-            <div className='playerhead'>
-                <h1 className='spiffy'>{player.username}</h1>
+            <PlayerHead>
+                <Username className='spiffy'>{player.username}</Username>
                 {details ? 
-                    <div className='imp'>
+                    <Imp>
                         {details.twitch_link !== null ?
                             <img src={Twitch} className='twitch' onClick={() => redirectFunc(details.twitch_link)} /> :
                             ''
@@ -191,7 +191,7 @@ const Player = props => {
                             <img src={Imm3} className='twitch' alt={`rank ${details.rank}`} /> : 
                             <img src={Rad} className='twitch' alt={`rank ${details.rank}`} />                      
                         }
-                    </div> :
+                    </Imp> :
                     <p>No details to display :/</p>
                 }
                 {/* {props.user.username === name ? 
@@ -212,10 +212,10 @@ const Player = props => {
                     </form> :
                     ''
                 } */}
-            </div>
-            <div className='sideflex2'>
+            </PlayerHead>
+            <PlayerDeets>
                 {ytlinks.length > 0 ? 
-                    <div className='clips'>
+                    <Clips>
                         <iframe width="500" height="250" className='video'
                             src={`${ytlinks[ytplay].youtubelinks}?autoplay=1&mute=1&loop=1`}>
                         </iframe>
@@ -223,7 +223,7 @@ const Player = props => {
                             <button onClick={() => deleteDetail('youtube', ytlinks[ytplay].id)}>delete</button> :
                             ''
                         }
-                    </div> : 
+                    </Clips> : 
                     <p>No vidoes listed</p>
                 }
                 {props.user.username === name ?
@@ -402,7 +402,7 @@ const Player = props => {
                         }
                     </div>
                 </div>
-            </div>
+            </PlayerDeets>
         </PlayerDiv>
     )
 }
