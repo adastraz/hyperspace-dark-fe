@@ -25,6 +25,8 @@ import Delete from '../../styles/imgs/delete.svg'
 import Check from '../../styles/imgs/check.svg'
 import ListLikes from './ListLikes'
 
+import { Post, PostContainer, Header, PostBody, PostDeets, Clip, CloseHelper, Unlike, Like, CommentSection, SidebarPostPost } from '../../styles/Social'
+
 const LoadComments = props => {
     const [current, setCurrent] = useState({})
     const [comments, setComments] = useState([])
@@ -93,28 +95,34 @@ const LoadComments = props => {
     return (
         <div>
             {props.sidebar ?
-                <Button id='sidelc' onClick={toggle}>
-                    <p className='showpost code'>{props.post.post}</p>
+                <CommentSection onClick={toggle}>
+                    <SidebarPostPost className='showpost code'>{props.post.post}</SidebarPostPost>
                     {props.post.img != '' ?
-                        <iframe width="500" height="auto" className='postimage2'
-                            src={`${props.post.img}?autoplay=1&mute=1&loop=1`}>
-                        </iframe> : ''
+                        <Clip>
+                            <iframe width="500" height="auto" className='postimage2'
+                                src={`${props.post.img}?autoplay=1&mute=1&loop=1`}>
+                            </iframe>
+                        </Clip> : ''
                     }
-                </Button> :
+                </CommentSection> :
                 <Button color="danger" onClick={toggle}>Load Comments... [{current.comment_number}]</Button>
             }
             
-            <Modal isOpen={modal} toggle={toggle}>
-                <div key={current.id} className='explore'>
-                    <ModalHeader>
-                        <p>{props.username}</p>
-                        <p>{current.post}</p>
-                        <p>{current.location}</p>
-                        <p>{current.created_at}</p>
+            <Post isOpen={modal} toggle={toggle}>
+                <PostContainer key={current.id} className='explore'>
+                    <Header>
+                        <PostDeets>
+                            <p className='playerusername code'>{props.username}</p>
+                            <p className='date code'>{current.created_at}</p>
+                            <CloseHelper onClick={toggle}><img src={Close} /></CloseHelper>
+                        </PostDeets>
+                        <PostBody className='showpost code'>{current.post}</PostBody>
                         {current.img != '' ? 
-                            <iframe width="500" height="250" className='postimage2'
-                                src={`${props.post.img}?autoplay=1&mute=1&loop=1`}>
-                            </iframe> :
+                            <Clip>
+                                <iframe width="500" height="250" className='postimage2'
+                                    src={`${props.post.img}?autoplay=1&mute=1&loop=1`}>
+                                </iframe>
+                            </Clip> :
                             ''
                         }
                         <ListLikes post={current} />
@@ -132,11 +140,11 @@ const LoadComments = props => {
                             ''
                         }
                         {!likedPostId.includes(current.id) ? 
-                            <a className='like' onClick={() => addLikeHelper(current.id)}>Like</a> :
-                            <a className='unlike' onClick={() => removeLikeHelper(current.id)}>Unlike</a>
+                            <Like onClick={() => addLikeHelper(current.id)}>Like</Like> :
+                            <Unlike onClick={() => removeLikeHelper(current.id)}>Unlike</Unlike>
                         }
 
-                    </ModalHeader>
+                    </Header>
                         <ModalBody>
                             {comments.map(comment => (
                                 <>
@@ -175,11 +183,11 @@ const LoadComments = props => {
                                     placeholder='Comment on post'
                                     onChange={handleChanges}
                                 />
-                                <button type='submit'>Post Comment</button>
+                                <Clip><button type='submit' className='button type3'>Post Comment</button></Clip>
                             </form>
                         </ModalFooter>
-                    </div>
-            </Modal>
+                    </PostContainer>
+            </Post>
         </div>
     )
 }
