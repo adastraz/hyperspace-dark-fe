@@ -6,6 +6,8 @@ import LoadComments from './LoadComments.js'
 import { connect } from 'react-redux'
 import ListLikes from './ListLikes.js'
 
+import { SidebarPost } from '../../styles/Social'
+
 const Posts = props => {
     const [allposts, setAllposts] = useState([])
     const [postpost, setPostpost] = useState(false)
@@ -124,7 +126,7 @@ const Posts = props => {
                 ''
             }
             {allposts.map(post => (
-                <div className='sidebarflex' key={post.id}>
+                <SidebarPost key={post.id}>
                     <div className='postssidebar'>
                         {post.is_player ?
                             <Link to={`/player/${post.username}`} className='postlink'>
@@ -140,7 +142,7 @@ const Posts = props => {
                         <LoadComments post={post} sidebar={true} username={post.username}/>
                         <ListLikes post={post} /> 
                     </div>
-                </div> 
+                </SidebarPost> 
             ))}
         </>
     )
