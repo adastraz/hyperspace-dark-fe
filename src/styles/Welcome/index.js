@@ -24,6 +24,16 @@ export const Container = styled.div`
     justify-content: center;
     align-items: center;
     margin-top: 8rem;
+    @media(max-width: 1500px) {
+        margin-left: auto;
+        margin-right: auto;
+    }
+    @media(max-width: 1050px) {
+        width: 90%
+    }
+    @media(max-width: 650px) {
+        width: 100%
+    }
 `
 
 export const Title = styled.h1`
@@ -39,6 +49,9 @@ export const Title = styled.h1`
     background-image: url('https://cdn.discordapp.com/attachments/798998238383439903/799007026831294564/discord-1.jpg');
     // border: 5px solid blue;
     border-radius: 2rem;
+    @media(max-width: 500px) {
+        padding: 1.5rem 4rem;
+    }
 `
 
 export const Line = styled.hr`
@@ -54,6 +67,9 @@ export const NewsBut = styled.div`
     align-items: center;
     margin: 3rem 0;
     min-height: 10rem;
+    @media(max-width: 950px) {
+        width: 90%
+    }
 `
 
 export const Head = styled.h1`
