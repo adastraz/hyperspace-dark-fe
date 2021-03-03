@@ -127,3 +127,8 @@ export const CommentSection = styled(Button)`
 export const SidebarPostPost = styled.p`
     margin-bottom: 1rem;
 `
+
+export const PostButton = styled.p`
+    margin-top: 1rem;
+    color: mediumpurple;
+`

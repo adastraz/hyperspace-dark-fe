@@ -6,7 +6,7 @@ import LoadComments from './LoadComments.js'
 import { connect } from 'react-redux'
 import ListLikes from './ListLikes.js'
 
-import { SidebarPost } from '../../styles/Social'
+import { SidebarPost, PostButton } from '../../styles/Social'
 
 const Posts = props => {
     const [allposts, setAllposts] = useState([])
@@ -69,7 +69,7 @@ const Posts = props => {
         <>
             <img src="https://img.icons8.com/dusk/64/000000/exit.png" className='logoutbutton' onClick={() => logout()}/>
             {props.user.is_player ? 
-                <p onClick={() => setPostpost(!postpost)}>Post</p> :
+                <PostButton onClick={() => setPostpost(!postpost)}>Post</PostButton> :
                 ''
             }
             {postpost ? 
@@ -107,7 +107,7 @@ const Posts = props => {
                                 type='text'
                                 name='img'
                                 value={newPost.img}
-                                placeholder='Image link'
+                                placeholder='YT embedded link'
                                 onChange={handleChanges}
                             />
                             {newPost.img != '' ?
