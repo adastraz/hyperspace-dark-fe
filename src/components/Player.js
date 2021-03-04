@@ -26,13 +26,6 @@ import Dia3 from '../styles/imgs/dia3.png'
 import Imm3 from '../styles/imgs/imm3.png'
 import Rad from '../styles/imgs/radiant.png'
 //add rl ranks
-import C1 from '../styles/imgs/c1.png'
-import C2 from '../styles/imgs/c2.png'
-import C3 from '../styles/imgs/c3.png'
-import GC1 from '../styles/imgs/gc1.png'
-import GC2 from '../styles/imgs/gc2.png'
-import GC3 from '../styles/imgs/gc3.png'
-import SSL from '../styles/imgs/ssl.png'
 
 import { PlayerDiv, PlayerDeets, Clips, PlayerHead, Username, Imp } from '../styles/Players'
 
@@ -207,7 +200,7 @@ const Player = props => {
                                     <img src={Dia2} className='twitch' alt={`rank ${details.rank}`} /> :
                                 details.rank === 'dia3' ?
                                     <img src={Dia3} className='twitch' alt={`rank ${details.rank}`} /> :
-                                details.rank === ('imm') ?
+                                details.rank === 'imm' ?
                                     <img src={Imm3} className='twitch' alt={`rank ${details.rank}`} /> : 
                                     <img src={Rad} className='twitch' alt={`rank ${details.rank}`} />                      
                                 }
@@ -256,7 +249,7 @@ const Player = props => {
             <PlayerDeets>
                 {ytlinks.length > 0 ? 
                     <Clips>
-                        <iframe width="500" height="250" title='Clips' className='video'
+                        <iframe width="500" height="250" className='video'
                             src={`${ytlinks[ytplay].youtubelinks}?autoplay=1&mute=1&loop=1`}>
                         </iframe>
                         {props.user.username === name ?
