@@ -26,6 +26,13 @@ import Dia3 from '../styles/imgs/dia3.png'
 import Imm3 from '../styles/imgs/imm3.png'
 import Rad from '../styles/imgs/radiant.png'
 //add rl ranks
+import C1 from '../styles/imgs/c1.png'
+import C2 from '../styles/imgs/c2.png'
+import C3 from '../styles/imgs/c3.png'
+import GC1 from '../styles/imgs/gc1.png'
+import GC2 from '../styles/imgs/gc2.png'
+import GC3 from '../styles/imgs/gc3.png'
+import SSL from '../styles/imgs/ssl.png'
 
 import { PlayerDiv, PlayerDeets, Clips, PlayerHead, Username, Imp } from '../styles/Players'
 
@@ -200,14 +207,14 @@ const Player = props => {
                                     <img src={Dia2} className='twitch' alt={`rank ${details.rank}`} /> :
                                 details.rank === 'dia3' ?
                                     <img src={Dia3} className='twitch' alt={`rank ${details.rank}`} /> :
-                                details.rank === 'imm' ?
+                                details.rank === ('imm') ?
                                     <img src={Imm3} className='twitch' alt={`rank ${details.rank}`} /> : 
                                     <img src={Rad} className='twitch' alt={`rank ${details.rank}`} />                      
                                 }
                             </> :
                         player.game === 'rl' ?
                             <>
-                                {/* {details.rank === 'c1' ?
+                                {details.rank === 'c1' ?
                                     <img src={C1} className='twitch' alt={`rank ${details.rank}`} /> :
                                 details.rank === 'c2' ?
                                     <img src={C2} className='twitch' alt={`rank ${details.rank}`} /> :
@@ -220,8 +227,7 @@ const Player = props => {
                                 details.rank === 'gc3' ?
                                     <img src={GC3} className='twitch' alt={`rank ${details.rank}`} /> : 
                                     <img src={SSL} className='twitch' alt={`rank ${details.rank}`} />                      
-                                } */}
-                                <h1>rl stuff here lookie</h1>
+                                }
                             </> :
                             ''
                         }
