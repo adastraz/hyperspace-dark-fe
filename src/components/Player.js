@@ -26,6 +26,13 @@ import Dia3 from '../styles/imgs/dia3.png'
 import Imm3 from '../styles/imgs/imm3.png'
 import Rad from '../styles/imgs/radiant.png'
 //add rl ranks
+import C1 from '../styles/imgs/c1.png'
+import C2 from '../styles/imgs/c2.png'
+import C3 from '../styles/imgs/c3.png'
+import GC1 from '../styles/imgs/gc1.png'
+import GC2 from '../styles/imgs/gc2.png'
+import GC3 from '../styles/imgs/gc3.png'
+import SSL from '../styles/imgs/ssl.png'
 
 import { PlayerDiv, PlayerDeets, Clips, PlayerHead, Username, Imp } from '../styles/Players'
 
@@ -72,6 +79,7 @@ const Player = props => {
                             setCreators(res2.data.user_creators)
                             setOthergames(res2.data.user_othergames)
                             setYtlinks(res2.data.user_ytlinks)
+                            console.log(details)
                         })
                 }
             })
@@ -355,7 +363,7 @@ const Player = props => {
                                 {othergames.map(game => (
                                     <div className='agentflex2' key={game.id}>
                                         <img src={game.img_link} alt={`${game.name}`} className='agents' />
-                                        <p>{game.name}</p>
+                                        {/* <p>{game.name}</p> */}
                                         {props.user.username === name ?
                                             <button onClick={() => deleteDetail('othergame', game.id)}>delete</button> :
                                             ''
@@ -393,7 +401,7 @@ const Player = props => {
                         }
                     </div>
                     <div className='maindetails2'>
-                        <h1 className='fix detailtitle'>Favorite Content Creators</h1>
+                        <h1 className='detailtitle'>Favorite Content Creators</h1>
                         {creators.length > 0 ?
                             creators.map(creator => (
                                 <div className='maindetails2' key={creator.id}>

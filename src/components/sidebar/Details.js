@@ -14,6 +14,29 @@ const Details = props => {
     const [schedDis, setSchedDis] = useState(true)
     const [twitchDis, setTwitchDis] = useState(false)
     const streamers = ['squallowl', 'zundga', 'apaq', 'pjtryhard', 'itshafu', 'shroud', 'xqcow', 'pokimane', 'hiko', 'emongg', 'tover0']
+    const [addCluster, setAddCluster] = useState(false)
+    const [newTournament, setNewTournament] = useState({ 
+        name: '',
+        img: '',
+        start_date: '',
+        start_time: '',
+        status: '',
+        livestream_link: '',
+        game: '',
+        link: ''
+    })
+
+    const handleChanges = e => {
+        setNewTournament({
+            ...newTournament,
+            [e.target.name]: e.target.value
+        })
+        console.log(newTournament)
+    }
+
+    const submitTourny = () => {
+        schedule.push(newTournament)
+    }
 
     useEffect(() => {
         // if(location.pathname === '/valorant') {
@@ -58,6 +81,75 @@ const Details = props => {
             {localStorage.getItem('side') == 'Schedule' ? 
                     <>
                         <Selector title='Schedule'/>
+                        {props.user.team === 'admin' ?
+                            <button onClick={() => setAddCluster(!addCluster)}>Add Tournament</button> :
+                            <></>
+                        }
+                        {addCluster ?
+                            <form onSubmit={submitTourny}>
+                                <input 
+                                    type='text'
+                                    placeholder='Name of Tournament'
+                                    id='name'
+                                    name='name'
+                                    onChange={handleChanges}
+                                    value={newTournament.name}
+                                />
+                                <input 
+                                    type='text'
+                                    placeholder='Img link Tournament Organizer'
+                                    id='img'
+                                    name='img'
+                                    onChange={handleChanges}
+                                    value={newTournament.img}
+                                />
+                                {newTournament.img.length > 5 ?
+                                    <img src={newTournament.img} /> :
+                                    ''
+                                }
+                                <input 
+                                    type='date'
+                                    placeholder='Friday, March 20 2021'
+                                    id='start_date'
+                                    name='start_date'
+                                    onChange={handleChanges}
+                                    value={newTournament.start_date}
+                                />
+                                <input 
+                                    type='time'
+                                    id='start_time'
+                                    name='start_time'
+                                    onChange={handleChanges}
+                                    value={newTournament.start_time}
+                                />
+                                <input 
+                                    type='text'
+                                    placeholder='Link to Twitch'
+                                    id='livestream_link'
+                                    name='livestream_link'
+                                    onChange={handleChanges}
+                                    value={newTournament.livestream_link}
+                                />
+                                <input 
+                                    type='text'
+                                    placeholder='rl or valorant ?'
+                                    id='game'
+                                    name='game'
+                                    onChange={handleChanges}
+                                    value={newTournament.game}
+                                />
+                                <input 
+                                    type='text'
+                                    placeholder='Tournament Link'
+                                    id='link'
+                                    name='link'
+                                    onChange={handleChanges}
+                                    value={newTournament.link}
+                                />
+                                <button type='submit'>Submit</button>
+                            </form> :
+                            <></>
+                        }
                         {schedule.map(ele => (
                             <div className='games'>  
                                 <div className='sideflex2'>
@@ -109,7 +201,8 @@ const mapStateToProps = state => {
         isLoading: state.isLoading,
         error: state.error,
         // live: state.live,
-        side: state.side
+        side: state.side,
+        user: state.user
     }
 }
 
