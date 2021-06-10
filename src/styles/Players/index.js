@@ -1,12 +1,17 @@
 import styled from 'styled-components'
 
+export const PlayerContainer = styled.div`
+    width: 100%;
+    margin: 2rem
+`
 
 export const PlayersDiv = styled.div`
-    margin: 4rem 3rem;
+    margin: 0rem 3rem -20rem 3rem;
     display: flex;
     // flex-direction: column;
     justify-content: space-around;
     width: 70%;
+    // height: 25rem;
     @media(max-width: 1500px) {
         margin: 0 auto;
         width: 90%;
@@ -86,7 +91,7 @@ export const Clips = styled.div`
 
 export const PlayerHead = styled.div`
     display: flex;
-    justify-content: space-evenly;
+    justify-content: center;
     margin-bottom: 3rem;
     @media(max-width: 710px) {
         flex-direction: column;

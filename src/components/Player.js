@@ -186,6 +186,77 @@ const Player = props => {
 
     const [ytplay, setYtplay] = useState(0)
 
+    const rankJSX = () => {
+        switch (player.game) {
+            case 'valorant' :
+                switch (details.rank) {
+                    case 'dia1' :
+                        return <img src={Dia1} className='twitch' alt={`rank ${details.rank}`} /> 
+                    case 'dia2' :
+                        return <img src={Dia2} className='twitch' alt={`rank ${details.rank}`} /> 
+                    case 'dia3' :
+                        return <img src={Dia3} className='twitch' alt={`rank ${details.rank}`} /> 
+                    case 'imm' :
+                        return <img src={Imm3} className='twitch' alt={`rank ${details.rank}`} />
+                    case 'rad' :
+                        return <img src={Rad} className='twitch' alt={`rank ${details.rank}`} />
+                }
+            case 'rl' :
+                switch (details.rank) {
+                case 'c1' :
+                    return <img src={C1} className='twitch' alt={`rank ${details.rank}`} /> 
+                case 'c2' :
+                    return <img src={C2} className='twitch' alt={`rank ${details.rank}`} />
+                case 'c3' :
+                    return <img src={C3} className='twitch' alt={`rank ${details.rank}`} />
+                case 'gc1' :
+                    return <img src={GC1} className='twitch' alt={`rank ${details.rank}`} /> 
+                case 'gc2' :
+                    return <img src={GC2} className='twitch' alt={`rank ${details.rank}`} /> 
+                case 'gc3' :
+                    return <img src={GC3} className='twitch' alt={`rank ${details.rank}`} /> 
+                case 'ssl' :
+                    return <img src={SSL} className='twitch' alt={`rank ${details.rank}`} /> 
+                }
+        }
+    }
+
+    const agentORCarJSX = agent => {
+        switch (player.game) {
+            case 'valorant' :
+                switch (agent.name) {
+                    case 'raze' :
+                        return <img src={Raze} alt={`${agent.agent_name}`} className='agents'/> 
+                    case 'omen' :
+                        return <img src={Omen} alt={`${agent.agent_name}`} className='agents' /> 
+                    case 'brimstone' :
+                        return <img src={Brimstone} alt={`${agent.agent_name}`} className='agents' /> 
+                    case 'breach' :
+                        return <img src={Breach} alt={`${agent.agent_name}`} className='agents' /> 
+                    case 'viper' :
+                        return <img src={Viper} alt={`${agent.agent_name}`} className='agents' /> 
+                    case 'killjoy' :
+                        return <img src={Killjoy} alt={`${agent.agent_name}`} className='agents' /> 
+                    case 'cypher' :
+                        return <img src={Cypher} alt={`${agent.agent_name}`} className='agents' /> 
+                    case 'yoru' :
+                        return <img src={Yoru} alt={`${agent.agent_name}`} className='agents' /> 
+                    case 'sova' :
+                        return <img src={Sova} alt={`${agent.agent_name}`} className='agents' /> 
+                    case 'reyna' :
+                        return <img src={Reyna} alt={`${agent.agent_name}`} className='agents' /> 
+                    case 'pheonix' :
+                        return <img src={Pheonix} alt={`${agent.agent_name}`} className='agents' /> 
+                    case 'jett' :
+                        return <img src={Jett} alt={`${agent.agent_name}`} className='agents' /> 
+                    case 'sage' : 
+                        return <img src={Sage} alt={`${agent.agent_name}`} className='agents' /> 
+                    case 'skye' :
+                        return <img src={Skye} alt={`${agent.agent_name}`} className='agents' /> 
+                }
+        }
+    }
+
     return (
         <PlayerDiv>
             <PlayerHead>
@@ -200,59 +271,10 @@ const Player = props => {
                             <img className='youtube' alt='youtube logo' onClick={() => redirectFunc(details.youtube_link)} src="https://img.icons8.com/dusk/64/000000/youtube--v2.png"/> :
                             ''
                         }
-                        {player.game === 'valorant' ?
-                            <>
-                                {details.rank === 'dia1' ?
-                                    <img src={Dia1} className='twitch' alt={`rank ${details.rank}`} /> :
-                                details.rank === 'dia2' ?
-                                    <img src={Dia2} className='twitch' alt={`rank ${details.rank}`} /> :
-                                details.rank === 'dia3' ?
-                                    <img src={Dia3} className='twitch' alt={`rank ${details.rank}`} /> :
-                                details.rank === 'imm' ?
-                                    <img src={Imm3} className='twitch' alt={`rank ${details.rank}`} /> : 
-                                    <img src={Rad} className='twitch' alt={`rank ${details.rank}`} />                      
-                                }
-                            </> :
-                        player.game === 'rl' ?
-                            <>
-                                {details.rank === 'c1' ?
-                                    <img src={C1} className='twitch' alt={`rank ${details.rank}`} /> :
-                                details.rank === 'c2' ?
-                                    <img src={C2} className='twitch' alt={`rank ${details.rank}`} /> :
-                                details.rank === 'c3' ?
-                                    <img src={C3} className='twitch' alt={`rank ${details.rank}`} /> :
-                                details.rank === 'gc1' ?
-                                    <img src={GC1} className='twitch' alt={`rank ${details.rank}`} /> : 
-                                details.rank === 'gc2' ?
-                                    <img src={GC2} className='twitch' alt={`rank ${details.rank}`} /> : 
-                                details.rank === 'gc3' ?
-                                    <img src={GC3} className='twitch' alt={`rank ${details.rank}`} /> : 
-                                    <img src={SSL} className='twitch' alt={`rank ${details.rank}`} />                      
-                                }
-                            </> :
-                            ''
-                        }
+                        {rankJSX()}
                     </Imp> :
                     <p>No details to display :/</p>
                 }
-                {/* {props.user.username === name ? 
-                    <button onClick={() => setEditformdis(!editformdis)}>Edit Rank</button> :
-                    ''
-                }
-                {editformdis ? 
-                    <form onSubmit={submitEdit}>
-                        <input 
-                            type='text'
-                            name='rank'
-                            id='rank'
-                            onChange={handleChangesEdit}
-                            placeholder='rank (imm1, rad, dia3, etc)'
-                            className='input'
-                        />
-                        <button type='submit'>finish</button>
-                    </form> :
-                    ''
-                } */}
             </PlayerHead>
             <PlayerDeets>
                 {ytlinks.length > 0 ? 
@@ -286,7 +308,7 @@ const Player = props => {
                     ''
                 }
                 <div>
-                    <div className='maindetails'>
+                    {/* <div className='maindetails'> */}
                         {player.game === 'valorant' ?
                             <>
                                 <h1 className='detailtitle'>Agents</h1>
@@ -294,34 +316,7 @@ const Player = props => {
                                     <div className='agentflex'>
                                         {agents.map(agent => (
                                             <div className='agentflex2' key={agent.id}>
-                                                {agent.agent_name === 'raze' ?
-                                                    <img src={Raze} alt={`${agent.agent_name}`} className='agents'/> :
-                                                agent.agent_name === 'omen' ?
-                                                    <img src={Omen} alt={`${agent.agent_name}`} className='agents' /> :
-                                                agent.agent_name === 'brimstone' ?
-                                                    <img src={Brimstone} alt={`${agent.agent_name}`} className='agents' /> :
-                                                agent.agent_name === 'breach' ?
-                                                    <img src={Breach} alt={`${agent.agent_name}`} className='agents' /> :
-                                                agent.agent_name === 'viper' ?
-                                                    <img src={Viper} alt={`${agent.agent_name}`} className='agents' /> :
-                                                agent.agent_name === 'killjoy' ?
-                                                    <img src={Killjoy} alt={`${agent.agent_name}`} className='agents' /> :
-                                                agent.agent_name === 'cypher' ?
-                                                    <img src={Cypher} alt={`${agent.agent_name}`} className='agents' /> :
-                                                agent.agent_name === 'yoru' ?
-                                                    <img src={Yoru} alt={`${agent.agent_name}`} className='agents' /> :
-                                                agent.agent_name === 'sova' ?
-                                                    <img src={Sova} alt={`${agent.agent_name}`} className='agents' /> :
-                                                agent.agent_name === 'reyna' ?
-                                                    <img src={Reyna} alt={`${agent.agent_name}`} className='agents' /> :
-                                                agent.agent_name === 'pheonix' ?
-                                                    <img src={Pheonix} alt={`${agent.agent_name}`} className='agents' /> :
-                                                agent.agent_name === 'jett' ?
-                                                    <img src={Jett} alt={`${agent.agent_name}`} className='agents' /> :
-                                                agent.agent_name === 'sage' ? 
-                                                    <img src={Sage} alt={`${agent.agent_name}`} className='agents' /> :
-                                                    <img src={Skye} alt={`${agent.agent_name}`} className='agents' /> 
-                                                }
+                                                {agentORCarJSX(agent)}
                                                 {props.user.username === name ?
                                                     <button onClick={() => deleteDetail('agent', agent.id)}>delete</button> :
                                                     ''
@@ -354,8 +349,7 @@ const Player = props => {
                                 {/* RL car pic stuff here!!! */}
                             </>
                         }
-                        
-                    </div>
+                    {/* </div> */}
                     <div className='maindetails2'>
                         <h1 className='detailtitle'>Other Games</h1>
                         {othergames.length > 0 ? 

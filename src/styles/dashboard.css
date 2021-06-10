@@ -485,7 +485,8 @@ a, a:visited, a:hover, a:active {
 
 .twitch{
     max-height: 3rem;
-    margin: auto 2.5rem
+    margin: 1.2rem 1rem 1.2rem 3rem;
+    cursor: pointer;
 }
 
 .youtube{
