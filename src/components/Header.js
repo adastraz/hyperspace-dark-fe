@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { Link, useLocation } from 'react-router-dom'
+import { Link } from 'react-router-dom'
 import Logo from '../styles/imgs/Hyperspace_logo-HD.png'
 import Valorant from '../styles/imgs/valorant-logo.png'
 import RL from '../styles/imgs/rl-logo.png'
@@ -7,13 +7,13 @@ import Helmet from '../styles/imgs/Hyperspace_logo-Helmet-2.png'
 import { connect } from 'react-redux'
 import history from '../utils/history'
 import { HD, TopDown, FlexCenter, FlexCenter2, HeaderDiv, DiscordDiv, DiscordDiv2, HelmetImg, RegLogo, RLlogo, RegLogo2, RLlogo2, MainLogo, ConditionalNav, ConditionalNavToggler, NavDiv, FlexCenterColumn, FlexCenterTop, GameLink, StoreButton, StoreButton2, UL } from '../styles/Header'
-import { Collapse, NavItem } from 'reactstrap'
+import { NavItem } from 'reactstrap'
 import Sidebar from './sidebar/Sidebar'
 
 const Header = props => {
     const [dis, setDis] = useState(false)
     const [dis2, setDis2] = useState(false)
-    const location = useLocation()
+    // const location = useLocation()
 
     const redirect = () => {
         history.push('/store')
@@ -90,12 +90,12 @@ const Header = props => {
                 <p className='msgdisc'>Join our discord!</p>
             </DiscordDiv>
             <FlexCenter2>
-                <Link 
+                {/* <Link 
                     to='/valorant' className='nav' onMouseOver={() => setDis(!dis)}
                     onMouseOut={() => setDis(!dis)}>
-                        <RegLogo src={Valorant} />
+                        <RegLogo src={Valorant} /> */}
                         {/* <h3 className={!dis ? 'hidden' : 'yes'}>Players</h3> */}
-                </Link>
+                {/* </Link> */}
                 <Link 
                     to='/rl' className='nav' onMouseOver={() => setDis2(!dis2)}
                     onMouseOut={() => setDis2(!dis2)}>

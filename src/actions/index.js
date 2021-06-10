@@ -20,7 +20,6 @@ export const SET_SCHED = 'SET_SCHED'
 export const ADD_ITEM = 'ADD_ITEM'
 export const CHANGE_BALANCE = 'CHANGE_BALANCE'
 
-
 // addLike, removeLike, removeLike1, addLike1, addComment, addComment1, removeComment, removeComment1, deletePost
 
 export const getStreamers = streamers => dispatch => {
@@ -108,6 +107,19 @@ export const fetchUser = id => dispatch => {
             .then(res => {
                 console.log('fetch user', res)
                 dispatch({ type: FETCHING_SUCCESS_LOGIN, payload: res.data })
+            })
+            .catch(err => dispatch({ type: FETCHING_ERROR, payload: err }))
+}
+
+export const addTournament = tournament => dispatch => {
+    dispatch({ type: FETCHING_START })
+    axiosWithAuth2()
+        .post('/api/tournaments', tournament)
+            .then(res => {
+                console.log(res)
+                axiosWithAuth2()
+                    .get('/api/tournaments')
+                        .then(res => console.log(res))
             })
             .catch(err => dispatch({ type: FETCHING_ERROR, payload: err }))
 }

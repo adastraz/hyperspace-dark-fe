@@ -68,7 +68,7 @@ const Posts = props => {
     return (
         <>
             <img src="https://img.icons8.com/dusk/64/000000/exit.png" className='logoutbutton' onClick={() => logout()}/>
-            {props.user.is_player ? 
+            {props.user.is_player || props.user.team === 'admin' ? 
                 <PostButton onClick={() => setPostpost(!postpost)}>Post</PostButton> :
                 ''
             }

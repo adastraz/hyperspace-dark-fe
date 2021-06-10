@@ -1,7 +1,7 @@
 import React from 'react'
 import { connect } from 'react-redux'
-import Background from '../styles/imgs/background.jpg'
-import { BGIMG, Container, Title, Line, NewsBut, Head, PTag } from '../styles/Welcome'
+// import Background from '../styles/imgs/background.jpg'
+import { Container, Title, Line, NewsBut, Head, PTag } from '../styles/Welcome'
 
 const Welcome = () => {
     const redirectFunc = link => {

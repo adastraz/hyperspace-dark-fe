@@ -4,7 +4,7 @@ import Header from './components/Header'
 import { Switch, Route, useLocation } from 'react-router-dom'
 import Welcome from './components/Welcome'
 import Sidebar from './components/sidebar/Sidebar'
-import Valorant from './components/Valorant'
+// import Valorant from './components/Valorant'
 import RL from './components/RL'
 import Player from './components/Player'
 // import Store from './components/store/Store'
@@ -20,9 +20,9 @@ function App() {
   const location = useLocation()
 
   useEffect(() => {
-    if (location.pathname == '/store'){
+    if (location.pathname === '/store'){
       setdisplay(true)
-    } else if (location.pathname != '/store' && display == true){
+    } else if (location.pathname !== '/store' && display === true){
       setdisplay(false)
     }
   }, [location.pathname])
@@ -33,7 +33,7 @@ function App() {
       <SpaceBetween>
           <Switch>
             <Route path='/player/:name' component={Player} />
-            <Route path='/valorant' component={Valorant} />
+            {/* <Route path='/valorant' component={Valorant} /> */}
             <Route path='/rl' component={RL} />
             {/* <Route path='/store/:id' component={Item} /> */}
             <Route path='/store' component={EsportsGear} />
