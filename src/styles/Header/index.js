@@ -26,8 +26,10 @@ export const HD = styled.h1`
 
 export const StoreButton = styled.button`
     font-family: ${Font.main};
-    padding .3rem .5rem;
+    margin-top: 3rem;
+    padding .1rem .5rem;
     width: 7rem;
+    height: 3rem;
     @media(max-width: 1500px) {
         display: none;
     }
@@ -43,6 +45,11 @@ export const StoreButton2 = styled.button`
 export const TopDown = styled(Link)`
     margin: auto 0;
     text-decoration: none !important;
+`
+
+export const HDLine = styled.hr`
+    
+    margin-bottom: -.35rem
 `
 
 export const FlexCenter = styled.div`
@@ -102,12 +109,14 @@ export const GameLink = styled(Link)`
 export const DiscordDiv = styled.div`
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    justify-content: flex-end;
+    margin-left: 30%;
+    margin-bottom: 1rem;
     align-items: center;
     background: rgb(0,41,122);
     background: linear-gradient(0deg, rgba(0,41,122,1) 0%, rgba(245,249,248,1) 21%, rgba(149,58,164,1) 47%, rgba(210,34,183,1) 72%, rgba(253,187,45,1) 90%);
     border-radius: 3rem;
-    padding: 1.25rem;
+    padding: 1rem;
     border: 1rem double white;
     @media(max-width: 1500px) {
         display: none
@@ -132,7 +141,7 @@ export const DiscordDiv2 = styled.div`
 `
 
 export const HelmetImg = styled.img`
-    width: 100px;
+    width: 60px;
     position: relative;
     left: .5rem
     @media(max-width: 1500px) {
@@ -141,7 +150,7 @@ export const HelmetImg = styled.img`
 `
 
 export const RLlogo = styled.img`
-    margin: -3.5rem 3rem;
+    margin: 3rem 3rem 1rem 3rem;
     max-width: 150px;
     @media(max-width: 1500px) {
         display: none

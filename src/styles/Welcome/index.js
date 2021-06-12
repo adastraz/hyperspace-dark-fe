@@ -18,12 +18,19 @@ export const BGIMG = styled.img`
 `
 
 export const Container = styled.div`
-    width: 70%;
+    width: 50%;
     display: flex;
     flex-direction: column;
     justify-content: center;
+    background: rgb(91,90,93);
+    background: radial-gradient(circle, rgba(91,90,93,1) 69%, rgba(51,51,51,1) 100%);
+    border: 7px double black;
+    border-opacity: .7;
+    border-radius: 1rem;
     align-items: center;
     margin-top: 8rem;
+    padding-top: 4rem;
+    margin-left: 15%;
     @media(max-width: 1500px) {
         margin-left: auto;
         margin-right: auto;
