@@ -67,16 +67,15 @@ const Details = props => {
                 .get('/api/tournaments/rl/game')
                     .then(res => setSchedule(res.data))
                     .catch(err => console.log(err))
+        }else {
+            axiosWithAuth2()
+                .get('/api/tournaments')
+                    .then(res => setSchedule(res.data))
+                    .catch(err => console.log(err))
         }
-        // } else {
-        //     axiosWithAuth2()
-        //         .get('/api/tournaments')
-        //             .then(res => setSchedule(res.data))
-        //             .catch(err => console.log(err))
-        // }
     }, [location])
 
-    useEffect(() => {
+    // useEffect(() => {
         //action to get streamers
         // props.live.forEach(ele => ele[0] ? console.log(ele[0].user_name, 'yes') : console.log(ele[0], 'no'))
 
@@ -87,7 +86,7 @@ const Details = props => {
         //         localStorage.setItem('twitchID', res.data.user.twitchID)
         //     })
         // props.getStreamers(streamers)
-    }, [])
+    // }, [])
 
     // const redirectFunc = link => {
     //     const win = window.open(link, '_blank')

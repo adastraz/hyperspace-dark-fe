@@ -72,6 +72,8 @@
     background: #333333;
     background: linear-gradient(0deg, #333333 59%, rgba(0,0,0,1) 100%);
     border-top: 7px double mediumpurple;
+    padding-top: 2rem;
+    padding-left: 3rem
 }
 
 
@@ -115,7 +117,7 @@
 .nav {
     position: relative;
     text-decoration: none !important;
-    color: darkslategray
+    color: mediumpurple;
 }
 
 #listlikes {

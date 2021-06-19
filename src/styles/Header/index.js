@@ -27,9 +27,10 @@ export const HD = styled.h1`
 export const StoreButton = styled.button`
     font-family: ${Font.main};
     margin-top: 3rem;
+    margin-left: 3rem;
     padding .1rem .5rem;
-    width: 7rem;
-    height: 3rem;
+    width: 9rem;
+    height: 3.5rem;
     @media(max-width: 1500px) {
         display: none;
     }
