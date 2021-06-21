@@ -18,12 +18,18 @@ export const BGIMG = styled.img`
 `
 
 export const Container = styled.div`
-    width: 70%;
+    width: 50%;
     display: flex;
     flex-direction: column;
     justify-content: center;
+    background-color: black;
+    border: .6rem double mediumpurple;
+    border-opacity: .7;
+    border-radius: 1rem;
     align-items: center;
     margin-top: 8rem;
+    padding-top: 4rem;
+    margin-left: 15%;
     @media(max-width: 1500px) {
         margin-left: auto;
         margin-right: auto;
@@ -42,11 +48,11 @@ export const Title = styled.h1`
     // margin-left: 7rem;
     font-family: 'Syncopate', sans-serif;
     font-weight: bold;
-    color: white;
+    color: mediumpurple;
     font-size: 3rem;
     padding: 1.5rem 7rem;
     background-position: left bottom;
-    background-image: url('https://cdn.discordapp.com/attachments/798998238383439903/799007026831294564/discord-1.jpg');
+    // background-image: url('https://cdn.discordapp.com/attachments/798998238383439903/799007026831294564/discord-1.jpg');
     // border: 5px solid blue;
     border-radius: 2rem;
     @media(max-width: 500px) {
@@ -81,6 +87,7 @@ export const Head = styled.h1`
 
 export const PTag = styled.p`
     padding: 2rem;
-    color: black;
+    color: white;
+    text-align: center;
     font-size: 1.5rem;
 `
