@@ -120,6 +120,7 @@ const Header = props => {
                         <RLlogo src={RL} />
                 </Link>
                 <StoreButton className='button type3' onClick={() => redirect()}>Store</StoreButton>
+                <StoreButton className='button type3'>Join our Crew</StoreButton>
             </FlexCenter>
         </div>
     )
