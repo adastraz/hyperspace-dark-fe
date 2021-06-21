@@ -63,6 +63,17 @@ export const FlexCenter = styled.div`
     }
 `
 
+export const FlexCenterMain = styled.div`
+    display: flex;
+    text-align: center;
+    margin: 2.5rem 0;
+    jusitfy-content: space-evenly;
+    @media(max-width: 1000px) {
+        flex-direction: column;
+        align-items: center
+    }
+`
+
 export const FlexCenter2 = styled.div`
     display: flex;
     text-align: center;
@@ -148,6 +159,23 @@ export const HelmetImg = styled.img`
     @media(max-width: 1500px) {
         left: 0
     }
+`
+
+export const DiscordImg = styled.img`
+    width: 60px;
+    position: relative;
+    margin-right: .5rem
+`
+
+export const SocialImgs = styled.img`
+    width: 45px;
+    position: relative;
+    bottom: .5rem;
+    margin-right: 1rem;
+`
+
+export const SocialDiv = styled.div`
+    margin-left: 15%;
 `
 
 export const RLlogo = styled.img`
