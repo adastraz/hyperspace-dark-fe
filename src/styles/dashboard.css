@@ -72,8 +72,8 @@
     background: #333333;
     background: linear-gradient(0deg, #333333 59%, rgba(0,0,0,1) 100%);
     border-top: 7px double mediumpurple;
-    padding-top: 2rem;
-    padding-left: 3rem
+    padding-top: 3rem;
+    padding-left: 5rem
 }
 
 
@@ -118,6 +118,20 @@
     position: relative;
     text-decoration: none !important;
     color: mediumpurple;
+}
+
+#store {
+    font-size: 1.3rem;
+}
+
+#join {
+    color: black;
+    font-weight: bold
+}
+
+#abtcrew {
+    color: white;
+    font-size: 1.3rem
 }
 
 #listlikes {
@@ -204,7 +218,7 @@
     height: 2px;
     bottom: -1rem;
     left: 0;
-    background-color: darkslategray;
+    background-color: white;
     visibility: hidden;
     transform: scaleX(0);
     transition: all 0.3s ease-in-out;

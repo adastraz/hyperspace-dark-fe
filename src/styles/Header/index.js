@@ -180,7 +180,7 @@ export const SocialDiv = styled.div`
 
 export const RLlogo = styled.img`
     margin: 3rem 3rem 1rem 3rem;
-    max-width: 150px;
+    max-width: 160px;
     @media(max-width: 1500px) {
         display: none
     }

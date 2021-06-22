@@ -28,6 +28,7 @@ export const Container = styled.div`
     border-radius: 1rem;
     align-items: center;
     margin-top: 8rem;
+    margin-bottom: 5rem;
     padding-top: 4rem;
     margin-left: 15%;
     @media(max-width: 1500px) {

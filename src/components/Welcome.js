@@ -18,10 +18,10 @@ const Welcome = () => {
                 <Line />
                 <PTag>Join us in our second ever TFT tournament! For more details, click here to be routed to our Battlefy link, we're looking forward to seeing what you guys have in the tank!</PTag>
             </NewsBut>
-            <NewsBut onClick={() =>redirectFunc('https://linktr.ee/HyperspaceDark')} className='button type3'>
-                <Head>Join us!</Head>
+            <NewsBut className='button type3'>
+                <Head>Welcome our Tournament Organizer Boyses!</Head>
                 <Line />
-                <PTag>We are an up and coming esports organization. We have space in the Rocket Leauge and Valorant semi-professional scenes. Show us some love on our socials, we'd enjoy seeing you all there!</PTag>
+                <PTag>We are happy to announce that Hyperspace Dark will be moving forward into the tournament scene in numerous different markets of competitive gaming. </PTag>
             </NewsBut>
         </Container>
     )

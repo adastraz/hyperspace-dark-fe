@@ -10,11 +10,35 @@ import Twitter from '../styles/imgs/twitter.png'
 import Instagram from '../styles/imgs/instagram.png'
 import { connect } from 'react-redux'
 import history from '../utils/history'
-import { HD, HDLine, SocialDiv, TopDown, FlexCenter, FlexCenterMain, FlexCenter2, HeaderDiv, DiscordImg, SocialImgs, DiscordDiv2, HelmetImg, RegLogo, RLlogo, RegLogo2, RLlogo2, MainLogo, ConditionalNav, ConditionalNavToggler, NavDiv, FlexCenterColumn, FlexCenterTop, GameLink, StoreButton, StoreButton2, UL } from '../styles/Header'
+import { HD, 
+    SocialDiv, 
+    TopDown, 
+    FlexCenter, 
+    FlexCenterMain, 
+    FlexCenter2, 
+    HeaderDiv, 
+    DiscordImg, 
+    SocialImgs, 
+    DiscordDiv2, 
+    HelmetImg, 
+    RLlogo, 
+    RegLogo2, 
+    RLlogo2, 
+    MainLogo, 
+    ConditionalNav, 
+    ConditionalNavToggler, 
+    NavDiv, 
+    FlexCenterColumn, 
+    FlexCenterTop, 
+    GameLink, 
+    StoreButton, 
+    StoreButton2, 
+    UL 
+} from '../styles/Header'
 import { NavItem } from 'reactstrap'
 import Sidebar from './sidebar/Sidebar'
 
-const Header = props => {
+const Header = () => {
     const [dis, setDis] = useState(false)
     const [dis2, setDis2] = useState(false)
     // const location = useLocation()
@@ -119,8 +143,9 @@ const Header = props => {
                     onMouseOut={() => setDis2(!dis2)}>
                         <RLlogo src={RL} />
                 </Link>
-                <StoreButton className='button type3' onClick={() => redirect()}>Store</StoreButton>
-                <StoreButton className='button type3'>Join our Crew</StoreButton>
+                <StoreButton className='button type3' id='store' onClick={() => redirect()}>Store</StoreButton>
+                <StoreButton className='button type3' id='abtcrew'>About</StoreButton>
+                <a href="https://forms.gle/xStHU4aEVnnwaEYe6" target="_blank"><StoreButton className='button type3' id='join'>Join our Crew</StoreButton></a>
             </FlexCenter>
         </div>
     )
