@@ -16,7 +16,7 @@ const Tournament = props => {
 
     useEffect(() => {
         axiosWithAuth2()
-            .get(`/api/games/${props.tournament.id}`)
+            .get(`/api/viewgames/${props.tournament.id}`)
                 .then(res => console.log(res))
     }, [])
 

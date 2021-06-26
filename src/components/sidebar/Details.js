@@ -59,17 +59,17 @@ const Details = props => {
     useEffect(() => {
         if(location.pathname === '/valorant') {
             axiosWithAuth2()
-                .get('/api/tournaments/valorant/game')
+                .get('/api/viewtournaments/valorant/game')
                     .then(res => setSchedule(res.data))
                     .catch(err => console.log(err))
         } else if (location.pathname === '/rl') {
             axiosWithAuth2()
-                .get('/api/tournaments/rl/game')
+                .get('/api/viewtournaments/rl/game')
                     .then(res => setSchedule(res.data))
                     .catch(err => console.log(err))
         }else {
             axiosWithAuth2()
-                .get('/api/tournaments')
+                .get('/api/viewtournaments')
                     .then(res => setSchedule(res.data))
                     .catch(err => console.log(err))
         }

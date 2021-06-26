@@ -12,6 +12,8 @@ const Posts = props => {
     const [allposts, setAllposts] = useState([])
     const [postpost, setPostpost] = useState(false)
     const [img, setImg] = useState(false)
+    const [modal, setModal] = useState(false)
+    const toggle = () => setModal(!modal)
     const [newPost, setNewPost] = useState({
         post: '',
         location: '',

@@ -152,14 +152,14 @@
     justify-content: flex-start;
     align-items:space-around
 }
-.username{
+.username {
     color: deeppink;
     margin: 0 2rem;
     padding-bottom: 1rem;
-    cursor: default
 }
 #username{
     color: deeppink;
+    cursor: default !important;
 }
 .playerusername{
     color: darkslateblue;

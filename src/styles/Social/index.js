@@ -118,6 +118,7 @@ export const CommentSection = styled(Button)`
     color: limegreen;
     border: 5px solid black;
     border-radius: 1rem;
+    width: 100%;
     :hover{
         border: 5px solid mediumpurple;
         border-radius: 1rem;
