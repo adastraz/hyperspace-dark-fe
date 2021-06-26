@@ -45,7 +45,7 @@ const Header = () => {
 
     const redirect = () => {
         history.push('/store')
-        window.location.reload()
+        window.location.reload() 
     }
     const [collapsed, setCollapsed] = useState(true)
 
@@ -144,7 +144,7 @@ const Header = () => {
                         <RLlogo src={RL} />
                 </Link>
                 <StoreButton className='button type3' id='store' onClick={() => redirect()}>Store</StoreButton>
-                <StoreButton className='button type3' id='abtcrew'>About</StoreButton>
+                <Link to='/about'><StoreButton className='button type3' id='abtcrew'>About</StoreButton></Link>
                 <a href="https://forms.gle/xStHU4aEVnnwaEYe6" target="_blank"><StoreButton className='button type3' id='join'>Join our Crew</StoreButton></a>
             </FlexCenter>
         </div>

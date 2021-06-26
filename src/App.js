@@ -7,6 +7,7 @@ import Sidebar from './components/sidebar/Sidebar'
 // import Valorant from './components/Valorant'
 import RL from './components/RL'
 import Player from './components/Player'
+import About from './components/About'
 // import Store from './components/store/Store'
 // import Item from './components/store/Item'
 // import Checkoutshop from './components/store/Checkoutshop'
@@ -37,6 +38,7 @@ function App() {
             <Route path='/rl' component={RL} />
             {/* <Route path='/store/:id' component={Item} /> */}
             <Route path='/store' component={EsportsGear} />
+            <Route path='/about' component={About} />
             <Route exact path='/' component={Welcome} />
           </Switch>
           <Sidebar small={false}/>
