@@ -97,7 +97,7 @@ const LoadComments = props => {
             {props.sidebar ?
                 <CommentSection onClick={toggle}>
                     <SidebarPostPost className='showpost code'>{props.post.post}</SidebarPostPost>
-                    {props.post.img != '' ?
+                    {props.post.img !== '' ?
                         <Clip>
                             <iframe width="500" height="auto" className='postimage2'
                                 src={`${props.post.img}?autoplay=1&mute=1&loop=1`}>
@@ -117,7 +117,7 @@ const LoadComments = props => {
                             <CloseHelper onClick={toggle}><img src={Close} /></CloseHelper>
                         </PostDeets>
                         <PostBody className='showpost code'>{current.post}</PostBody>
-                        {current.img != '' ? 
+                        {current.img !== '' ? 
                             <Clip>
                                 <iframe width="500" height="250" className='postimage2'
                                     src={`${props.post.img}?autoplay=1&mute=1&loop=1`}>
@@ -126,7 +126,7 @@ const LoadComments = props => {
                             ''
                         }
                         <ListLikes post={current} />
-                        {current.user_id == localStorage.getItem('cred') ?
+                        {current.user_id === localStorage.getItem('cred') ?
                             <>
                                 <DropdownItem onClick={toggled}><img src={Delete} /></DropdownItem>
                                 <Modal isOpen={modald} toggle={toggled}>

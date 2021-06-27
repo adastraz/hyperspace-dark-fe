@@ -37,7 +37,6 @@ import SSL from '../styles/imgs/ssl.png'
 import { PlayerDiv, PlayerDeets, Clips, PlayerHead, Username, Imp } from '../styles/Players'
 
 const Player = props => {
-    const location = useLocation()
     const { name } = useParams()
     const [player, setPlayer] = useState({})
     const [details, setDetails] = useState({})
@@ -200,6 +199,8 @@ const Player = props => {
                         return <img src={Imm3} className='twitch' alt={`rank ${details.rank}`} />
                     case 'rad' :
                         return <img src={Rad} className='twitch' alt={`rank ${details.rank}`} />
+                    default :
+                        return 
                 }
             case 'rl' :
                 switch (details.rank) {
@@ -217,7 +218,11 @@ const Player = props => {
                     return <img src={GC3} className='twitch' alt={`rank ${details.rank}`} /> 
                 case 'ssl' :
                     return <img src={SSL} className='twitch' alt={`rank ${details.rank}`} /> 
+                default :
+                    return 
                 }
+            default :
+                return 
         }
     }
 
@@ -253,7 +258,11 @@ const Player = props => {
                         return <img src={Sage} alt={`${agent.agent_name}`} className='agents' /> 
                     case 'skye' :
                         return <img src={Skye} alt={`${agent.agent_name}`} className='agents' /> 
+                    default :
+                        return 
                 }
+            default :
+                return 
         }
     }
 

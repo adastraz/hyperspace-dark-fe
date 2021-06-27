@@ -12,14 +12,14 @@ const Posts = props => {
     const [allposts, setAllposts] = useState([])
     const [postpost, setPostpost] = useState(false)
     const [img, setImg] = useState(false)
-    const [modal, setModal] = useState(false)
-    const toggle = () => setModal(!modal)
+    // const [modal, setModal] = useState(false)
+    // const toggle = () => setModal(!modal)
     const [newPost, setNewPost] = useState({
         post: '',
         location: '',
         img: ''
     })
-    var d = new Date
+    var d = new Date()
 
     useEffect(() => {
         axiosWithAuth2()
@@ -112,7 +112,7 @@ const Posts = props => {
                                 placeholder='YT embedded link'
                                 onChange={handleChanges}
                             />
-                            {newPost.img != '' ?
+                            {newPost.img !== '' ?
                                 <>
                                     <iframe width="500" height="250" className='video'
                             src={`${newPost.img}?autoplay=1&mute=1&loop=1`}>

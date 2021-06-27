@@ -1,5 +1,5 @@
-import React, { useState, useEffect } from 'react'
-import { Dropdown, DropdownToggle, DropdownMenu, DropdownItem } from 'reactstrap'
+import React, { useState } from 'react'
+import { Dropdown, DropdownMenu, DropdownItem } from 'reactstrap'
 import { setNowlive, setSched, setSocial } from '../../actions'
 import { connect } from 'react-redux'
 import { SelectorTitle } from '../../styles/Sidebar'
@@ -19,7 +19,7 @@ const Selector = props => {
                     <>
                         {name !== props.title ? 
                             <>
-                                {name == 'Schedule' ?
+                                {name === 'Schedule' ?
                                     <DropdownItem onClick={() => props.setSched()}>{name}</DropdownItem> :
                                 // name == 'Now-Live' ? 
                                 //     <DropdownItem onClick={() => props.setNowlive()}>{name}</DropdownItem> :

@@ -1,5 +1,4 @@
 import styled from 'styled-components'
-import { Font, Color } from '../'
 import { DropdownToggle } from 'reactstrap'
 
 export const Container = styled.div`

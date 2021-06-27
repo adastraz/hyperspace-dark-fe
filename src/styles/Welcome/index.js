@@ -1,6 +1,4 @@
 import styled from 'styled-components'
-import { Font } from '../'
-import Background from '../imgs/background.jpg'
 
 export const BGIMG = styled.img`
     width: 80%;

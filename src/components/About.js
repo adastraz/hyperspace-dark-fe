@@ -85,7 +85,7 @@ const About = () => {
               <Name>Astro</Name>
               <Commander>Commander</Commander>
             </NameCard>
-            <Bio>Hello and welcome to my very first public website to be used by human users! You can call me Astro, or Tyler. Like many young adults, I opted out of traditional education to pursue code school, which has given me the tools to build the site you see from the ground up. Some of my favorite interests that led me to programming are gaming, Star Wars, and robots! Hope you enjoy the site! :) <a className='tywes' href='https://tywes.com' target='_blank'>Here's a link to my portfolio.</a></Bio>
+            <Bio>Hello and welcome to my very first public website to be used by human users! You can call me Astro, or Tyler. Like many young adults, I opted out of traditional education to pursue code school, which has given me the tools to build the site you see from the ground up. Some of my favorite interests that led me to programming are gaming, Star Wars, and robots! Hope you enjoy the site! :) <a className='tywes' href='https://tywes.com' rel="noreferrer" target='_blank'>Here's a link to my portfolio.</a></Bio>
           </CrewCardR>
         </CrewContainer>
       </Container>

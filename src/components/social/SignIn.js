@@ -47,7 +47,7 @@ const SignIn = props => {
     }
 
     useEffect(() => {
-        if (actLen > user.password.length && number == true || special == true) {
+        if (actLen > user.password.length && number === true && special === true) {
             setNumber(false)
             setSpecial(false)
             setLetter(false)
@@ -63,7 +63,7 @@ const SignIn = props => {
         for(let i=0; i<user.password.length; i++){
             if (letters.includes(user.password[i])) {
                 setLetter(true)
-            } else if (((i+1) == user.password.length) && letter == false){
+            } else if (((i+1) === user.password.length) && letter === false){
                 setLetter(false)
             } 
         }
@@ -71,7 +71,7 @@ const SignIn = props => {
         for(let i=0; i<user.password.length; i++){
             if (numbers.includes(user.password[i])) {
                 setNumber(true)
-            } else if (((i+1) == user.password.length) && number == false){
+            } else if (((i+1) === user.password.length) && number === false){
                 setNumber(false)
             } 
         }
@@ -79,11 +79,11 @@ const SignIn = props => {
         for(let i=0; i<user.password.length; i++){
             if (specialCharacters.includes(user.password[i])) {
                 setSpecial(true)
-            } else if (((i+1) == user.password.length) && special == false){
+            } else if (((i+1) === user.password.length) && special === false){
                 setSpecial(false)
             } 
         }
-        if (!signup && user.password == confirm.password && user.password.length > 0) {
+        if (!signup && user.password === confirm.password && user.password.length > 0) {
             setUnmatching(true)
         } else{
             setUnmatching(false)
@@ -92,7 +92,7 @@ const SignIn = props => {
 
     return (
         <>
-            {localStorage.getItem('token') == null ?
+            {localStorage.getItem('token') === null ?
                 <div className='signDiv'>
                     <form onSubmit={submitForm}>
                         <SignInput

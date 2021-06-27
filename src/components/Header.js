@@ -78,7 +78,7 @@ const Header = () => {
                             <FlexCenterColumn>
                                 <NavItem>
                                     <DiscordDiv2 onClick={redirectFunc}>
-                                        <a href='https://discord.gg/dXUFew7Gvn' target="_blank">
+                                        <a href='https://discord.gg/dXUFew7Gvn' rel="noreferrer" target="_blank">
                                             <HelmetImg src={Helmet} />
                                         </a>
                                         <p className='msgdisc'>Join our discord!</p>
@@ -114,16 +114,16 @@ const Header = () => {
                     </ConditionalNav>
                 {/*  */}
                     <SocialDiv>
-                        <a href='https://discord.gg/dXUFew7Gvn' target="_blank">
+                        <a href='https://discord.gg/dXUFew7Gvn' rel="noreferrer" target="_blank">
                             <DiscordImg src={Discord}/>
                         </a>
-                        <a href='https://www.facebook.com/HyperspaceDark/' target="_blank">
+                        <a href='https://www.facebook.com/HyperspaceDark/' rel="noreferrer" target="_blank">
                             <SocialImgs src={Facebook}/>
                         </a>
-                        <a href='https://www.instagram.com/hyperspacedark/' target="_blank">
+                        <a href='https://www.instagram.com/hyperspacedark/' rel="noreferrer" target="_blank">
                             <SocialImgs src={Instagram}/>
                         </a>
-                        <a href='https://twitter.com/HyperspaceDark' target="_blank">
+                        <a href='https://twitter.com/HyperspaceDark' rel="noreferrer" target="_blank">
                             <SocialImgs src={Twitter}/>
                         </a>
                     </SocialDiv>
@@ -145,7 +145,7 @@ const Header = () => {
                 </Link>
                 <StoreButton className='button type3' id='store' onClick={() => redirect()}>Store</StoreButton>
                 <Link to='/about'><StoreButton className='button type3' id='abtcrew'>About</StoreButton></Link>
-                <a href="https://forms.gle/xStHU4aEVnnwaEYe6" target="_blank"><StoreButton className='button type3' id='join'>Join our Crew</StoreButton></a>
+                <a href="https://forms.gle/xStHU4aEVnnwaEYe6" rel="noreferrer" target="_blank"><StoreButton className='button type3' id='join'>Join our Crew</StoreButton></a>
             </FlexCenter>
         </div>
     )
