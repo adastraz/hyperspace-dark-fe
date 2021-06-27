@@ -108,12 +108,12 @@ const About = () => {
         </Hyperspace>
         <CrewContainer>
           <Line />
-          <Crew>⚓Admirals and Commanders⚓</Crew>
+          <Crew>Admirals and Commanders</Crew>
           <div className='nonactivebio'>
             {viewCrew && isbio ?
               <CrewCard className={isbio ? 'activebio': 'nonactivebio'} onClick={() => setIsbio(!isbio)}>
                 {Rank(viewCrew, false)}
-                <Bio>{viewCrew.bio}{viewCrew.name === 'Astro' ? <a className='tywes' href='https://tywes.com' rel="noreferrer" target='_blank'> Here is a link to my personal site! :)</a> : ''}</Bio> 
+                <Bio>{viewCrew.bio}{viewCrew.name === 'Astro' ? <a className='tywes' href='https://tywes.com' rel="noreferrer" target='_blank'> Here is a link to my personal portfolio! :)</a> : ''}</Bio> 
               </CrewCard> :
               ''
             }

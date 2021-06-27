@@ -29,7 +29,7 @@ export const Origins = styled.h1`
   font-weight: bold;
   color: mediumpurple;
   margin-bottom: 2rem;
-  text-shadow: -1px -1px 0 white, 1px -1px 0 white, -1px 1px 0 white, 1px 1px 0 black;
+  text-shadow: -1px -1px 0 black, 1px -1px 0 black, -1px 1px 0 black, 1px 1px 0 white;
 `
 
 export const Crew = styled.h1`
@@ -38,6 +38,7 @@ export const Crew = styled.h1`
   font-weight: bold;
   padding-top: 5rem;
   text-align: center;
+  text-shadow: -1px -1px 0 white, 1px -1px 0 white, -1px 1px 0 white, 1px 1px 0 lightblue;
 `
 
 export const Desc = styled.p`
