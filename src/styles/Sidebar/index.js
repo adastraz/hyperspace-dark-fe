@@ -13,7 +13,7 @@ export const Container = styled.div`
     background-color: black;
     margin-right: 3rem;
     margin-bottom: 2rem;
-    margin-top: -5rem;
+    margin-top: -7rem;
     padding: 1rem;
     border: 10px double mediumpurple;
     @media(max-width: 1500px){
