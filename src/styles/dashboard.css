@@ -18,6 +18,13 @@
     margin: 1em 0.8em;
 }
 
+.none { 
+    display: none
+}
+.fullbioactive {
+    display: block;
+}
+
 /* #collection-component-1610576218932 {
     width: 70%;
     padding: 2rem;
@@ -216,6 +223,10 @@
     margin-bottom: 2.5rem
 }
 
+.fullactivebio{
+    display: flex;
+}
+
 .nav:before {
     content: "";
     position: absolute;
@@ -229,6 +240,15 @@
     transition: all 0.3s ease-in-out;
 }
 
+.nonactivebio {
+    margin-top: 5rem;
+}
+
+.crewmatebuttons {
+    display: flex;
+    justify-content: space-evenly;
+    flex-wrap: wrap;
+}
 
 #selectornav {
     position: relative;

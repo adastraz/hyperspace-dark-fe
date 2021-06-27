@@ -8,9 +8,14 @@ export const Hyperspace = styled.div`
 `
 
 export const Container = styled.div`
-  width: 70%;
+  width: 65%;
   padding: 3rem;
-  margin: 5rem 0;
+  margin: 5rem;
+  border-radius: 1rem;
+  // background: rgb(163,34,195);
+  // background: radial-gradient(circle, rgba(163,34,195,0.8995973389355743) 0%, rgba(45,253,160,0.87718837535014) 100%);
+  // background: rgb(45,253,160);
+  // background: radial-gradient(circle, rgba(45,253,160,0.6418942577030813) 0%, rgba(0,0,0,0.8911939775910365) 100%);
 `
 
 export const CrewContainer = styled.div`
@@ -24,6 +29,7 @@ export const Origins = styled.h1`
   font-weight: bold;
   color: mediumpurple;
   margin-bottom: 2rem;
+  text-shadow: -1px -1px 0 white, 1px -1px 0 white, -1px 1px 0 white, 1px 1px 0 black;
 `
 
 export const Crew = styled.h1`
@@ -58,7 +64,8 @@ export const Line = styled.hr`
 
 export const Name = styled.h3`
   font-size: 2rem;
-  color: #93e9be;
+  color: white;
+  text-shadow: -1px -1px 0 black, 1px -1px 0, -1px 1px 0 black, 1px 1px 0 black;
   text-align: center
 `
 
@@ -98,5 +105,7 @@ export const CrewCardR = styled.div`
 
 export const NameCard = styled.div`
   width: 25%;
+  display: block;
+  margin: 1rem;
 `
 
