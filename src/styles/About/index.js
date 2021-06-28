@@ -11,11 +11,9 @@ export const Container = styled.div`
   width: 65%;
   padding: 3rem;
   margin: 5rem;
-  border-radius: 1rem;
-  // background: rgb(163,34,195);
-  // background: radial-gradient(circle, rgba(163,34,195,0.8995973389355743) 0%, rgba(45,253,160,0.87718837535014) 100%);
-  // background: rgb(45,253,160);
-  // background: radial-gradient(circle, rgba(45,253,160,0.6418942577030813) 0%, rgba(0,0,0,0.8911939775910365) 100%);
+  // border-radius: 1rem;
+  background: rgb(51,51,51);
+  background: linear-gradient(90deg, rgba(51,51,51,1) 0%, rgba(105,105,105,1) 30%, rgba(105,105,105,1) 50%, rgba(105,105,105,1) 70%, rgba(51,51,51,1) 100%);
 `
 
 export const CrewContainer = styled.div`
@@ -27,7 +25,7 @@ export const Origins = styled.h1`
   font-size: 3rem;
   text-align: center;
   font-weight: bold;
-  color: mediumpurple;
+  color: black;
   margin-bottom: 2rem;
   text-shadow: -1px -1px 0 black, 1px -1px 0 black, -1px 1px 0 black, 1px 1px 0 white;
 `
@@ -71,7 +69,7 @@ export const Name = styled.h3`
 `
 
 export const FleetAdmiral = styled.p`
-  color: white;
+  // color: white;
   text-size: .75rem;
   text-align: center;
   margin-top: .5rem
@@ -86,7 +84,9 @@ export const Commander = styled.p`
   color: lightblue;
   text-size: .75rem;
   text-align: center;
-  margin-top: .5rem
+  margin-top: .5rem;
+  // text-shadow: -1px -1px 0 black, 1px -1px 0, -1px 1px 0 black, 1px 1px 0 white;
+
 `
 
 export const CrewCard = styled.div`
