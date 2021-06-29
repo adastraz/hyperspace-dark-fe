@@ -1,22 +1,18 @@
 import React, { useState, useEffect } from 'react'
 import { Button, 
     Modal, 
-    ModalHeader, 
-    ModalBody, 
-    ModalFooter,
-    DropdownItem
+    ModalHeader
 } from 'reactstrap'
-import { connect } from 'react-redux'
 import axiosWithAuth2 from '../../utils/axiosWithAuth2'
 
 const Tournament = props => {
     const [modal, setModal] = useState(false)
     const toggle = () => setModal(!modal)
-    const [games, setGames] = useState([])
+    // const [games, setGames] = useState([])
 
     useEffect(() => {
         axiosWithAuth2()
-            .get(`/api/games/${props.tournament.id}`)
+            .get(`/api/viewgames/${props.tournament.id}`)
                 .then(res => console.log(res))
     }, [])
 

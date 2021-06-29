@@ -1,6 +1,4 @@
 import styled from 'styled-components'
-import { Font } from '../'
-import Background from '../imgs/background.jpg'
 
 export const BGIMG = styled.img`
     width: 80%;
@@ -22,12 +20,14 @@ export const Container = styled.div`
     display: flex;
     flex-direction: column;
     justify-content: center;
-    background-color: black;
-    border: .6rem double mediumpurple;
+    background: rgb(51,51,51);
+    background: linear-gradient(90deg, rgba(51,51,51,1) 0%, rgba(0,0,0,1) 30%, rgba(0,0,0,1) 50%, rgba(0,0,0,1) 70%, rgba(51,51,51,1) 100%);
+    // border-top: .6rem double #93e9be;
+    // border-bottom: .6rem double #93e9be;
     border-opacity: .7;
-    border-radius: 1rem;
     align-items: center;
     margin-top: 8rem;
+    margin-bottom: 5rem;
     padding-top: 4rem;
     margin-left: 15%;
     @media(max-width: 1500px) {
@@ -47,8 +47,9 @@ export const Title = styled.h1`
     color: black;
     // margin-left: 7rem;
     font-family: 'Syncopate', sans-serif;
+    text-shadow: -1px -1px 0, 1px -1px 0, -1px 1px 0 mediumpurple, 1px 1px 0 mediumpurple;
     font-weight: bold;
-    color: mediumpurple;
+    color: white;
     font-size: 3rem;
     padding: 1.5rem 7rem;
     background-position: left bottom;

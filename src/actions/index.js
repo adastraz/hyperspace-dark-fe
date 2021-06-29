@@ -1,7 +1,6 @@
 import axios from 'axios'
 import axiosWithAuth from '../utils/axiosWithAuth.js'
 import axiosWithAuth2 from '../utils/axiosWithAuth2.js'
-import history from '../utils/history.js'
 export const FETCHING_START = 'FETCHING_START'
 export const FETCHING_ERROR = 'FETCHING_ERROR'
 export const DELETE_STREAMERS = 'DELETE_STREAMERS'

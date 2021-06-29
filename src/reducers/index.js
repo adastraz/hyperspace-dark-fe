@@ -56,7 +56,7 @@ export const reducer = (state = initialState, action) => {
                 isLoading: false
             }
         case CHANGE_BALANCE:
-            if (action.payload.op == '+'){
+            if (action.payload.op === '+'){
                 return {
                     ...state,
                     isLoading: false,

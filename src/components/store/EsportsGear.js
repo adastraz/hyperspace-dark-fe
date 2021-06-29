@@ -1,6 +1,4 @@
-import React, { useEffect } from 'react'
-import { connect } from 'react-redux'
-import history from '../../utils/history'
+import React from 'react'
 
 const EsportsGear = () => {
 

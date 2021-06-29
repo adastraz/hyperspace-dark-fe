@@ -18,11 +18,21 @@
     margin: 1em 0.8em;
 }
 
-/* #collection-component-1610576218932 {
-    width: 70%;
-    padding: 2rem;
-    margin-top: 5rem;
-} */
+.none { 
+    display: none
+}
+.fullbioactive {
+    display: block;
+}
+
+#collection-component-1610576218932 {
+    /* width: 70%; */
+    /* padding-right: 30%; */
+    /* padding: 2rem;
+    margin-top: 5rem; */
+    background: rgb(255,248,248);
+    background: linear-gradient(0deg, rgba(255,248,248,1) 50%, rgba(51,51,51,1) 100%);
+}
 
 .type3{
     color: #93e9be;
@@ -67,13 +77,104 @@
 .type3:focus{
     border: none
 }
+/* //////////////////////// */
+.type4{
+    color: #93e9be;
+}
+.type4::after,.type4::before{
+    content: '';
+    display: block;
+    position: absolute;
+    width: 20%;
+    height: 20%;
+    border: 2px solid;
+    transition: all 0.6s ease;
+    border-radius: 2px;
+}
+
+.type4::after{
+    bottom: 0;
+    right: 0;
+    border-top-color: transparent;
+    border-left-color: transparent;
+    border-bottom-color: black;
+    border-right-color: black;
+}
+
+.type4::before{
+    top: 0;
+    left: 0;
+    border-bottom-color: transparent;
+    border-right-color: transparent;
+    border-top-color: black;
+    border-left-color: black;
+}
+
+.type4:hover:after,.type4:hover:before{
+    border-bottom-color: black;
+    border-right-color: black;
+    border-top-color: black;
+    border-left-color: black;
+    width: 100%;
+    height: 100%;
+}
+.type4:focus{
+    /* border: none !important; */
+    outline: none !important
+}
+/* ////////////////////////////////////////// */
+
+.type2{
+    color: #93e9be;
+}
+.type2::after,.type2::before{
+    content: '';
+    display: block;
+    position: absolute;
+    width: 20%;
+    height: 20%;
+    border: 2px solid;
+    transition: all 0.6s ease;
+    border-radius: 2px;
+}
+
+.type2::after{
+    bottom: 0;
+    right: 0;
+    border-top-color: transparent;
+    border-left-color: transparent;
+    border-bottom-color: #93e9be;
+    border-right-color: #93e9be;
+}
+
+.type2::before{
+    top: 0;
+    left: 0;
+    border-bottom-color: transparent;
+    border-right-color: transparent;
+    border-top-color: #93e9be;
+    border-left-color: #93e9be;
+}
+
+.type2:hover:after,.type2:hover:before{
+    border-bottom-color: #93e9be;
+    border-right-color: #93e9be;
+    border-top-color: #93e9be;
+    border-left-color: #93e9be;
+    width: 100%;
+    height: 100%;
+}
+.type2:focus{
+    border: none
+}
+
 
 .gradi {
     background: #333333;
     background: linear-gradient(0deg, #333333 59%, rgba(0,0,0,1) 100%);
     border-top: 7px double mediumpurple;
-    padding-top: 2rem;
-    padding-left: 3rem
+    padding-top: 3rem;
+    padding-left: 5rem
 }
 
 
@@ -117,14 +218,28 @@
 .nav {
     position: relative;
     text-decoration: none !important;
+    color: lightblue;
+}
+
+#store {
+    font-size: 1.3rem;
+}
+
+#join {
     color: mediumpurple;
+    font-weight: bold
+}
+
+#abtcrew {
+    color: white;
+    font-size: 1.3rem
 }
 
 #listlikes {
     background-color: black;
     display: flex;
     margin: .5rem 0;
-
+    margin-right: 2rem;
 }
 .sidebarflex{
     min-height: 9rem;
@@ -138,19 +253,21 @@
     justify-content: flex-start;
     align-items:space-around
 }
-.username{
+.username {
     color: deeppink;
     margin: 0 2rem;
     padding-bottom: 1rem;
-    cursor: default
+    font-size: 1.5rem;
 }
 #username{
     color: deeppink;
+    cursor: default !important;
 }
 .playerusername{
     color: darkslateblue;
     margin: 0 2rem;
-    padding-bottom: 1rem
+    padding-bottom: 1rem;
+    font-size: 1.5rem;
 }
 #playerusername{
     color: darkslateblue !important;
@@ -158,7 +275,8 @@
 }
 .date{
     color:dodgerblue;
-    padding-bottom: 1rem
+    /* padding-bottom: 1rem; */
+    font-size: .85rem
 }
 .postlink{
     display: flex;
@@ -189,12 +307,21 @@
     min-height: 5rem;
 }
 
+.tywes {
+    color: lightblue !important;
+    text-decoration: underline !important;
+}
+
 .input{
     width: 15rem;
     margin-bottom: 3.5rem
 }
 .agentbutton{
     margin-bottom: 2.5rem
+}
+
+.fullactivebio{
+    display: flex;
 }
 
 .nav:before {
@@ -204,12 +331,21 @@
     height: 2px;
     bottom: -1rem;
     left: 0;
-    background-color: darkslategray;
+    background-color: lightblue;
     visibility: hidden;
     transform: scaleX(0);
     transition: all 0.3s ease-in-out;
 }
 
+.nonactivebio {
+    margin-top: 5rem;
+}
+
+.crewmatebuttons {
+    display: flex;
+    justify-content: space-evenly;
+    flex-wrap: wrap;
+}
 
 #selectornav {
     position: relative;
@@ -253,7 +389,8 @@
 }
 
 .logoutbutton{
-    width: 1.5rem
+    width: 1.5rem;
+    cursor: pointer
 }
 .rlnav {
     position: relative;
@@ -362,6 +499,7 @@ a, a:visited, a:hover, a:active {
 .detailtitle{
     font-size: 2rem;
     font-family: 'Rajdhani', sans-serif;
+    color: black;
 }
 .imp{
     margin-bottom: 3rem
@@ -395,6 +533,14 @@ a, a:visited, a:hover, a:active {
 
 .scheduletitle{
     font-family: 'Orbitron', sans-serif;
+}
+
+.light {
+    color: #93e9be
+}
+
+.dark {
+    color: black
 }
 
 .lineup{
@@ -434,13 +580,21 @@ a, a:visited, a:hover, a:active {
 
 .name{
     text-decoration: none !important;
-    font-size: 1.5rem
+    font-size: 1.5rem;
+    color: white !important;
+    text-shadow: -1px -1px 0 black, 1px -1px 0, -1px 1px 0 black, 1px 1px 0 black;
 }
 
 .lineuptitle{
     margin: 20rem 5rem 20rem 0;
     font-family: 'Syncopate', sans-serif;
     font-size: 2.2rem
+}
+
+.fixbackground {
+    /* background: #333333 */
+    /* background: rgb(51,51,51);
+    background: linear-gradient(0deg, rgba(51,51,51,1) 89%, rgba(255,255,255,1) 97%, rgba(255,248,248,1) 100%); */
 }
 
 .players{

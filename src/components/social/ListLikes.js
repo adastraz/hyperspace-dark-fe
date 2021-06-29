@@ -9,7 +9,7 @@ const ListLikes = props => {
     const [dropdownOpen, setDropdownOpen] = useState(false)
     const [likes, setLikes] = useState([])
     const toggle = () => setDropdownOpen(prevState => !prevState)
-    const players = ['Tryhard']
+    const players = ['Tryhard', 'Othos']
 
     useEffect(() => {
         axiosWithAuth2()

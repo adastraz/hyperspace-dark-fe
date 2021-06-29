@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { Link } from 'react-router-dom'
+import { Link, useLocation } from 'react-router-dom'
 import Logo from '../styles/imgs/Hyperspace_logo-HD.png'
 import Valorant from '../styles/imgs/valorant-logo.png'
 import RL from '../styles/imgs/rl-logo.png'
@@ -10,18 +10,42 @@ import Twitter from '../styles/imgs/twitter.png'
 import Instagram from '../styles/imgs/instagram.png'
 import { connect } from 'react-redux'
 import history from '../utils/history'
-import { HD, HDLine, SocialDiv, TopDown, FlexCenter, FlexCenterMain, FlexCenter2, HeaderDiv, DiscordImg, SocialImgs, DiscordDiv2, HelmetImg, RegLogo, RLlogo, RegLogo2, RLlogo2, MainLogo, ConditionalNav, ConditionalNavToggler, NavDiv, FlexCenterColumn, FlexCenterTop, GameLink, StoreButton, StoreButton2, UL } from '../styles/Header'
+import { HD, 
+    SocialDiv, 
+    TopDown, 
+    FlexCenter, 
+    FlexCenterMain, 
+    FlexCenter2, 
+    HeaderDiv, 
+    DiscordImg, 
+    SocialImgs, 
+    DiscordDiv2, 
+    HelmetImg, 
+    RLlogo, 
+    RegLogo2, 
+    RLlogo2, 
+    MainLogo, 
+    ConditionalNav, 
+    ConditionalNavToggler, 
+    NavDiv, 
+    FlexCenterColumn, 
+    FlexCenterTop, 
+    GameLink, 
+    StoreButton, 
+    StoreButton2, 
+    UL 
+} from '../styles/Header'
 import { NavItem } from 'reactstrap'
 import Sidebar from './sidebar/Sidebar'
 
-const Header = props => {
+const Header = () => {
     const [dis, setDis] = useState(false)
     const [dis2, setDis2] = useState(false)
-    // const location = useLocation()
+    const location = useLocation()
 
     const redirect = () => {
         history.push('/store')
-        window.location.reload()
+        window.location.reload() 
     }
     const [collapsed, setCollapsed] = useState(true)
 
@@ -54,7 +78,7 @@ const Header = props => {
                             <FlexCenterColumn>
                                 <NavItem>
                                     <DiscordDiv2 onClick={redirectFunc}>
-                                        <a href='https://discord.gg/dXUFew7Gvn' target="_blank">
+                                        <a href='https://discord.gg/dXUFew7Gvn' rel="noreferrer" target="_blank">
                                             <HelmetImg src={Helmet} />
                                         </a>
                                         <p className='msgdisc'>Join our discord!</p>
@@ -90,16 +114,16 @@ const Header = props => {
                     </ConditionalNav>
                 {/*  */}
                     <SocialDiv>
-                        <a href='https://discord.gg/dXUFew7Gvn' target="_blank">
+                        <a href='https://discord.gg/dXUFew7Gvn' rel="noreferrer" target="_blank">
                             <DiscordImg src={Discord}/>
                         </a>
-                        <a href='https://www.facebook.com/HyperspaceDark/' target="_blank">
+                        <a href='https://www.facebook.com/HyperspaceDark/' rel="noreferrer" target="_blank">
                             <SocialImgs src={Facebook}/>
                         </a>
-                        <a href='https://www.instagram.com/hyperspacedark/' target="_blank">
+                        <a href='https://www.instagram.com/hyperspacedark/' rel="noreferrer" target="_blank">
                             <SocialImgs src={Instagram}/>
                         </a>
-                        <a href='https://twitter.com/HyperspaceDark' target="_blank">
+                        <a href='https://twitter.com/HyperspaceDark' rel="noreferrer" target="_blank">
                             <SocialImgs src={Twitter}/>
                         </a>
                     </SocialDiv>
@@ -114,12 +138,15 @@ const Header = props => {
             </HeaderDiv>
             {/* <HDLine /> */}
             <FlexCenter className='gradi'>
-                <Link 
-                    to='/rl' className='nav' onMouseOver={() => setDis2(!dis2)}
+            {location.pathname === '/rl' ? <Link to='/'><StoreButton className='button type4' id='abtcrew'>Home</StoreButton></Link> :
+                <Link to='/rl' className='nav' onMouseOver={() => setDis2(!dis2)}
                     onMouseOut={() => setDis2(!dis2)}>
                         <RLlogo src={RL} />
                 </Link>
-                <StoreButton className='button type3' onClick={() => redirect()}>Store</StoreButton>
+            }
+                {location.pathname === '/store' ? <Link to='/'><StoreButton className='button type4' id='abtcrew'>Home</StoreButton></Link> : <StoreButton className='button type4' id='store' onClick={() => redirect()}>Store</StoreButton>}
+                {location.pathname === '/about' ? <Link to='/'><StoreButton className='button type4' id='abtcrew'>Home</StoreButton></Link> : <Link to='/about'><StoreButton className='button type4' id='abtcrew'>About</StoreButton></Link>}
+                <a href="https://forms.gle/xStHU4aEVnnwaEYe6" rel="noreferrer" target="_blank"><StoreButton className='button type4' id='join'>Join our Crew</StoreButton></a>
             </FlexCenter>
         </div>
     )

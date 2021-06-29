@@ -8,7 +8,7 @@ const RL = () => {
         <PlayerContainer>
             <PlayersDiv>
                 <Divider>
-                    <h1 className='lineuptitle'>Dark</h1>
+                    <h1 className='lineuptitle dark'>Dark</h1>
                     <Lineup2>
                         <Link to='/player/Othos' className='name nav'>Othos</Link>
                         <Link to='/player/skyythegrandmaguy' className='name nav'>skyythegrandmaguy</Link>
@@ -16,7 +16,7 @@ const RL = () => {
                     </Lineup2>
                 </Divider>
                     <Divider>
-                        <h1 className='lineuptitle'>Light</h1>
+                        <h1 className='lineuptitle light'>Light</h1>
                         <Lineup2>
                             <Link to='/player/Sly' className='name nav'>ZildjianHenry</Link>
                             <Link to='/player/FrugalPandy' className='name nav'>FrugalPandy</Link>
