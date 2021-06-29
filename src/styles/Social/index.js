@@ -101,12 +101,12 @@ export const Like = styled.a`
 
 export const SidebarPost = styled.div`
     min-height: 9rem;
-    margin: 1.5rem auto;
+    margin: 1.5rem 0;
     background: black;
     padding: 1rem 0 1rem 1rem;
-    max-width: 95%;
-    border-left: yellow 3px solid;
-    border-bottom: yellow 3px solid;
+    width: 95%;
+    border-left: mediumpurple 3px solid;
+    border-bottom: mediumpurple 3px solid;
     display: flex;
     justify-content: flex-start;
     align-items:space-around
@@ -129,7 +129,16 @@ export const SidebarPostPost = styled.p`
     margin-bottom: 1rem;
 `
 
+export const LikeDate = styled.div`
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    align-items: center
+`
+
 export const PostButton = styled.p`
-    margin-top: 1rem;
     color: mediumpurple;
+    cursor: pointer;
+    text-align: center;
+    margin: 1rem auto
 `

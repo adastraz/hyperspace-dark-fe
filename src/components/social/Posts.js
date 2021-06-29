@@ -6,7 +6,7 @@ import LoadComments from './LoadComments.js'
 import { connect } from 'react-redux'
 import ListLikes from './ListLikes.js'
 
-import { SidebarPost, PostButton } from '../../styles/Social'
+import { SidebarPost, PostButton, LikeDate } from '../../styles/Social'
 
 const Posts = props => {
     const [allposts, setAllposts] = useState([])
@@ -71,7 +71,7 @@ const Posts = props => {
         <>
             <img src="https://img.icons8.com/dusk/64/000000/exit.png" className='logoutbutton' onClick={() => logout()}/>
             {props.user.is_player || props.user.team === 'admin' ? 
-                <PostButton onClick={() => setPostpost(!postpost)}>Post</PostButton> :
+                <PostButton className='nav' onClick={() => setPostpost(!postpost)}>Post</PostButton> :
                 ''
             }
             {postpost ? 
@@ -84,22 +84,6 @@ const Posts = props => {
                         onChange={handleChanges}
                         className='postpost'
                     />
-                    {/* {!location ? 
-                        <p onClick={() => setLocation(!img)}>Location</p> :
-                        <>
-                            <input
-                                className='locationlocation'
-                                id='location'
-                                type='text'
-                                name='location'
-                                value={newPost.location}
-                                placeholder='Location'
-                                onChange={handleChanges}
-                            />
-                            <button onClick={() => setLocation(!location)}>Cancel</button>
-                        </>
-                    }
-                    */}
                     {!img ? 
                         <p onClick={() => setImg(!img)}>Embedded Ytlink</p> :
                         <>
@@ -115,15 +99,15 @@ const Posts = props => {
                             {newPost.img !== '' ?
                                 <>
                                     <iframe width="500" height="250" className='video'
-                            src={`${newPost.img}?autoplay=1&mute=1&loop=1`}>
-                        </iframe>
+                                        src={`${newPost.img}?autoplay=1&mute=1&loop=1`}>
+                                    </iframe>
                                 </> :
                                 ''
                             }
                             <button onClick={() => setImg(!img)}>Cancel</button>
                         </>
                     } 
-                    <button type='submit'>Post</button>
+                    <button className='button type3' type='submit'>Post</button>
                 </form> :
                 ''
             }
@@ -133,16 +117,17 @@ const Posts = props => {
                         {post.is_player ?
                             <Link to={`/player/${post.username}`} className='postlink'>
                                 <p className='playerusername code'>{post.username}</p>
-                                <p className='date code'>{post.created_at}</p>
                             </Link> :
                             <div className='postlink'>
                                 <p className='username code'>{post.username}</p>
-                                <p className='date code'>{post.created_at}</p>
                             </div>
                         }
                         
                         <LoadComments post={post} sidebar={true} username={post.username}/>
-                        <ListLikes post={post} /> 
+                        <LikeDate>
+                            <ListLikes post={post} />
+                            <p className='date code'>{post.created_at}</p>
+                        </LikeDate> 
                     </div>
                 </SidebarPost> 
             ))}
@@ -155,8 +140,6 @@ const mapStateToProps = state => {
         isLoading: state.isLoading,
         error: state.error,
         user: state.user,
-        // friends: state.friends,
-        // users: state.users,
         posts: state.posts
     }
 }

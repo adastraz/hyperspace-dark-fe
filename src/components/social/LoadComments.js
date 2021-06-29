@@ -99,7 +99,7 @@ const LoadComments = props => {
                     <SidebarPostPost className='showpost code'>{props.post.post}</SidebarPostPost>
                     {props.post.img !== '' ?
                         <Clip>
-                            <iframe width="500" height="auto" className='postimage2'
+                            <iframe width="445" height="250" className='postimage2'
                                 src={`${props.post.img}?autoplay=1&mute=1&loop=1`}>
                             </iframe>
                         </Clip> : ''
@@ -119,7 +119,7 @@ const LoadComments = props => {
                         <PostBody className='showpost code'>{current.post}</PostBody>
                         {current.img !== '' ? 
                             <Clip>
-                                <iframe width="500" height="250" className='postimage2'
+                                <iframe width="445" height="250" className='postimage2'
                                     src={`${props.post.img}?autoplay=1&mute=1&loop=1`}>
                                 </iframe>
                             </Clip> :

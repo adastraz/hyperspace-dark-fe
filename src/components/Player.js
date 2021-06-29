@@ -288,7 +288,7 @@ const Player = props => {
             <PlayerDeets>
                 {ytlinks.length > 0 ? 
                     <Clips>
-                        <iframe width="500" height="250" className='video'
+                        <iframe width="445" height="250" className='video'
                             src={`${ytlinks[ytplay].youtubelinks}?autoplay=1&mute=1&loop=1`}>
                         </iframe>
                         {props.user.username === name ?

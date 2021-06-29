@@ -239,7 +239,7 @@
     background-color: black;
     display: flex;
     margin: .5rem 0;
-
+    margin-right: 2rem;
 }
 .sidebarflex{
     min-height: 9rem;
@@ -257,6 +257,7 @@
     color: deeppink;
     margin: 0 2rem;
     padding-bottom: 1rem;
+    font-size: 1.5rem;
 }
 #username{
     color: deeppink;
@@ -265,7 +266,8 @@
 .playerusername{
     color: darkslateblue;
     margin: 0 2rem;
-    padding-bottom: 1rem
+    padding-bottom: 1rem;
+    font-size: 1.5rem;
 }
 #playerusername{
     color: darkslateblue !important;
@@ -273,7 +275,8 @@
 }
 .date{
     color:dodgerblue;
-    padding-bottom: 1rem
+    /* padding-bottom: 1rem; */
+    font-size: .85rem
 }
 .postlink{
     display: flex;
@@ -328,7 +331,7 @@
     height: 2px;
     bottom: -1rem;
     left: 0;
-    background-color: #696969;
+    background-color: lightblue;
     visibility: hidden;
     transform: scaleX(0);
     transition: all 0.3s ease-in-out;
@@ -386,7 +389,8 @@
 }
 
 .logoutbutton{
-    width: 1.5rem
+    width: 1.5rem;
+    cursor: pointer
 }
 .rlnav {
     position: relative;
@@ -495,6 +499,7 @@ a, a:visited, a:hover, a:active {
 .detailtitle{
     font-size: 2rem;
     font-family: 'Rajdhani', sans-serif;
+    color: black;
 }
 .imp{
     margin-bottom: 3rem

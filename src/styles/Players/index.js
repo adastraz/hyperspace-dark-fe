@@ -30,7 +30,11 @@ export const PlayerDiv = styled.div`
     flex-direction: column;
     justify-content: center;
     align-items: space-evenly;
-    width: 70%;
+    width: 65%;
+    background: rgb(255,255,255);
+    background: linear-gradient(0deg, rgba(255,255,255,1) 0%, rgba(255,255,255,1) 0%, rgba(51,51,51,1) 76%);
+    padding-bottom: 5rem;
+    border-radius: 2rem;
     @media(max-width: 1500px) {
         margin: 0 auto;
         width: 90%;
