@@ -1,8 +1,11 @@
 import styled from 'styled-components'
 
 export const PlayerContainer = styled.div`
-    width: 100%;
-    margin: 2rem
+    width: 90%;
+    margin: 2rem;
+    padding-bottom: 15rem;
+    background: rgb(51,51,51);
+    background: linear-gradient(90deg, rgba(51,51,51,1) 0%, rgba(105,105,105,1) 30%, rgba(105,105,105,1) 50%, rgba(105,105,105,1) 70%, rgba(51,51,51,1) 100%);
 `
 
 export const PlayersDiv = styled.div`

@@ -85,14 +85,14 @@ const About = () => {
         )
       case 'a' :
         return (
-          <NameCard className={button ? 'button type4': ''} onClick={() => viewer(member)} key={member.name}>
+          <NameCard className={button ? 'button type3': ''} onClick={() => viewer(member)} key={member.name}>
             <Name>{member.name}</Name>
             <Admiral>Admiral</Admiral>
           </NameCard>
         )
       default :
         return (
-          <NameCard className={button ? 'button type2': ''} onClick={() => viewer(member)} key={member.name}>
+          <NameCard className={button ? 'button type3': ''} onClick={() => viewer(member)} key={member.name}>
             <Name>{member.name}</Name>
             <Commander>Commander</Commander>
           </NameCard>

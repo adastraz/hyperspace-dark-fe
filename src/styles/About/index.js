@@ -36,7 +36,7 @@ export const Crew = styled.h1`
   font-weight: bold;
   padding-top: 5rem;
   text-align: center;
-  text-shadow: -1px -1px 0 white, 1px -1px 0 white, -1px 1px 0 white, 1px 1px 0 lightblue;
+  // text-shadow: -1px -1px 0 white, 1px -1px 0 white, -1px 1px 0 white, 1px 1px 0 lightblue;
 `
 
 export const Desc = styled.p`
@@ -69,7 +69,7 @@ export const Name = styled.h3`
 `
 
 export const FleetAdmiral = styled.p`
-  // color: white;
+  color: #93e9be;
   text-size: .75rem;
   text-align: center;
   margin-top: .5rem

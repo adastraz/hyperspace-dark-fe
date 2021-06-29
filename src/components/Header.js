@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { Link } from 'react-router-dom'
+import { Link, useLocation } from 'react-router-dom'
 import Logo from '../styles/imgs/Hyperspace_logo-HD.png'
 import Valorant from '../styles/imgs/valorant-logo.png'
 import RL from '../styles/imgs/rl-logo.png'
@@ -41,7 +41,7 @@ import Sidebar from './sidebar/Sidebar'
 const Header = () => {
     const [dis, setDis] = useState(false)
     const [dis2, setDis2] = useState(false)
-    // const location = useLocation()
+    const location = useLocation()
 
     const redirect = () => {
         history.push('/store')
@@ -138,14 +138,15 @@ const Header = () => {
             </HeaderDiv>
             {/* <HDLine /> */}
             <FlexCenter className='gradi'>
-                <Link 
-                    to='/rl' className='nav' onMouseOver={() => setDis2(!dis2)}
+            {location.pathname === '/rl' ? <Link to='/'><StoreButton className='button type4' id='abtcrew'>Home</StoreButton></Link> :
+                <Link to='/rl' className='nav' onMouseOver={() => setDis2(!dis2)}
                     onMouseOut={() => setDis2(!dis2)}>
                         <RLlogo src={RL} />
                 </Link>
-                <StoreButton className='button type3' id='store' onClick={() => redirect()}>Store</StoreButton>
-                <Link to='/about'><StoreButton className='button type3' id='abtcrew'>About</StoreButton></Link>
-                <a href="https://forms.gle/xStHU4aEVnnwaEYe6" rel="noreferrer" target="_blank"><StoreButton className='button type3' id='join'>Join our Crew</StoreButton></a>
+            }
+                {location.pathname === '/store' ? <Link to='/'><StoreButton className='button type4' id='abtcrew'>Home</StoreButton></Link> : <StoreButton className='button type4' id='store' onClick={() => redirect()}>Store</StoreButton>}
+                {location.pathname === '/about' ? <Link to='/'><StoreButton className='button type4' id='abtcrew'>Home</StoreButton></Link> : <Link to='/about'><StoreButton className='button type4' id='abtcrew'>About</StoreButton></Link>}
+                <a href="https://forms.gle/xStHU4aEVnnwaEYe6" rel="noreferrer" target="_blank"><StoreButton className='button type4' id='join'>Join our Crew</StoreButton></a>
             </FlexCenter>
         </div>
     )

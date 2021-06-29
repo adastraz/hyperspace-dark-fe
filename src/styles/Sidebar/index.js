@@ -14,7 +14,7 @@ export const Container = styled.div`
     margin-bottom: 2rem;
     margin-top: -7rem;
     padding: 1rem;
-    border: 10px double mediumpurple;
+    border: 10px double #93e9be;
     @media(max-width: 1500px){
         display: none;
     }
@@ -38,15 +38,15 @@ export const ContainerSmall = styled.div`
 export const SelectorTitle = styled(DropdownToggle)`
     margin-top: 1.5rem;
     background-color: black;
-    color:mediumpurple;
+    color:white;
     border: 3px solid black;
     font-family: 'Syncopate', sans-serif;
     font-size: 2.5rem;
     margin-bottom: 1.5rem;
     :hover {
         border: 3px solid white;
-        color: black;
-        background-color: mediumpurple
+        color: white;
+        background-color: #696969
     }
 `
 

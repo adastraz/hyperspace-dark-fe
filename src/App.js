@@ -29,7 +29,7 @@ function App() {
   }, [location.pathname])
 
   return (
-    <>
+    <div className='fixbackground'>
       <Header />
       <SpaceBetween>
           <Switch>
@@ -45,7 +45,7 @@ function App() {
       </SpaceBetween>
       <StoreDiv id='collection-component-1610576218932' className={display ? '' : 'hidden'}></StoreDiv>
       <Footer />
-    </>
+    </div>
   )
 }
 
