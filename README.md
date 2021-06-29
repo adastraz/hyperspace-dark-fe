@@ -1,4 +1,4 @@
-This app is hosted by Amplify (on a seperate repository due to file structure)! : https://developement.d2gyknsnhpxh90.amplifyapp.com/
+This app is hosted by Amplify : https://main.d2aap9y77uply.amplifyapp.com/
 
 ## Table of Contents
 * [General Information](#general-information)
@@ -6,7 +6,7 @@ This app is hosted by Amplify (on a seperate repository due to file structure)! 
 * [Setup](#setup)
 
 ## General Information
-Hyperspace Dark is an organization with a presence in both the Rocket Leauge and Valorant semi-professional esports space. This project is a hub for it's players, and fans alike. The website includes all information linked to every player on the roster, along with a dynamic schedule for both the RL, and Valorant teams. All players also have access to their own social media where they are allowed access to post clips of them showing of their skill, or posts to keep their fanbase updated on their recent achievements, or news. 
+Hyperspace Dark is an organization with a presence in the Rocket Leauge semi-professional esports space. This project is a hub for it's players, and fans alike. The website includes all information linked to every player on the roster, along with a schedule tracker for both the Rocket League, and community events. All players also have access to their own social media where they are allowed access to post clips of them showing of their skill, or posts to keep their fanbase updated on their recent achievements, and news. 
 
 ## Technologies
 Hyperspace Dark Front-End is created with :
