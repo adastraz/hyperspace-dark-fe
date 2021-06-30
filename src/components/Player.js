@@ -54,8 +54,6 @@ const Player = props => {
     const [othergameform, setOthergameform] = useState({ name: '', img_link: '' })
     const [creatorformdis, setCreatorformdis] = useState(false)
     const [creatorform, setCreatorform] = useState({ name: '', img: '', link: '' })
-    // const [editformdis, setEditformdis] = useState(false)
-    // const [editform, setEditform] = useState({ rank: '' })
 
     useEffect(() => {
         axios.get(`https://hdsocial.herokuapp.com/api/viewuser/${name}/username`)
@@ -148,20 +146,6 @@ const Player = props => {
         setCreatorform({ name: '', img: '' })
         setCreatorformdis(false)
     }
-
-    // const handleChangesEdit = e => {
-    //     setEditform({
-    //         ...editform,
-    //         [e.target.name]: e.target.value
-    //     })
-    // }
-
-    // const submitEdit = e => {
-    //     e.preventDefault()
-    //     props.editUser(editform, props.user.id)
-    //     setEditformdis(!editformdis)
-    //     setEditform({ rank: '' })
-    // }
 
     const deleteDetail = (type, id) => {
         if (type === 'youtube') {

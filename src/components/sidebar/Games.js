@@ -2,9 +2,19 @@ import React, { useEffect, useState } from 'react'
 import { connect } from 'react-redux'
 import axiosWithAuth2 from '../../utils/axiosWithAuth2'
 import Twitch from '../../styles/imgs/icons8-twitch-64.png'
+import { SidebarPost, PostButton, LikeDate } from '../../styles/Social'
 
 const Games = props => {
   const [games, setGames] = useState([])
+  const [addGameForm, setAddGameForm] = useState(false)
+  const [newGame, setNewGame] = useState({
+    tournamentid: '',
+    opp_team: '',
+    opp_teamimg: '',
+    dateof: '',
+    time: ''
+  }) 
+  const [twitchLink, setTwitchLink] = useState({ livestream_link: '' })
 
   useEffect(() => {
     axiosWithAuth2()
@@ -14,6 +24,22 @@ const Games = props => {
           })
   }, [])
 
+  const handleChanges = e => {
+    e.preventDefault()
+    setNewGame({
+      ...newGame,
+      [e.target.name]: e.target.value
+    })
+  }
+
+  const handleChangesTwitch = e => {
+    e.preventDefault()
+    setTwitchLink({
+      ...newGame,
+      [e.target.name]: e.target.value
+    })
+  }
+
   const redirectFunc = link => {
     const win = window.open(link, '_blank')
     win.focus()
@@ -21,9 +47,10 @@ const Games = props => {
 
   return (
     <>
-      {props.user.team === 'admin' ? <p>Add Game</p> : ''}
+      {props.user.team === 'admin' ? <p onClick={setAddGameForm(!addGameForm)}>Add Game</p> : ''}
       {games.length > 0 ? games.map(game => (
-        <div key={game.id}>
+        <SidebarPost key={game.id}>
+          <div className='postssidebar'>
             <p>{game.opp_team}</p>
             <p>{game.dateof}</p>
             <p>{game.hd_score}</p>
@@ -32,7 +59,8 @@ const Games = props => {
             <p>{game.status}</p>
             <img src={Twitch} onClick={() => redirectFunc(game.livestream_link)} />
             <p>{game.opp_teamimg}</p>
-        </div>
+          </div>
+        </SidebarPost>
       )) : <p>No games listed</p> }
   </>
   )

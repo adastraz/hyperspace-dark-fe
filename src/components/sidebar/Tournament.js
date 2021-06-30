@@ -7,6 +7,8 @@ import { connect } from 'react-redux'
 import axiosWithAuth2 from '../../utils/axiosWithAuth2'
 import Twitch from '../../styles/imgs/icons8-twitch-64.png'
 import Games from './Games'
+import { TournyButton, TournyHeader, OrgImg, TournyName } from '../../styles/Tournament'
+import { SidebarPost, PostButton, LikeDate } from '../../styles/Social'
 
 const Tournament = props => {
     const [modal, setModal] = useState(false)
@@ -25,27 +27,31 @@ const Tournament = props => {
     }
 
     return (
-        <div>
-            <Button onClick={toggle}>
-                <p>{props.tournament.name}</p>
-                {props.tournament.img.length > 10 ? <img className='twitch' src={props.tournament.img} alt='Logo of tournament organizer.' /> : ''}
-                <p>{props.tournament.start_date}</p>
-                <p>{props.tournament.start_time}</p>
-                <p>{props.tournament.game}</p>
-            </Button>
-            <Modal isOpen={modal} toggle={toggle}>
-                <ModalHeader>
-                    <h1>{props.tournament.name}</h1>
-                    <div>
-                        <p>{props.tournament.start_date}</p>
-                        <p>{props.tournament.start_time}</p>
-                        {/* <a href={props.tournament.livestream_link} target="_blank" rel="noopener noreferrer">twitch</a> */}
-                    </div>
-                    {props.tournament.livestream_link.length > 10 ? <img src={Twitch} onClick={() => redirectFunc(props.tournament.livestream_link)} alt='Twitch.tv logo' /> : ''}
-                </ModalHeader>
-                <Games tournament={tournament} />
-            </Modal>
-        </div>
+        <SidebarPost key={props.tournament.id}>
+            <div className='postssidebar'>
+                <TournyButton onClick={toggle}>
+                    <TournyHeader>
+                        <TournyName>{props.tournament.name}</TournyName>
+                        {props.tournament.img.length > 10 ? <OrgImg className='twitch' src={props.tournament.img} alt='Logo of tournament organizer.' /> : ''}
+                    </TournyHeader>
+                    <p>{props.tournament.start_date}</p>
+                    <p>{props.tournament.start_time}</p>
+                    <p>{props.tournament.game}</p>
+                </TournyButton>
+                <Modal isOpen={modal} toggle={toggle}>
+                    <ModalHeader>
+                        <h1>{props.tournament.name}</h1>
+                        <div>
+                            <p>{props.tournament.start_date}</p>
+                            <p>{props.tournament.start_time}</p>
+                        </div>
+                        {props.tournament.livestream_link.length > 10 ? <img src={Twitch} onClick={() => redirectFunc(props.tournament.livestream_link)} alt='Twitch.tv logo' /> : ''}
+                    </ModalHeader>
+                    
+                    <Games tournament={tournament} />
+                </Modal>
+            </div>
+        </SidebarPost>
     )
 }
 

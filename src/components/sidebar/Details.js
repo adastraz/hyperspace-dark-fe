@@ -171,9 +171,9 @@ const Details = props => {
                             </form> :
                             <></>
                         }
-                        {schedule.map(ele => (
+                        {schedule.length > 0 ? schedule.map(ele => (
                             <Tournament tournament={ele} key={ele.id} />
-                        ))} 
+                        )): <p>Loading tournaments...</p>} 
                     </> :
                     // localStorage.getItem('side') === 'Now-Live' ? 
                     // <>
