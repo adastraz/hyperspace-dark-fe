@@ -13,6 +13,7 @@ const RL = () => {
                         <Link to='/player/Othos' className='name nav'>Othos</Link>
                         <Link to='/player/skyythegrandmaguy' className='name nav'>skyythegrandmaguy</Link>
                         <Link to='/player/De La Mora' className='name nav'>De La Mora</Link>
+                        <Link to='/player/Foe Shiesty' className='name nav'>Foe Shiesty</Link>
                     </Lineup2>
                 </DividerDark>
                 <DividerLight className='box'>

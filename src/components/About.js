@@ -67,11 +67,26 @@ const About = () => {
     }
   ]
 
-  const [viewCrew, setViewCrew] = useState(undefined)
+  const [viewCrew, setViewCrew] = useState(
+    {
+      name: '',
+      bio: "",
+      rank: ''
+    }
+  )
 
   const viewer = member => {
     setViewCrew(member)
     setIsbio(true)
+  }
+
+  const deselector = () => {
+    setIsbio(false)
+    setTimeout(timerView, 500)
+  }
+
+  const timerView = () => {
+    setViewCrew({ name: '', bio: "", rank: '' })
   }
 
   const Rank = (member, button) => {
@@ -90,13 +105,15 @@ const About = () => {
             <Admiral>Admiral</Admiral>
           </NameCard>
         )
-      default :
+      case 'c' :
         return (
           <NameCard className={button ? 'button type3': ''} onClick={() => viewer(member)} key={member.name}>
             <Name>{member.name}</Name>
             <Commander>Commander</Commander>
           </NameCard>
         )
+      default: 
+        return ''
     }
   }
 
@@ -114,13 +131,12 @@ const About = () => {
           <Line />
           <Crew>Admirals and Commanders</Crew>
           <div className='nonactivebio'>
-            {viewCrew && isbio ?
-              <CrewCard className={isbio ? 'activebio': 'nonactivebio'} onClick={() => setIsbio(!isbio)}>
-                {Rank(viewCrew, false)}
-                <Bio>{viewCrew.bio}{viewCrew.name === 'Astro' ? <a className='tywes' href='https://tywes.com' rel="noreferrer" target='_blank'> Here is a link to my personal portfolio! :)</a> : ''}</Bio> 
-              </CrewCard> :
-              ''
-            }
+            
+                <CrewCard className={isbio ? 'section' : 'section collapsed'} onClick={() => deselector()}>
+                  {Rank(viewCrew, false)}
+                  <Bio>{viewCrew.bio}{viewCrew.name === 'Astro' ? <a className='tywes' href='https://tywes.com' rel="noreferrer" target='_blank'> Here is a link to my personal portfolio! :)</a> : ''}</Bio> 
+                </CrewCard> 
+              
             <div className='crewmatebuttons'>
               {
                 CrewMembers.map(mem => (

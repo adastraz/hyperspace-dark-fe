@@ -25,7 +25,7 @@ export const Origins = styled.h1`
   font-size: 3rem;
   text-align: center;
   font-weight: bold;
-  color: black;
+  color: white;
   margin-bottom: 2rem;
   text-shadow: -1px -1px 0 black, 1px -1px 0 black, -1px 1px 0 black, 1px 1px 0 white;
 `
@@ -94,6 +94,11 @@ export const CrewCard = styled.div`
   justify-content: space-evenly;
   align-items: center;
   margin: 7rem;
+  overflow:hidden;
+  transition:transform 0.3s ease-out; 
+  height:auto;
+  transform:scaleY(1); 
+  transform-origin:top; 
 `
 
 export const CrewCardR = styled.div`
