@@ -25,6 +25,32 @@
     display: block;
 }
 
+.box {
+    position: relative;
+    /* background-color: #fff; */
+    box-shadow: 0 1px 2px rgba(0,0,0,0.15);
+    transition: all 0.3s ease-in-out;
+}
+.box::after {
+    content: '';
+    position: absolute;
+    z-index: -1;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    border-radius: 5rem;
+    box-shadow: 1rem 25px 30px rgba(0,0,0,0.3);
+    transition: opacity 0.3s ease-in-out;
+}
+.box:hover {
+    transform: scale(1.2, 1.2);
+}
+
+  /* Fade in the pseudo-element with the bigger shadow */
+.box:hover::after {
+    opacity: 1;
+}
+
 #collection-component-1610576218932 {
     /* width: 70%; */
     /* padding-right: 30%; */
@@ -531,6 +557,10 @@ a, a:visited, a:hover, a:active {
     margin: 17.5px;
 }
 
+.spacingExtra {
+    margin-top: 10rem;
+}
+
 .scheduletitle{
     font-family: 'Orbitron', sans-serif;
 }
@@ -580,10 +610,13 @@ a, a:visited, a:hover, a:active {
 
 .name{
     text-decoration: none !important;
-    font-size: 1.5rem;
+    font-size: 1.65rem;
+    /* font-weight: bold; */
     color: white !important;
     text-shadow: -1px -1px 0 black, 1px -1px 0, -1px 1px 0 black, 1px 1px 0 black;
 }
+
+
 
 .lineuptitle{
     margin: 20rem 5rem 20rem 0;

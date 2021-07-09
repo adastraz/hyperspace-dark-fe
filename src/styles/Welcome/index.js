@@ -20,8 +20,8 @@ export const Container = styled.div`
     display: flex;
     flex-direction: column;
     justify-content: center;
-    background: rgb(51,51,51);
-    background: linear-gradient(90deg, rgba(51,51,51,1) 0%, rgba(0,0,0,1) 30%, rgba(0,0,0,1) 50%, rgba(0,0,0,1) 70%, rgba(51,51,51,1) 100%);
+    // background: rgb(51,51,51);
+    // background: linear-gradient(90deg, rgba(51,51,51,1) 0%, rgba(0,0,0,1) 30%, rgba(0,0,0,1) 50%, rgba(0,0,0,1) 70%, rgba(51,51,51,1) 100%);
     // border-top: .6rem double #93e9be;
     // border-bottom: .6rem double #93e9be;
     border-opacity: .7;

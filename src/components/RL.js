@@ -1,32 +1,31 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 import { connect } from 'react-redux'
-import { PlayersDiv, Divider, Lineup2, PlayerContainer } from '../styles/Players'
+import { PlayersDiv, Divider, Lineup2, PlayerContainer, DividerDark, RK, GHT, DividerLight } from '../styles/Players'
 
 const RL = () => {
     return (
         <PlayerContainer>
             <PlayersDiv>
-                <Divider>
-                    <h1 className='lineuptitle dark'>Dark</h1>
+                <DividerDark className='box'>
+                    <h1 className='lineuptitle dark'>Da<RK>rk</RK></h1>
                     <Lineup2>
                         <Link to='/player/Othos' className='name nav'>Othos</Link>
                         <Link to='/player/skyythegrandmaguy' className='name nav'>skyythegrandmaguy</Link>
                         <Link to='/player/De La Mora' className='name nav'>De La Mora</Link>
                     </Lineup2>
-                </Divider>
-                    <Divider>
-                        <h1 className='lineuptitle light'>Light</h1>
-                        <Lineup2>
-                            <Link to='/player/Sly' className='name nav'>ZildjianHenry</Link>
-                            <Link to='/player/FrugalPandy' className='name nav'>FrugalPandy</Link>
-                            <Link to='/player/sciiar' className='name nav'>sciiar</Link>
-                            <Link to='/player/Haydes' className='name nav'>Haydes</Link>
-                        </Lineup2>
-                    </Divider>
+                </DividerDark>
+                <DividerLight className='box'>
+                    <h1 className='lineuptitle light'>Li<GHT>ght</GHT></h1>
+                    <Lineup2>
+                        <Link to='/player/FrugalPandy' className='name nav'>FrugalPandy</Link>
+                        <Link to='/player/sciiar' className='name nav'>sciiar</Link>
+                        <Link to='/player/Haydes' className='name nav'>Haydes</Link>
+                    </Lineup2>
+                </DividerLight>
             </PlayersDiv>
             <PlayersDiv>
-                <Divider>
+                <Divider className='spacingExtra'>
                     <h1 className='lineuptitle'>Extras</h1>
                     <Lineup2>
                         <Link to='' className='name nav'>Sly</Link>
@@ -35,14 +34,14 @@ const RL = () => {
                     </Lineup2>
                 </Divider>
             </PlayersDiv>
-            <PlayersDiv>
+            {/* <PlayersDiv>
                 <Divider>
                     <h1 className='lineuptitle'>Manager</h1>
                     <Lineup2>
                         <Link to='' className='name nav'>SquallOwl</Link>
                     </Lineup2>
                 </Divider>
-            </PlayersDiv>
+            </PlayersDiv> */}
         </PlayerContainer>
     )
 }
